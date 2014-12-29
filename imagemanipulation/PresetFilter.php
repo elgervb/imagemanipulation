@@ -17,6 +17,10 @@ class PresetFilter
         $builder->contrast(35)->brightness(20);
     }
     
+    public static function deep(ImageBuilder $builder){
+        $builder->colorize('#73AaBE', 100)->contrast(20);
+    }
+    
     public static function grayscaleDark(ImageBuilder $builder){
         $builder->grayscale()->contrast(15);
     }
