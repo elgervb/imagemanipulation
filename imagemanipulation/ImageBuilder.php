@@ -33,6 +33,7 @@ use imagemanipulation\rotate\ImageFilterRotate;
 use imagemanipulation\watermark\WatermarkBuilder;
 use imagemanipulation\filter\ImageFilterVignette;
 use imagemanipulation\filter\IImageFilter;
+use imagemanipulation\filter\ImageFilterGammaCorrection;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -138,6 +139,10 @@ class ImageBuilder
     {
         $this->queue->append(new ImageFilterFindEdges());
         return $this;
+    }
+    
+    public function gammaCorrection($aInput = 1.0, $aOutput = 1.537){
+        $this->queue->append(new ImageFilterGammaCorrection($aInput, $aOutput));
     }
 
     public function gaussianBlur()
