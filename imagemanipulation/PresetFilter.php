@@ -37,4 +37,8 @@ class PresetFilter
     public static function vintage(ImageBuilder $builder){
         $builder->colorize('#FF0000', 125)->colorize('#FF9966', 60)->gammaCorrection(1.7, 1.0)->contrast(20);
     }
+    
+    public static function blueish(ImageBuilder $builder){
+        $builder->colorize('#222b6d', 60)->colorize('#f7daae', 110)->gammaCorrection(1.2, 1.0);
+    }
 }
