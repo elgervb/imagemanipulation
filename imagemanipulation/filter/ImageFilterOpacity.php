@@ -5,12 +5,16 @@ use imagemanipulation\ImageResource;
 use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
 /**
- * Replaces a color of an image
+ * Sets the opacity of an image
  */
 class ImageFilterOpacity implements IImageFilter
 {
 	private $opacity;
 	
+	/**
+	 * Constructor
+	 * @param number $aOpacity A value between 0 and 127. 0 indicates completely opaque while 127 indicates completely transparent.
+	 */
 	public function __construct( $aOpacity = 80 )
 	{
 		$this->opacity = $aOpacity;
