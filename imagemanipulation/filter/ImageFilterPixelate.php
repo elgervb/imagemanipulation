@@ -13,7 +13,7 @@ class ImageFilterPixelate implements IImageFilter
 	 * Creates a new Pixelate filter
 	 * @param int $aBlocksize the blocksize in pixels
 	 */
-	public function __construct( $aBlocksize )
+	public function __construct( $aBlocksize = 20 )
 	{
 		$this->blocksize = $aBlocksize;
 	}
