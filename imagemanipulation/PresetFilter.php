@@ -33,4 +33,8 @@ class PresetFilter
         
         $builder->noise(40)->selectiveBlur()->selectiveBlur()->colorize('#704214', 65)->contrast(20)->brightness(10);
     }
+    
+    public static function vintage(ImageBuilder $builder){
+        $builder->colorize('#FF0000', 125)->colorize('#FF9966', 60)->gammaCorrection(1.7, 1.0)->contrast(20);
+    }
 }

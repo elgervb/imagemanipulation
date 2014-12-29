@@ -143,6 +143,7 @@ class ImageBuilder
     
     public function gammaCorrection($aInput = 1.0, $aOutput = 1.537){
         $this->queue->append(new ImageFilterGammaCorrection($aInput, $aOutput));
+        return $this;
     }
 
     public function gaussianBlur()
