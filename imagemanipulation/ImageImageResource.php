@@ -51,7 +51,7 @@ class ImageImageResource extends ImageResource
 	 */
 	public function createImage()
 	{
-		if (! $this->imageoutput( $this->outputPath ))
+		if (! $this->imageoutput( $this->outputPath->getPathname() ))
 		{
 			throw new ImageResourceException( "Could not create image on " . $this->outputPath );
 		}
@@ -113,6 +113,9 @@ class ImageImageResource extends ImageResource
 		return $this->overwrite;
 	}
 	
+	/**
+	 * Output the image to screen. Last call of the chain.
+	 */
 	public function outputImage()
 	{
 		$this->imageoutput();
@@ -161,7 +164,7 @@ class ImageImageResource extends ImageResource
 	/**
 	 * Outputs an image to browser or file.
 	 *
-	 * @param $new_img string = null (output to the browser)
+	 * @param $aPath string = null (output to the browser)
 	 *       
 	 * @return resource
 	 */
