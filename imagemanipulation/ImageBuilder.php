@@ -34,6 +34,7 @@ use imagemanipulation\watermark\WatermarkBuilder;
 use imagemanipulation\filter\ImageFilterVignette;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\filter\ImageFilterGammaCorrection;
+use imagemanipulation\filter\ImageFilterMotionBlur;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -161,6 +162,11 @@ class ImageBuilder
     public function meanremove()
     {
         $this->queue->append(new ImageFilterMeanRemove());
+        return $this;
+    }
+    
+    public function motionBlur(){
+        $this->queue->append(new ImageFilterMotionBlur());
         return $this;
     }
 
