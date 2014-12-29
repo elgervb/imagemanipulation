@@ -60,7 +60,7 @@ class ImageBuilder {
 	public function colorize($aColor = 'FFFFFF', $aAlpha = null){
 		$color = new Color($aColor, $aAlpha);
 		
-		$this->queue->append(new ImageFilterColorize($color->getRed(), $color->getGreen(), $color->getBlue(), $color->getAlpha()));
+		$this->queue->append(new ImageFilterColorize( $color ));
 		return $this;
 	}
 	
@@ -174,15 +174,26 @@ class ImageBuilder {
 		}
 		
 		$this->applyFilters();
+		header("Content-Type:", 'image/' . $this->res->getOutputPath()->getExtension());
 		$this->res->outputImage();
 	}
 	
+	/**
+	 * Saves the image to disk
+	 * 
+	 * @param \SplFileInfo $aFile
+	 * @param string $aOverwrite
+	 * 
+	 * @return \imagemanipulation\ImageBuilder $this for chaining
+	 */
 	public function save(\SplFileInfo $aFile, $aOverwrite = false){
 		$this->applyFilters();
 		
 		$this->res->setIsOverwrite($aOverwrite);
 		$this->res->setOutputPath($aFile);
 		$this->res->createImage();
+		
+		return $this;
 	}
 	
 	public function watermarkBuilder(){
