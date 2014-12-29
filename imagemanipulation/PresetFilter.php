@@ -17,11 +17,16 @@ class PresetFilter
         $builder->contrast(35)->brightness(20);
     }
     
-    public static function grayscaleDarl(ImageBuilder $builder){
+    public static function grayscaleDark(ImageBuilder $builder){
         $builder->grayscale()->contrast(15);
     }
     
     public static function sepia(ImageBuilder $builder){
         $builder->grayscale()->brightness(-10)->contrast(20)->colorize('#3C1E00');
+    }
+    
+    public static function retro(ImageBuilder $builder){
+        
+        $builder->noise(40)->selectiveBlur()->selectiveBlur()->colorize('#704214', 65)->contrast(20)->brightness(10);
     }
 }
