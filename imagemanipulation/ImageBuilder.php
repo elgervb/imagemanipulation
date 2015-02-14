@@ -35,6 +35,7 @@ use imagemanipulation\filter\ImageFilterVignette;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\filter\ImageFilterGammaCorrection;
 use imagemanipulation\filter\ImageFilterMotionBlur;
+use imagemanipulation\overlay\ImageFilterOverlay;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -196,6 +197,12 @@ class ImageBuilder
         $this->queue->append(new ImageFilterOpacity($aRate));
         return $this;
     }
+    
+    public function overlay(ImageResource $overlay, $opacity = 50, $startX = 0, $startY = 0, $fill = true){
+    	$this->queue->append(new ImageFilterOverlay($overlay, $opacity, $startX, $startY, $fill ));
+    	
+    	return $this;
+    }
 
     public function pixelate($aRate = 10)
     {
@@ -303,6 +310,15 @@ class ImageBuilder
         $this->res->createImage();
         
         return $this;
+    }
+    /**
+     * Returns the image resource
+     * 
+     * @return \imagemanipulation\ImageImageResource
+     */
+    public function toResource(){
+    	$this->applyFilters();
+    	return $this->res;
     }
 
     public function watermarkBuilder()
