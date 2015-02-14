@@ -4,6 +4,7 @@ namespace imagemanipulation\thumbnail;
 use imagemanipulation\ImageImageResource;
 use imagemanipulation\Coordinate;
 use imagemanipulation\thumbnail\pixelstrategy\IPixelStrategy;
+use imagemanipulation\ImageResource;
 /**
  *
  * @package image
@@ -32,9 +33,9 @@ class Thumbalizer
 	 *
 	 * @param $aResource ImageResource The image resource of the original image
 	 *       
-	 * @return ImageImageResource The image resource of the thumbnail
+	 * @return ImageResource The image resource of the thumbnail
 	 */
-	public function create( ImageImageResource $aResource )
+	public function create( ImageResource $aResource )
 	{
 		// The original PHP image resource
 		$origImgRes = $aResource->getResource();
