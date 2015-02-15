@@ -36,6 +36,7 @@ use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\filter\ImageFilterGammaCorrection;
 use imagemanipulation\filter\ImageFilterMotionBlur;
 use imagemanipulation\overlay\ImageFilterOverlay;
+use imagemanipulation\filter\ImageFilterComic;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -72,6 +73,10 @@ class ImageBuilder
         
         $this->queue->append(new ImageFilterColorize($color));
         return $this;
+    }
+    
+    public function comic($opacity = 40){
+        $this->queue->append(new ImageFilterComic($opacity));
     }
 
     public function contrast($aRate = 5)
