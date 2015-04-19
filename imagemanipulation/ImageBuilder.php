@@ -49,16 +49,29 @@ class ImageBuilder
      * @var ImageImageResource
      */
     private $res;
+    
+    /**
+     * The file the image resource is mapped on
+     * 
+     * @var \SplFileInfo
+     */
+    private $file;
+    
 
     /**
      * Queue up all filter until we actually need them
      */
     private $queue;
 
-    public function __construct(\SplFileInfo $aImage)
+    /**
+     * Create a new ImageBuilder
+     * @param \SplFileInfo $image
+     */
+    public function __construct(\SplFileInfo $image)
     {
-        $this->res = new ImageImageResource($aImage);
+        $this->res = new ImageImageResource($image);
         $this->queue = new \ArrayObject();
+        $this->file = $image;
     }
 
     public function brightness($aRate = 20)
@@ -301,17 +314,25 @@ class ImageBuilder
     /**
      * Saves the image to disk
      *
-     * @param \SplFileInfo $aFile            
-     * @param string $aOverwrite            
+     * @param \SplFileInfo $file the filename of the new image. Leave null with overwrite = false to automatically create a new file with the .copy pre-extension. the .copy file will be overwritten on next change...
+     * @param string $aOverwrite wether or not to overwrite the file
      *
      * @return \imagemanipulation\ImageBuilder $this for chaining
      */
-    public function save(\SplFileInfo $aFile, $aOverwrite = false)
+    public function save(\SplFileInfo $file = null, $aOverwrite = false)
     {
+        $search = ".".$this->file->getExtension();
+        if ($file === null && $aOverwrite === false && ! strstr($this->file->getPathname(), '.copy'.$search)){
+            $file = new \SplFileInfo(str_replace($search, ".copy".$search, $this->file->getPathname()));
+        }
+        else {
+            $file = $this->file;
+        }
+        
         $this->applyFilters();
         
         $this->res->setIsOverwrite($aOverwrite);
-        $this->res->setOutputPath($aFile);
+        $this->res->setOutputPath($file);
         $this->res->createImage();
         
         return $this;
