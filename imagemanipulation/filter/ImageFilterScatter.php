@@ -3,10 +3,7 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 /**
- * Image Sepia
- *
- * @package image
- * @subpackage Imagefilter
+ * Image scatter
  *
  *@see http://www.tuxradar.com/practicalphp/11/2/23
  */
@@ -14,6 +11,10 @@ class ImageFilterScatter implements IImageFilter
 {
 	private $offset;
 	
+	/**
+	 * 
+	 * @param number $aOffset
+	 */
 	public function __construct( $aOffset = 4 )
 	{
 		$this->offset = $aOffset;

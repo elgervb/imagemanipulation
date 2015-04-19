@@ -92,6 +92,13 @@ class ImageBuilder
         $this->queue->append(new ImageFilterComic($opacity));
     }
 
+    /**
+     * 
+     * @param number $aRate
+     * @return \imagemanipulation\ImageBuilder
+     * 
+     * @see ImageFilterContrast::__construct
+     */
     public function contrast($aRate = 5)
     {
         $this->queue->append(new ImageFilterContrast($aRate));
@@ -222,9 +229,17 @@ class ImageBuilder
     	return $this;
     }
 
-    public function pixelate($aRate = 10)
+    /**
+     * @see ImageFilterPixelate::__construct
+     * 
+     * @param int $rate
+     * 
+     * @return \imagemanipulation\ImageBuilder
+     * 
+     */
+    public function pixelate($rate = 10)
     {
-        $this->queue->append(new ImageFilterPixelate($aRate));
+        $this->queue->append(new ImageFilterPixelate($rate));
         return $this;
     }
 
@@ -246,6 +261,11 @@ class ImageBuilder
         return $this;
     }
 
+    /**
+     * @see ImageFilterScatter::__construct
+     * @param int $aOffset The offset of the scatter points. The larget the number, the more scattered
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function scatter($aOffset = 4)
     {
         $this->queue->append(new ImageFilterScatter($aOffset));

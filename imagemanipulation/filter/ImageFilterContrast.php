@@ -17,11 +17,11 @@ class ImageFilterContrast implements IImageFilter
 	/**
 	 * Creates a new ImageFilterContrast
 	 *
-	 * @param int $aLevel -100 = min contrast, 0 = no change, +100 = max contrast
+	 * @param int $aLevel 100 to +100, defaults to 5, where -100 = min contrast, 0 = no change, +100 = max contrast
 	 */
-	public function __construct( $aLevel = 0 )
+	public function __construct( $level = 5 )
 	{
-		$this->level = $aLevel * - 1;
+		$this->level = $level * - 1;
 	}
 	
 	/**
