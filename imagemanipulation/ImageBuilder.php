@@ -74,22 +74,42 @@ class ImageBuilder
         $this->file = $image;
     }
 
+    /**
+     * @param number $aRate
+     * @return \imagemanipulation\ImageBuilder
+     * 
+     * @see ImageFilterBrightness::__construct
+     */
     public function brightness($aRate = 20)
     {
         $this->queue->append(new ImageFilterBrightness($aRate));
         return $this;
     }
 
-    public function colorize($aColor = 'FFFFFF', $aAlpha = null)
+    /**
+     * @param string $aColor
+     * @param string $aAlpha
+     * @return \imagemanipulation\ImageBuilder
+     * 
+     * @see ImageFilterColorize::__construct
+     */
+    public function colorize($color = 'FFFFFF', $alpha = null)
     {
-        $color = new Color($aColor, $aAlpha);
+        $color = new Color($color, $alpha);
         
         $this->queue->append(new ImageFilterColorize($color));
         return $this;
     }
     
+    /**
+     * @param number $opacity
+     * @return \imagemanipulation\ImageBuilder
+     * 
+     * @see ImageFilterComic::__construct
+     */
     public function comic($opacity = 40){
         $this->queue->append(new ImageFilterComic($opacity));
+        return $this;
     }
 
     /**
