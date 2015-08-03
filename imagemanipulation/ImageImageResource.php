@@ -18,8 +18,7 @@ class ImageImageResource extends ImageResource
 	private $overwrite = false;
 	
 	/**
-	 *
-	 * @var SplFileInfo
+	 * @var \SplFileInfo
 	 */
 	private $originalPath;
 	
@@ -30,7 +29,7 @@ class ImageImageResource extends ImageResource
 	private $outputPath = null;
 	
 	/**
-	 * Create a new instance of ImageResource
+	 * Create a new instance of ImageImageResource
 	 *
 	 * @param $aImage SplFileInfo An image
 	 *       
@@ -175,7 +174,7 @@ class ImageImageResource extends ImageResource
 			throw new ImageResourceException( 'This is not a resource' );
 		}
 		
-		switch (strtolower( $this->getExtension( $this->originalPath ) ))
+		switch (strtolower( $this->originalPath->getExtension() ))
 		{
 			case ImageType::PNG:
 				imagesavealpha( $this->getResource(), true );
@@ -208,7 +207,7 @@ class ImageImageResource extends ImageResource
 	{
 		$result = null;
 		
-		switch (strtolower( $this->getExtension( $aImage ) ))
+		switch (strtolower( $aImage->getExtension() ))
 		{
 			case ImageType::PNG:
 				$result = imagecreatefrompng( $aImage );
