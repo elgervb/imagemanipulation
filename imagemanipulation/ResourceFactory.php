@@ -12,7 +12,7 @@ class ResourceFactory
 	 * @param SplFileInfo $aImage
 	 * @return ImageImageResource
 	 */
-	public static function createImageResource( \SplFileInfo $aImage )
+	public static function createResource( \SplFileInfo $aImage )
 	{
 		return new ImageImageResource( $aImage );
 	}
