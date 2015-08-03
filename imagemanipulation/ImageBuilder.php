@@ -335,6 +335,7 @@ class ImageBuilder
     }
 
     /**
+     * Renders the image. This will add the appropriate headers and streams the image 
      *
      * @param string $aQuality            
      */

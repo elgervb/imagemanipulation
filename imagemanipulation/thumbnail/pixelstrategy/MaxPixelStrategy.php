@@ -4,6 +4,8 @@ namespace imagemanipulation\thumbnail\pixelstrategy;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Coordinate;
 /**
+ * Pixel strategy to resize the image to a max with or height keeping proportions.
+ * 
  * @package image
  * @subpackage pixelstrategy
  */
@@ -21,9 +23,9 @@ class MaxPixelStrategy implements IPixelStrategy
 	private $maxHeight;
 	
 	/**
-	 * Creates a new MaxPixelStrategy
+	 * Creates a new MaxPixelStrategy. 
 	 * 
-	 * @param int $aMaxWidth
+	 * @param int $aMaxWidth 
 	 * @param int $aMaxHeight
 	 */
 	public function __construct( $aMaxWidth, $aMaxHeight )
