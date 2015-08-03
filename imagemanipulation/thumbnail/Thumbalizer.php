@@ -65,6 +65,8 @@ class Thumbalizer
 		
 		imagedestroy( $origImgRes );
 		
+		// update the original resource with the new one. This way we can still reference if from outside scope
+		$aResource->setResource($newResource->getResource());
 		return $newResource;
 	}
 }
