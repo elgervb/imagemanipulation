@@ -2,9 +2,8 @@
 namespace tests\imagemanipulation;
 
 use imagemanipulation\ImageResourceException;
-
-use tests\ImagemanipulationTestCase;
 use imagemanipulation\ImageResource;
+use tests\ImagemanipulationTestCase;
 
 /**
  * ImageResource test case.
