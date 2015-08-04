@@ -49,13 +49,16 @@ abstract class ImageFilterTestCase extends \ImagemanipulationTestCase
 		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 1 " . $aColor . ' vs ' . $testColor);
 	}
 	protected function assertColorQ2(ImageImageResource $aRes, $aColor){
-		$this->assertEquals($aColor,$aRes->getColorAt(new Coordinate($aRes->getX() -2, 2))->getHexColor(), "Checking color in quadrant 2");
+	    $testColor = $aRes->getColorAt(new Coordinate($aRes->getX() -01, 2))->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 2 " . $aColor . ' vs ' . $testColor);
 	}
 	protected function assertColorQ3(ImageImageResource $aRes, $aColor){
-		$this->assertEquals($aColor,$aRes->getColorAt(new Coordinate(2, $aRes->getY() -2))->getHexColor(), "Checking color in quadrant 3");
+	    $testColor = $aRes->getColorAt(new Coordinate(2, $aRes->getY() -2))->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 3 " . $aColor . ' vs ' . $testColor);
 	}
 	protected function assertColorQ4(ImageImageResource $aRes, $aColor){
-		$this->assertEquals($aColor,$aRes->getColorAt(new Coordinate($aRes->getX()-2, $aRes->getY()-2))->getHexColor(), "Checking color in quadrant 4");
+	    $testColor = $aRes->getColorAt(new Coordinate($aRes->getX()-2, $aRes->getY()-2))->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 4 " . $aColor . ' vs ' . $testColor);
 	}
 	
 	/**
