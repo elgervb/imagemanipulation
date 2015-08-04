@@ -7,8 +7,6 @@ use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterMeanRemove;
 
-require_once __DIR__ . '/../../ImageFilterTestCase.php';
-
 use tests\ImageFilterTestCase;
 
 class ImageFilterMeanRemoveTest extends ImageFilterTestCase

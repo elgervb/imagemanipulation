@@ -6,8 +6,6 @@ use imagemanipulation\ImageResourceException;
 use tests\ImagemanipulationTestCase;
 use imagemanipulation\ImageResource;
 
-require_once __DIR__ .'/../ImagemanipulationTestCase.php';
-
 /**
  * ImageResource test case.
  */

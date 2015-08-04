@@ -11,8 +11,6 @@ use imagemanipulation\ImageType;
 
 use imagemanipulation\filter\ImageFilterBrightness;
 
-require_once __DIR__ . '/../../ImageFilterTestCase.php';
-
 use tests\ImageFilterTestCase;
 
 class ImageFilterBrightnessTest extends ImageFilterTestCase

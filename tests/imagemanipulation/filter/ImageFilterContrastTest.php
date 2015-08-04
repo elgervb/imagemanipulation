@@ -7,8 +7,6 @@ use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterContrast;
 
-require_once __DIR__ . '/../../ImageFilterTestCase.php';
-
 use tests\ImageFilterTestCase;
 
 class ImageFilterContrastTest extends ImageFilterTestCase

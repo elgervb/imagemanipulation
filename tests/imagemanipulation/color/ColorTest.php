@@ -4,8 +4,6 @@ namespace tests\imagemanipulation;
 use imagemanipulation\color\Color;
 
 use tests\ImagemanipulationTestCase;
-
-require_once __DIR__ . '\..\..\ImagemanipulationTestCase.php';
 /**
  * Color test case.
  */

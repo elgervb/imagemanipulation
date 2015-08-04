@@ -9,8 +9,6 @@ use imagemanipulation\ImageImageResource;
 
 use imagemanipulation\ImageType;
 
-require_once 'ImagemanipulationTestCase.php';
-
 use tests\ImagemanipulationTestCase;
 /**
  *

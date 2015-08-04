@@ -7,8 +7,6 @@ use imagemanipulation\filter\ImageFilterFlip;
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageUtil;
 
-require_once __DIR__ . '/../../ImageFilterTestCase.php';
-
 use tests\ImageFilterTestCase;
 
 /**

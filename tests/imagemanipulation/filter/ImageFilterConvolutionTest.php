@@ -7,8 +7,6 @@ use imagemanipulation\filter\ImageFilterConvolution;
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageUtil;
 
-require_once __DIR__ . '/../../ImageFilterTestCase.php';
-
 use tests\ImageFilterTestCase;
 
 class ImageFilterConvolutionTest extends ImageFilterTestCase
