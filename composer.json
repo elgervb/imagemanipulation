@@ -1,0 +1,39 @@
+{
+	"name" : "imagemanipulation",
+	"description" : "Library for image manipulation in PHP with GD",
+	"type" : "library",
+	"authors" : [{
+			"name" : "Elger van Boxtel",
+			"email" : "elgervb@gmail.com",
+			"homepage" : "http://elgervanboxtel.nl",
+			"role" : "developer"
+		}
+	],
+	"keywords" : [
+		"gd",
+		"images",
+		"manipulation",
+		"color utils",
+		"image filters",
+		"image overlays",
+		"image reflection",
+		"image rotate",
+		"image thumbnail",
+		"image watermark"
+	],
+	"homepage" : "https://github.com/elgervb/imagemanipulation",
+	"license" : [
+		"MIT"
+	],
+	"autoload" : {
+		"psr-0" : {
+			"imagemanipulation" : "imagemanipulation"
+		}
+	},
+	"support" : {
+		"wiki" : "https://github.com/elgervb/imagemanipulation/wiki",
+		"source" : "https://github.com/elgervb/imagemanipulation",
+		"issues" : "https://github.com/elgervb/imagemanipulation/issues",
+		"email" : "elgervb@gmail.com"
+	}
+}
