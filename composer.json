@@ -1,5 +1,5 @@
 {
-	"name" : "imagemanipulation",
+	"name" : "elgervb/imagemanipulation",
 	"description" : "Library for image manipulation in PHP with GD",
 	"type" : "library",
 	"authors" : [{
