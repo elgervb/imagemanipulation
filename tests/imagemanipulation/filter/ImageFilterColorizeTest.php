@@ -9,9 +9,7 @@ use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterColorize;
 
-use tests\ImageFilterTestCase;
-
-class ImageFilterColorizeTest extends ImageFilterTestCase
+class ImageFilterColorizeTest extends \ImageFilterTestCase
 {
 	public function testGifRed(){
 		$original = $this->getOriginalImage(ImageType::GIF);

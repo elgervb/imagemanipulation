@@ -7,13 +7,11 @@ use imagemanipulation\filter\ImageFilterFlip;
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageUtil;
 
-use tests\ImageFilterTestCase;
-
 /**
  * @author elger
  * TODO create testcase for color in the edges
  */
-class ImageFilterFlipTest extends ImageFilterTestCase
+class ImageFilterFlipTest extends \ImageFilterTestCase
 {
 	public function testGifHorizontal(){
 		$original = $this->getOriginalImage(ImageType::GIF);

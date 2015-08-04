@@ -11,9 +11,7 @@ use imagemanipulation\ImageType;
 
 use imagemanipulation\filter\ImageFilterBrightness;
 
-use tests\ImageFilterTestCase;
-
-class ImageFilterBrightnessTest extends ImageFilterTestCase
+class ImageFilterBrightnessTest extends \ImageFilterTestCase
 {
 	public function testGifLight(){
 		$original = $this->getOriginalImage(ImageType::GIF);

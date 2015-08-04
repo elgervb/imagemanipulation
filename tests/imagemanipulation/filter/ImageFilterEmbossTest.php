@@ -7,13 +7,11 @@ use imagemanipulation\filter\ImageFilterEmboss;
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageUtil;
 
-use tests\ImageFilterTestCase;
-
 /**
  * @author elger
  * TODO create testcase for color in the edges
  */
-class ImageFilterEmbossTest extends ImageFilterTestCase
+class ImageFilterEmbossTest extends \ImageFilterTestCase
 {
 	public function testGif(){
 		$original = $this->getOriginalImage(ImageType::GIF);

@@ -1,6 +1,4 @@
 <?php
-namespace tests;
-
 use imagemanipulation\Coordinate;
 
 use imagemanipulation\ImageResource;
@@ -9,12 +7,11 @@ use imagemanipulation\ImageImageResource;
 
 use imagemanipulation\ImageType;
 
-use tests\ImagemanipulationTestCase;
 /**
  *
  * @author Elger van Boxtel
  */
-abstract class ImageFilterTestCase extends ImagemanipulationTestCase
+abstract class ImageFilterTestCase extends \ImagemanipulationTestCase
 {
 	const WHITE = "ffffff";
 	const BLACK = "000000";
@@ -48,7 +45,8 @@ abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 	 * @param unknown_type $aColor
 	 */
 	protected function assertColorQ1(ImageImageResource $aRes, $aColor){
-		$this->assertEquals($aColor,$aRes->getColorAt(new Coordinate(2, 2))->getHexColor(), "Checking color in quadrant 1");
+	    $testColor = $aRes->getColorAt(new Coordinate(2, 2))->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 1 " . $aColor . ' vs ' . $testColor);
 	}
 	protected function assertColorQ2(ImageImageResource $aRes, $aColor){
 		$this->assertEquals($aColor,$aRes->getColorAt(new Coordinate($aRes->getX() -2, 2))->getHexColor(), "Checking color in quadrant 2");
@@ -66,7 +64,7 @@ abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 	 */
 	private function getSampleGif()
 	{
-		return new \SplFileInfo( __DIR__ . '/sample-small.gif' );
+		return new \SplFileInfo( __DIR__ . '/sample.gif' );
 	}
 	/**
 	 *
@@ -74,7 +72,7 @@ abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 	 */
 	private function getSampleJpg()
 	{
-		return new \SplFileInfo( __DIR__ . '/sample-small.jpg' );
+		return new \SplFileInfo( __DIR__ . '/sample.jpg' );
 	}
 	/**
 	 *
@@ -82,7 +80,7 @@ abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 	 */
 	private function getSamplePng()
 	{
-		return new \SplFileInfo( __DIR__ . '/sample-small.png' );
+		return new \SplFileInfo( __DIR__ . '/sample.png' );
 	}
 	
 	/**
@@ -108,7 +106,7 @@ abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 				break;
 		}
 		if ($file === null || ! $file->isFile())
-			$this->fail( 'Image of type ' . $aType . ' could not be found' );
+			$this->fail( 'Image of type ' . $aType . ' could not be found - ' . $file );
 		
 		return $file;
 	}

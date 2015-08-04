@@ -7,9 +7,7 @@ use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterContrast;
 
-use tests\ImageFilterTestCase;
-
-class ImageFilterContrastTest extends ImageFilterTestCase
+class ImageFilterContrastTest extends \ImageFilterTestCase
 {
 	public function testGif()
 	{
@@ -26,9 +24,9 @@ class ImageFilterContrastTest extends ImageFilterTestCase
 		$original = $this->getOriginalImage( ImageType::JPG );
 		$res = $this->applyFilter( new ImageFilterContrast(), $original, __METHOD__ );
 		
-		$this->assertColorQ1( $res, 'fe0000' );
-		$this->assertColorQ2( $res, '00ff01' );
-		$this->assertColorQ3( $res, '0000fe' );
+		$this->assertColorQ1( $res, 'ff0000' );
+		$this->assertColorQ2( $res, '00ff00' );
+		$this->assertColorQ3( $res, '0000ff' );
 		$this->assertColorQ4( $res, 'ffffff' );
 	}
 	public function testPng()

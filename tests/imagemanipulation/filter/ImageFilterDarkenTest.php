@@ -7,9 +7,7 @@ use imagemanipulation\filter\ImageFilterDarken;
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageUtil;
 
-use tests\ImageFilterTestCase;
-
-class ImageFilterDarkenTest extends ImageFilterTestCase
+class ImageFilterDarkenTest extends \ImageFilterTestCase
 {
 	public function testGifLight(){
 		$original = $this->getOriginalImage(ImageType::GIF);

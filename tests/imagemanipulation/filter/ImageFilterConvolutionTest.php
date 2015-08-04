@@ -7,9 +7,7 @@ use imagemanipulation\filter\ImageFilterConvolution;
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageUtil;
 
-use tests\ImageFilterTestCase;
-
-class ImageFilterConvolutionTest extends ImageFilterTestCase
+class ImageFilterConvolutionTest extends \ImageFilterTestCase
 {
 	public function testGifNoChange(){
 		$original = $this->getOriginalImage(ImageType::GIF);

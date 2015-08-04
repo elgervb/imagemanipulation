@@ -7,9 +7,7 @@ use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterNegative;
 
-use tests\ImageFilterTestCase;
-
-class ImageFilterNegativeTest extends ImageFilterTestCase
+class ImageFilterNegativeTest extends \ImageFilterTestCase
 {
 	public function testGif(){
 		$original = $this->getOriginalImage(ImageType::GIF);

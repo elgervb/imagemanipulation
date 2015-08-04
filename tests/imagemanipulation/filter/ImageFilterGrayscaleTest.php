@@ -5,16 +5,14 @@ use imagemanipulation\Coordinate;
 use imagemanipulation\color\ColorUtil;
 use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
-use imagemanipulation\filter\ImageFilterGrayscale;
+use imagemanipulation\filter\ImageFilterGrayScale;
 
-use tests\ImageFilterTestCase;
-
-class ImageFilterGrayscaleTest extends ImageFilterTestCase
+class ImageFilterGrayscaleTest extends \ImageFilterTestCase
 {
 	public function testGif()
 	{
 		$original = $this->getOriginalImage( ImageType::GIF );
-		$res = $this->applyFilter( new ImageFilterGrayscale(), $original, __METHOD__ );
+		$res = $this->applyFilter( new ImageFilterGrayScale(), $original, __METHOD__ );
 		
 		$this->assertColorQ1( $res, '4c4c4c' );
 		$this->assertColorQ2( $res, '959595' );
@@ -24,7 +22,7 @@ class ImageFilterGrayscaleTest extends ImageFilterTestCase
 	public function testJpg()
 	{
 		$original = $this->getOriginalImage( ImageType::JPG );
-		$res = $this->applyFilter( new ImageFilterGrayscale(), $original, __METHOD__ );
+		$res = $this->applyFilter( new ImageFilterGrayScale(), $original, __METHOD__ );
 		
 		$this->assertColorQ1( $res, '4b4b4b' );
 		$this->assertColorQ2( $res, '959595' );
@@ -34,7 +32,7 @@ class ImageFilterGrayscaleTest extends ImageFilterTestCase
 	public function testPng()
 	{
 		$original = $this->getOriginalImage( ImageType::PNG );
-		$res = $this->applyFilter( new ImageFilterGrayscale(), $original, __METHOD__ );
+		$res = $this->applyFilter( new ImageFilterGrayScale(), $original, __METHOD__ );
 		
 		$this->assertColorQ1( $res, '4c4c4c' );
 		$this->assertColorQ2( $res, '959595' );

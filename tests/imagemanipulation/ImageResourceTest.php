@@ -3,12 +3,11 @@ namespace tests\imagemanipulation;
 
 use imagemanipulation\ImageResourceException;
 use imagemanipulation\ImageResource;
-use tests\ImagemanipulationTestCase;
 
 /**
  * ImageResource test case.
  */
-class ImageResourceTest extends ImagemanipulationTestCase
+class ImageResourceTest extends \ImagemanipulationTestCase
 {
 	/**
 	 *
