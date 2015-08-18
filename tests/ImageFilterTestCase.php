@@ -23,13 +23,13 @@ abstract class ImageFilterTestCase extends \ImagemanipulationTestCase
 	 * Applies a filter to an image file. The file will be copies to a fresh location.
 	 *
 	 * @param \imagemanipulation\filter\IImageFilter $aFilter The image filter to apply
-	 * @param \SplFileInfo $aFile The orifinal image file
+	 * @param \SplFileInfo $file The orifinal image file
 	 * @param string $aIdentifier The identifier to use for caching purposes
 	 *
 	 * @return \imagemanipulation\ImageImageResource
 	 */
-	protected function applyFilter($aFilter, $aFile, $aIdentifier){
-		$res = $this->getImageRes($aFile, $aIdentifier);
+	protected function applyFilter($aFilter, $file, $aIdentifier){
+		$res = $this->getImageRes($file, $aIdentifier);
 	
 		$aFilter->applyFilter($res);
 	
