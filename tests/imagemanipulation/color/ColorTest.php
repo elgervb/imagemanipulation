@@ -78,6 +78,14 @@ class ColorTest extends \ImagemanipulationTestCase
 		$this->checkColorDDD( new Color(2145246685) );
 	}
 	
+	/**
+	 * Check 
+	 */
+	public function testCreateColorIndexNoAlpah(){
+	     
+	    $this->assertEquals("16777215", Color::createColorIndex(255, 255, 255));
+	}
+	
 	private function checkColorDDD(Color $aColor){
 		$this->assertEquals(221, $aColor->getRed(), 'Checking red');
 		$this->assertEquals(221, $aColor->getGreen(), 'Checking green');
