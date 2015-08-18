@@ -33,6 +33,18 @@ class Coordinate
 	}
 	
 	/**
+	 * Factory method to create a new Coordinate
+	 * 
+	 * @param int $x
+	 * @param int $y
+	 * 
+	 * @return \imagemanipulation\Coordinate
+	 */
+	public static function create($x, $y){
+	    return new Coordinate($x, $y);
+	}
+	
+	/**
 	 * Returns the x-coordinate of the pixel
 	 * @return int
 	 */
