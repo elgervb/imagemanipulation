@@ -37,59 +37,60 @@ class ImageFilterDodgeTest extends \ImageFilterTestCase
 		$this->assertColorQ4($res, 'ffffff');
 	}
 	
-	public function testGifMedium(){
-		$original = $this->getOriginalImage(ImageType::GIF);
-		$res = $this->applyFilter(new ImageFilterDodge(50), $original, __METHOD__);
+// TODO disabled for now, as these take too much time
+// 	public function testGifMedium(){
+// 		$original = $this->getOriginalImage(ImageType::GIF);
+// 		$res = $this->applyFilter(new ImageFilterDodge(50), $original, __METHOD__);
 	
-		$this->assertColorQ1($res, '7f0000');
-		$this->assertColorQ2($res, '007f00');
-		$this->assertColorQ3($res, '00007f');
-		$this->assertColorQ4($res, '7f7f7f');
-	}
-	public function testJpgMedium(){
-		$original = $this->getOriginalImage(ImageType::JPG);
-		$res = $this->applyFilter(new ImageFilterDodge(50), $original, __METHOD__);
+// 		$this->assertColorQ1($res, '7f0000');
+// 		$this->assertColorQ2($res, '007f00');
+// 		$this->assertColorQ3($res, '00007f');
+// 		$this->assertColorQ4($res, '7f7f7f');
+// 	}
+// 	public function testJpgMedium(){
+// 		$original = $this->getOriginalImage(ImageType::JPG);
+// 		$res = $this->applyFilter(new ImageFilterDodge(50), $original, __METHOD__);
 	
-		$this->assertColorQ1($res, '7f0000');
-		$this->assertColorQ2($res, '007f00'); // just slightly different as from GIF & PNG
-		$this->assertColorQ3($res, '00007f');
-		$this->assertColorQ4($res, '7f7f7f');
-	}
-	public function testPngMedium(){
-		$original = $this->getOriginalImage(ImageType::PNG);
-		$res = $this->applyFilter(new ImageFilterDodge(50), $original, __METHOD__);
+// 		$this->assertColorQ1($res, '7f0000');
+// 		$this->assertColorQ2($res, '007f00'); // just slightly different as from GIF & PNG
+// 		$this->assertColorQ3($res, '00007f');
+// 		$this->assertColorQ4($res, '7f7f7f');
+// 	}
+// 	public function testPngMedium(){
+// 		$original = $this->getOriginalImage(ImageType::PNG);
+// 		$res = $this->applyFilter(new ImageFilterDodge(50), $original, __METHOD__);
 	
-		$this->assertColorQ1($res, '7f0000');
-		$this->assertColorQ2($res, '007f00');
-		$this->assertColorQ3($res, '00007f');
-		$this->assertColorQ4($res, '7f7f7f'); // 
-	}
+// 		$this->assertColorQ1($res, '7f0000');
+// 		$this->assertColorQ2($res, '007f00');
+// 		$this->assertColorQ3($res, '00007f');
+// 		$this->assertColorQ4($res, '7f7f7f'); // 
+// 	}
 	
-	public function testGifDark(){
-		$original = $this->getOriginalImage(ImageType::GIF);
-		$res = $this->applyFilter(new ImageFilterDodge(99), $original, __METHOD__);
+// 	public function testGifDark(){
+// 		$original = $this->getOriginalImage(ImageType::GIF);
+// 		$res = $this->applyFilter(new ImageFilterDodge(99), $original, __METHOD__);
 		
-		$this->assertColorQ1($res, 'fc0000');
-		$this->assertColorQ2($res, '00fc00');
-		$this->assertColorQ3($res, '0000fc');
-		$this->assertColorQ4($res, 'fcfcfc');
-	}
-	public function testJpgDark(){
-		$original = $this->getOriginalImage(ImageType::JPG);
-		$res = $this->applyFilter(new ImageFilterDodge(99), $original, __METHOD__);
+// 		$this->assertColorQ1($res, 'fc0000');
+// 		$this->assertColorQ2($res, '00fc00');
+// 		$this->assertColorQ3($res, '0000fc');
+// 		$this->assertColorQ4($res, 'fcfcfc');
+// 	}
+// 	public function testJpgDark(){
+// 		$original = $this->getOriginalImage(ImageType::JPG);
+// 		$res = $this->applyFilter(new ImageFilterDodge(99), $original, __METHOD__);
 		
-		$this->assertColorQ1($res, 'fb0000');
-		$this->assertColorQ2($res, '00fc00');
-		$this->assertColorQ3($res, '0000fb');
-		$this->assertColorQ4($res, 'fcfcfc');
-	}
-	public function testPngDark(){
-		$original = $this->getOriginalImage(ImageType::PNG);
-		$res = $this->applyFilter(new ImageFilterDodge(99), $original, __METHOD__);
+// 		$this->assertColorQ1($res, 'fb0000');
+// 		$this->assertColorQ2($res, '00fc00');
+// 		$this->assertColorQ3($res, '0000fb');
+// 		$this->assertColorQ4($res, 'fcfcfc');
+// 	}
+// 	public function testPngDark(){
+// 		$original = $this->getOriginalImage(ImageType::PNG);
+// 		$res = $this->applyFilter(new ImageFilterDodge(99), $original, __METHOD__);
 		
-		$this->assertColorQ1($res, 'fc0000');
-		$this->assertColorQ2($res, '00fc00');
-		$this->assertColorQ3($res, '0000fc');
-		$this->assertColorQ4($res, 'fcfcfc');
-	}
+// 		$this->assertColorQ1($res, 'fc0000');
+// 		$this->assertColorQ2($res, '00fc00');
+// 		$this->assertColorQ3($res, '0000fc');
+// 		$this->assertColorQ4($res, 'fcfcfc');
+// 	}
 }
