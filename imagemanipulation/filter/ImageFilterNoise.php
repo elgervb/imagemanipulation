@@ -18,11 +18,11 @@ class ImageFilterNoise implements IImageFilter
 	{
 		$this->noise = $aNoise;
 	}
-	/**
-	 * Applies the sepia filter to an image resource
-	 *
-	 * @param ImageResource $aResource
-	 */
+	
+    /**
+     * (non-PHPdoc)
+     * @see \imagemanipulation\filter\IImageFilter::applyFilter()
+     */
 	public function applyFilter( ImageResource $aResource )
 	{
 		if ($this->noise === 0)

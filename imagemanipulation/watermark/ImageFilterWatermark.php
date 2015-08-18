@@ -37,11 +37,11 @@ class ImageFilterWatermark implements IImageFilter
 		$this->position = $aPosition;
 		$this->watermarkOpacity = $aWatermarkOpacity;
 	}
-	/**
-	 * Applies the filter to the resource
-	 *
-	 * @param ImageResource $aResource
-	 */
+	
+    /**
+     * (non-PHPdoc)
+     * @see \imagemanipulation\filter\IImageFilter::applyFilter()
+     */
 	public function applyFilter( ImageResource $aResource )
 	{
 		$watermarkRes = new ImageImageResource($this->watermark);

@@ -17,10 +17,10 @@ class ImageFilterPixelate implements IImageFilter
 	{
 		$this->blocksize = $aBlocksize;
 	}
+	
 	/**
-	 * Applies the pixelate filter to an image resource
-	 *
-	 * @param ImageResource $aResource
+	 * (non-PHPdoc)
+	 * @see \imagemanipulation\filter\IImageFilter::applyFilter()
 	 */
 	public function applyFilter( ImageResource $aResource )
 	{
