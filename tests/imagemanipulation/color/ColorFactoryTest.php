@@ -4,9 +4,9 @@ namespace imagemanipulation\color;
 use imagemanipulation\color\Color;
 
 /**
- * Color test case.
+ * Color factory test case.
  */
-class ColorTest extends \ImagemanipulationTestCase
+class ColorFactoryTest extends \ImagemanipulationTestCase
 {
     
     public function testBlack(){
