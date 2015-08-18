@@ -15,9 +15,9 @@ abstract class ImageFilterTestCase extends \ImagemanipulationTestCase
 {
 	const WHITE = "ffffff";
 	const BLACK = "000000";
-	const RED = "ff0000";
+	const RED   = "ff0000";
 	const GREEN = "00ff00";
-	const BLUE = "0000ff";
+	const BLUE  = "0000ff";
 	
 	/**
 	 * Applies a filter to an image file. The file will be copies to a fresh location.
@@ -59,82 +59,5 @@ abstract class ImageFilterTestCase extends \ImagemanipulationTestCase
 	protected function assertColorQ4(ImageImageResource $aRes, $aColor){
 	    $testColor = $aRes->getColorAt(new Coordinate($aRes->getX()-2, $aRes->getY()-2))->getHexColor();
 		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 4 " . $aColor . ' vs ' . $testColor);
-	}
-	
-	/**
-	 *
-	 * @return \SplFileInfo
-	 */
-	private function getSampleGif()
-	{
-		return new \SplFileInfo( __DIR__ . '/sample.gif' );
-	}
-	/**
-	 *
-	 * @return \SplFileInfo
-	 */
-	private function getSampleJpg()
-	{
-		return new \SplFileInfo( __DIR__ . '/sample.jpg' );
-	}
-	/**
-	 *
-	 * @return \SplFileInfo
-	 */
-	private function getSamplePng()
-	{
-		return new \SplFileInfo( __DIR__ . '/sample.png' );
-	}
-	
-	/**
-	 * Returns the original Image
-	 * 
-	 * @param $aType string
-	 *
-	 * @return \SplFileInfo
-	 */
-	protected function getOriginalImage( $aType )
-	{
-		$file = null;
-		switch ($aType)
-		{
-			case ImageType::GIF:
-				$file = $this->getSampleGif();
-				break;
-			case ImageType::JPG:
-				$file = $this->getSampleJpg();
-				break;
-			case ImageType::PNG:
-				$file = $this->getSamplePng();
-				break;
-		}
-		if ($file === null || ! $file->isFile())
-			$this->fail( 'Image of type ' . $aType . ' could not be found - ' . $file );
-		
-		return $file;
-	}
-	/**
-	 *
-	 * @param $aFile \SplFileInfo The orifinal image file
-	 * @param $aIdentifier string The identifier to use for caching purposes
-	 *       
-	 * @return \imagemanipulation\ImageImageResource
-	 */
-	public function getImageRes(\SplFileInfo $aFile, $aIdentifier )
-	{
-		$aIdentifier = str_replace("::", "", $aIdentifier);
-		$aIdentifier = str_replace("\\", "", $aIdentifier);
-		$cacheDir = $this->getCacheDir();
-		
-		$testFile = new \SplFileInfo( $cacheDir . DIRECTORY_SEPARATOR . $aIdentifier . '-' . $aFile->getFilename() );
-		if ($testFile->isFile())
-		{
-			$path = $testFile->getPathname();
-			unset( $path );
-		}
-		
-		$res = new ImageImageResource( $aFile );
-		$res->setOutputPath( $testFile );
-		return $res;
 	}
 }

@@ -8,7 +8,6 @@ use imagemanipulation\color\Color;
  */
 class ColorFactoryTest extends \ImagemanipulationTestCase
 {
-    
     public function testBlack(){
         $this->assertColor(ColorFactory::black(), "000000");
     }
@@ -28,16 +27,4 @@ class ColorFactoryTest extends \ImagemanipulationTestCase
 	public function testWhite(){
 	    $this->assertColor(ColorFactory::white(), "ffffff");
 	}
-	
-	
-	
-	/**
-	 * asserts that the color and the hex provided are the same
-	 * @param Color $color
-	 * @param string $hex
-	 */
-	private function assertColor(Color $color, $hex){
-	    $this->assertEquals($color->getHexColor(), $hex, "Colors are not the same... ". $color->getHexColor() . " - " . $hex);
-	}
-	
 }
