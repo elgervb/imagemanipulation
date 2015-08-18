@@ -23,7 +23,7 @@ class ColorFactory
 	 */
 	public static function white($aAlpha = null)
 	{
-		return new Color( 'ffffff' , $aAlpha);
+		return self::create( 'ffffff' , $aAlpha);
 	}
 	
 	/**
@@ -36,11 +36,6 @@ class ColorFactory
 		return new Color( '000000', $aAlpha );
 	}
 	
-	public static function darkGreen($aAlpha = null)
-	{
-		return new Color( '006400', $aAlpha );
-	}
-	
 	/**
 	 * Returns the hex color red
 	 *
@@ -48,7 +43,7 @@ class ColorFactory
 	 */
 	public static function red($aAlpha = null)
 	{
-		return new Color( 'ff0000', $aAlpha );
+		return self::create( 'ff0000', $aAlpha );
 	}
 	
 	/**
@@ -58,7 +53,7 @@ class ColorFactory
 	 */
 	public static function green($aAlpha = null)
 	{
-		return new Color( '00ff00', $aAlpha );
+		return self::create( '00ff00', $aAlpha );
 	}
 	
 	/**
