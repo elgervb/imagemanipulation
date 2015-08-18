@@ -1,5 +1,5 @@
 <?php
-namespace tests\imagemanipulation\filter;
+namespace imagemanipulation\filter;
 
 use imagemanipulation\Coordinate;
 

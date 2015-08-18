@@ -1,5 +1,5 @@
 <?php
-namespace tests\imagemanipulation;
+namespace imagemanipulation\color;
 
 use imagemanipulation\color\Color;
 
