@@ -15,39 +15,28 @@ class Color implements IColor
 	 * rgb(127,255,255)
 	 * rgba(127,127,127, 127)
 	 * 
-	 * @param string $aColorString
+	 * @param string $colorString
 	 * @param int The alpha value is between 0 (opaque) and 127 (transparent). 
 	 */
-	public function __construct( $aColorString, $aAlpha = null )
+	public function __construct( $colorString, $aAlpha = null )
 	{
-		$len = strlen($aColorString);
+		$len = strlen($colorString);
 		
 		// color index
-		if (is_int($aColorString)){
-			$this->index = $aColorString;
+		if (is_int($colorString)){
+			$this->index = $colorString;
 			$this->rgb = $this->int2rgba($this->index);
 		}
 		
 		// hexadecimal
-		else if (stristr( $aColorString, '#' ) || $len == 3 || $len == 6 ){
+		else if (stristr( $colorString, '#' ) || $len == 3 || $len == 6 ){
 			
-			if (stristr( $aColorString, '#' )){
-				$aColorString = str_replace( '#', '', $aColorString );
-			}
-			
-			if (strlen( $aColorString ) == 3)
-			{
-				$aColorString = $aColorString[0] . $aColorString[0] . $aColorString[1] . $aColorString[1] . $aColorString[2] . $aColorString[2];
-			}
-			
-			$this->rgb['r'] = hexdec( substr( $aColorString, 0, 2 ) );
-			$this->rgb['g'] = hexdec( substr( $aColorString, 2, 2 ) );
-			$this->rgb['b'] = hexdec( substr( $aColorString, 4, 2 ) );
+			$this->hex2rgb($colorString);
 		}
 		
 		// rgb(a)
-		else if (stripos($aColorString, 'rgb') === 0 ){
-			$match = preg_match('/.*\((.*)\).*/i', $aColorString, $matches);
+		else if (stripos($colorString, 'rgb') === 0 ){
+			$match = preg_match('/.*\((.*)\).*/i', $colorString, $matches);
 			if ($match){
 				$colors = explode(',', $matches[1]);
 				$this->rgb['r'] = $colors[0];
@@ -62,6 +51,8 @@ class Color implements IColor
 			$this->rgb['a'] = $aAlpha === null ? 0 : $aAlpha ;
 		}
 	}
+	
+	
 	
 	/**
 	 * Returns the alpha channel value
@@ -128,6 +119,33 @@ class Color implements IColor
 		return $this->rgb['r'];
 	}
 	
+	/**
+	 * Parse a hex string into a rgb array
+	 *
+	 * @param string $colorString
+	 */
+	private function hex2rgb($colorString){
+	    if (stristr( $colorString, '#' )){
+	        $colorString = str_replace( '#', '', $colorString );
+	    }
+	
+	    if (strlen( $colorString ) == 3)
+	    {
+	        $colorString = $colorString[0] . $colorString[0] . $colorString[1] . $colorString[1] . $colorString[2] . $colorString[2];
+	    }
+	
+	    $this->rgb['r'] = hexdec( substr( $colorString, 0, 2 ) );
+	    $this->rgb['g'] = hexdec( substr( $colorString, 2, 2 ) );
+	    $this->rgb['b'] = hexdec( substr( $colorString, 4, 2 ) );
+	}
+	
+	/**
+	 * Parse a color index into an rgb array
+	 * 
+	 * @param unknown $int
+	 * 
+	 * @return array
+	 */
 	private function int2rgba( $int )
 	{
 		$a = ($int >> 24) & 0xFF;
@@ -145,8 +163,10 @@ class Color implements IColor
 	 * The next 8 bits define the blue
 	 * The next 8 bits define the green
 	 * The next 8 bits define the red
+	 * 
+	 * @return 
 	 */
-	public static function createColorIndex( $r, $g, $b, $a = 0 )
+	public static function createColorIndex( $r, $g, $b, $a = null )
 	{
 		if ($a === null){
 			$a = 0;
