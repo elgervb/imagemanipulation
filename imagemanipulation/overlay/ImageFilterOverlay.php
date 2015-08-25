@@ -28,6 +28,9 @@ class ImageFilterOverlay implements IImageFilter
      * @param boolean $fill Fill the overlay using the height of the original image, or use the size of the overlay
      */
     public function __construct(ImageResource $aOverlay, $aOpacity = 50, $startX = 0, $startY = 0, $fill = true){
+        assert ('$aOpacity <= 100'); 
+        assert ('$aOpacity >= 0');
+        
         $this->opacity = $aOpacity;
         $this->overlay = $aOverlay;
         $this->startX = $startX;
