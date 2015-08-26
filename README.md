@@ -8,7 +8,12 @@ Library to manipulate images using PHP's GD library. Most of the functionality i
 This way chaining of image filters and thumbnailing is possible, like:
 
 ```php
-
+ImageBuilder::create( new \SplFileInfo('image.jpg') )
+  ->contrast( 20 ) // increase contrast
+  ->colorize( '#DB3636' ) // apply a bit of red the the image
+  ->flip( ImageFilterFlip::FLIP_VERTICALLY ) // flip image vertically
+  ->save( new \SplFileInfo( 'image.new.png' ) ) // save the jpg image as png with filters applied
+  ->render( 80 ); // render to browser with quality 80
 ```
 
 
