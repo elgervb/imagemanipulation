@@ -4,13 +4,28 @@
 [![Build Status](https://travis-ci.org/elgervb/imagemanipulation.svg?branch=master)](https://travis-ci.org/elgervb/imagemanipulation)<br/>
 Fork me on GitHub: https://github.com/elgervb/imagemanipulation
 
-Library to manipulate images using PHP's GD library.
+Library to manipulate images using PHP's GD library. Most of the functionality is available through the `ImageBuilder` facade.
+This way chaining of image filters and thumbnailing is possible, like:
+
+```php
+
+```
 
 
 ## Installation
 
-clone or fork the imagemanipulation library with Git
+### With composer.json:
 
+```
+	"require" : {
+		"imagemanipulation" : "dev-master"
+	},
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "https://github.com/elgervb/imagemanipulation"
+		}
+	]
+```
 ## Requirements
 
 PHP version >= 5.3
