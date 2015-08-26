@@ -4,7 +4,7 @@ namespace imagemanipulation\thumbnail\pixelstrategy;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Coordinate;
 /**
- * Pixel strategy to resize the image to a max with or height keeping proportions.
+ * Pixel strategy to resize the image to a max width or height keeping proportions.
  * 
  * @package image
  * @subpackage pixelstrategy
