@@ -98,13 +98,18 @@ class ImageFilterFlip implements IImageFilter
 		}
 	}
 	
+	/**
+	 * Returns the flip mode; either horizontal, vertical or both
+	 * 
+	 * @return int The flip mode
+	 */
 	private function getMode(){
 		if (function_exists('imageflip')){
 			if ($this->horizontal && $this->vertical)
 				return IMG_FLIP_BOTH;
 			if ($this->vertical)
 					return IMG_FLIP_VERTICAL;
-			return IMG_FLIP_HORIZONTA;
+			return IMG_FLIP_HORIZONTAL;
 		}
 		else
 		{
