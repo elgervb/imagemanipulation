@@ -24,13 +24,8 @@ ImageBuilder::create( new \SplFileInfo('image.jpg') )
 
 ```
 	"require" : {
-		"imagemanipulation" : "dev-master"
-	},
-	"repositories" : [{
-			"type" : "vcs",
-			"url" : "https://github.com/elgervb/imagemanipulation"
-		}
-	]
+		"elgervb/imagemanipulation": "^1.0"
+	}
 ```
 ## Requirements
 
