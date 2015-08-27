@@ -1,7 +1,8 @@
 
 # IMAGEMANIPULATION
 
-[![Build Status](https://travis-ci.org/elgervb/imagemanipulation.svg?branch=master)](https://travis-ci.org/elgervb/imagemanipulation)<br/>
+[![Build Status](https://travis-ci.org/elgervb/imagemanipulation.svg?branch=master)](https://travis-ci.org/elgervb/imagemanipulation)
+[![Latest Stable Version](https://poser.pugx.org/elgervb/imagemanipulation/version.svg)](https://packagist.org/packages/elgervb/imagemanipulation)<br/>
 Fork me on GitHub: https://github.com/elgervb/imagemanipulation
 
 Library to manipulate images using PHP's GD library. Most of the functionality is available through the `ImageBuilder` facade.
