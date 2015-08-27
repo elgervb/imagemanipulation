@@ -183,7 +183,7 @@ class ImageImageResource extends ImageResource
 				break;
 			
 			case ImageType::GIF:
-				return imagegif( $this->getResource(), $aPath, $this->quality );
+				return imagegif( $this->getResource(), $aPath );
 				break;
 			
 			// default = jpg
