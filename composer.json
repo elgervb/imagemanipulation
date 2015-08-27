@@ -25,6 +25,8 @@
 	"license" : [
 		"MIT"
 	],
+	"require-dev" : {
+	},
 	"autoload" : {
 		"psr-0" : {
 			"imagemanipulation" : ""
@@ -35,5 +37,8 @@
 		"source" : "https://github.com/elgervb/imagemanipulation",
 		"issues" : "https://github.com/elgervb/imagemanipulation/issues",
 		"email" : "elgervb@gmail.com"
+	},
+	"require": {
+		"phpunit/phpunit": "^4.8"
 	}
 }

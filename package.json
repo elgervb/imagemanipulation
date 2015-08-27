@@ -1,0 +1,27 @@
+{
+  "name": "imagemanipulation",
+  "version": "1.0.0",
+  "description": "Library for image manipulation in PHP with GD",
+  "main": "",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elgervb/imagemanipulation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elgervb/imagemanipulation/issues"
+  },
+  "homepage": "https://github.com/elgervb/imagemanipulation",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-phpunit": "^0.9.1"
+  }
+}
