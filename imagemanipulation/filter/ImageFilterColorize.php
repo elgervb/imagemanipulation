@@ -5,7 +5,7 @@ use imagemanipulation\color\Color;
 use imagemanipulation\ImageResource;
 
 /**
- * Applies colorize to an image
+ * Blends a fill color with the image
  *
  * @author Elger van Boxtel
  */
@@ -16,7 +16,7 @@ class ImageFilterColorize implements IImageFilter
 	/**
 	 * Creates a new ImageFilterColorize
 	 *
-	 * @param $aColor Color
+	 * @param $aColor Color The color to blend
 	 */
 	public function __construct( Color $aColor )
 	{

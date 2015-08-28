@@ -4,7 +4,7 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 use imagemanipulation\ImageImageResource;
 /**
- * Comic filter
+ * Apply a sketchy comic filter to an image
  */
 class ImageFilterComic implements IImageFilter
 {
