@@ -19,6 +19,12 @@ class ImageFilterRandomBlocks implements IImageFilter
 	private $blockSize ;
 	private $nrOfBlocks;
 	
+	/**
+	 * 
+	 * @param number $aNumberOfBlocks The number of blocks
+	 * @param number $aBlockSize      The size of the blocks in pixels
+	 * @param string $aBlockColor     The color of the blocks
+	 */
 	public function __construct($aNumberOfBlocks = 100, $aBlockSize = 25, $aBlockColor = 'FFFFFF'){
 		$this->blockColor = $aBlockColor instanceof Color ? $aBlockColor : new Color($aBlockColor);
 		$this->blockSize = $aBlockSize;

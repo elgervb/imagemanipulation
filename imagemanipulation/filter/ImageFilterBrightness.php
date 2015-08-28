@@ -3,7 +3,7 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 /**
- * Changes the brightness of the image. 
+ * Adjust the brightness of the image, either lighter or darker
  *
  * @package image
  * @subpackage imagefilter
@@ -16,18 +16,17 @@ class ImageFilterBrightness implements IImageFilter
 	/**
 	 * Creates a new ImageFilterBrightness
 	 *
-	 * @param int = 20 -255 = min brightness, 0 = no change, +255 = max brightness
+	 * @param int = 20 The brightness level from -255 to 255, from darker to lighter
 	 */
 	public function __construct( $aRate = 20 )
 	{
 		$this->rate = $aRate;
 	}
-	
-	/**
-	 * Applies the filter on the image resource
-	 *
-	 * @param ImageResource $aResource
-	 */
+
+    /**
+     * (non-PHPdoc)
+     * @see \imagemanipulation\filter\IImageFilter::applyFilter()
+     */
 	public function applyFilter( ImageResource $aResource )
 	{
 		if ($this->rate != 0) // 0 means no change
