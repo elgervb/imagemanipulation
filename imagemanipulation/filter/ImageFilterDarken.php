@@ -15,7 +15,7 @@ class ImageFilterDarken implements IImageFilter
 	private $rate;
 	
 	/**
-	 * Create a new TImageFilterDarken
+	 * Create a new ImageFilterDarken
 	 *
 	 * @param int $aRate -255 = min brightness, 0 = no change, +255 = max brightness
 	 */

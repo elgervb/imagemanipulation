@@ -3,7 +3,14 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 /**
- * Image scatter
+ * Scatter pixels around in a random way
+ * 
+ * <h2>Default</h2>
+ * <img src="http://elgervanboxtel.nl/imageproxy/img/scatter/dog.jpg" />
+ * <h2>Rate = 10</h2>
+ * <img src="http://elgervanboxtel.nl/imageproxy/img/scatter/rate=10/dog.jpg" />
+ * <h2>Rate = 20</h2>
+ * <img src="http://elgervanboxtel.nl/imageproxy/img/scatter/rate=20/dog.jpg" />
  *
  *@see http://www.tuxradar.com/practicalphp/11/2/23
  */

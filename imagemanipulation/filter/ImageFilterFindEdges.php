@@ -1,6 +1,11 @@
 <?php
 namespace imagemanipulation\filter;
 
+/**
+ * Find the edges in an image without color loss
+ * @author elger
+ *
+ */
 class ImageFilterFindEdges extends ImageFilterConvolution
 {
 	public function __construct()

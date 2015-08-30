@@ -3,7 +3,7 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 /**
- * Applies grayscale to an image
+ * Converts the colors to grayscale
  *
  * @package image
  * @subpackage imagefilter

@@ -27,8 +27,8 @@ class ImageFilterRotate implements IImageFilter
 	/**
 	 * Creates a new ImageFilterRotate
 	 *
-	 * @param int $aAngle
-	 * @param String $aBgcolor
+	 * @param int $aAngle The degrees to rotate the image
+	 * @param String $aBgcolor The background color to apply
 	 *
 	 */
 	public function __construct( $aAngle = 90, $aBgcolor = null )

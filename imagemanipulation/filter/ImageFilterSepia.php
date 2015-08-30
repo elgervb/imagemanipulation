@@ -3,7 +3,7 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 /**
- * Image Sepia
+ * Apply sepia to the image
  *
  * @package image
  * @subpackage Imagefilter

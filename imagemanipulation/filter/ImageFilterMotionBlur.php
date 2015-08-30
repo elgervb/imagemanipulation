@@ -1,5 +1,9 @@
 <?php
 namespace imagemanipulation\filter;
+
+/**
+ * Motion blurs the image
+ **/
 class ImageFilterMotionBlur extends ImageFilterConvolution
 {
 	public function __construct()

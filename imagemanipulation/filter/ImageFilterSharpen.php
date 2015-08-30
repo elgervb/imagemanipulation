@@ -1,5 +1,9 @@
 <?php
 namespace imagemanipulation\filter;
+
+/**
+ * Sharpens the image
+ */
 class ImageFilterSharpen extends ImageFilterConvolution
 {
 	public function __construct()
