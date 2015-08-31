@@ -43,10 +43,10 @@ class Thumbalizer
 		// Create a new image resource
 		$newResource = clone $aResource;
 		
-		$this->strategy->init( $newResource );
-		$originalBegin = $this->strategy->getSourceBegin( $aResource );
-		$originalEnd = $this->strategy->getSourceEnd( $aResource );
-		$targetBegin = $this->strategy->getDestinationBegin( $newResource );
+		$this->strategy->init( $aResource );
+		$originalBegin = $this->strategy->getSourceBegin( $newResource );
+		$originalEnd = $this->strategy->getSourceEnd( $newResource );
+		$targetBegin = $this->strategy->getDestinationBegin( $aResource );
 		$targetEnd = $this->strategy->getDestinationEnd( $newResource );
 		
 		// no change, return original
@@ -55,18 +55,17 @@ class Thumbalizer
 			return $aResource;
 		}
 		
-		$newResource->setResource( imagecreatetruecolor( $targetEnd->getX(), $targetEnd->getY() ) );
+		$aResource->setResource( imagecreatetruecolor( $targetEnd->getX(), $targetEnd->getY() ) );
 		
-		imagecolortransparent( $newResource->getResource(), imagecolorallocate( $aResource->getResource(), 0, 0, 0 ) );
-		imagealphablending( $newResource->getResource(), false );
-		imageantialias( $newResource->getResource(), true );
+		imagecolortransparent( $aResource->getResource(), imagecolorallocate( $newResource->getResource(), 0, 0, 0 ) );
+		imagealphablending( $aResource->getResource(), false );
+		imageantialias( $aResource->getResource(), true );
 		
-		imagecopyresampled( $newResource->getResource(), $aResource->getResource(), $targetBegin->getX(), $targetBegin->getY(), $originalBegin->getX(), $originalBegin->getY(), $targetEnd->getX(), $targetEnd->getY(), $originalEnd->getX(), $originalEnd->getY() );
+		imagecopyresampled( $aResource->getResource(), $newResource->getResource(), $targetBegin->getX(), $targetBegin->getY(), $originalBegin->getX(), $originalBegin->getY(), $targetEnd->getX(), $targetEnd->getY(), $originalEnd->getX(), $originalEnd->getY() );
 		
-		imagedestroy( $origImgRes );
+		$aResource->setResource($aResource->getResource());
+		$newResource->destroy();
 		
-		// update the original resource with the new one. This way we can still reference if from outside scope
-		$aResource->setResource($newResource->getResource());
-		return $newResource;
+		return $aResource;
 	}
 }

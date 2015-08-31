@@ -37,6 +37,10 @@ use imagemanipulation\filter\ImageFilterGammaCorrection;
 use imagemanipulation\filter\ImageFilterMotionBlur;
 use imagemanipulation\overlay\ImageFilterOverlay;
 use imagemanipulation\filter\ImageFilterComic;
+use imagemanipulation\thumbnail\Thumbalizer;
+use imagemanipulation\thumbnail\pixelstrategy\CenteredPixelStrategy;
+use imagemanipulation\thumbnail\pixelstrategy\PercentagePixelStrategy;
+use imagemanipulation\thumbnail\pixelstrategy\MaxPixelStrategy;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -327,7 +331,40 @@ class ImageBuilder
         $this->queue->append(new ImageFilterSobelEdgeDetect());
         return $this;
     }
+    
+    public function thumbCentered($width, $height){
+        $t = new Thumbalizer(new CenteredPixelStrategy($width, $height));
+        
+        $t->create($this->res);
+        
+        return $this;
+    }
+    
+    public function thumbMax($width, $height){
+        $t = new Thumbalizer(new MaxPixelStrategy($width, $height));
+    
+        $t->create($this->res);
+    
+        return $this;
+    }
 
+    public function thumbPercentage($percentage){
+        $t = new Thumbalizer(new PercentagePixelStrategy($percentage));
+    
+        $t->create($this->res);
+    
+        return $this;
+    }
+    
+    public function thumbSquare($width){
+        $t = new Thumbalizer(new CenteredPixelStrategy($width, $width));
+    
+        $t->create($this->res);
+    
+        return $this;
+    }
+    
+    
     public function vignette()
     {
         $this->queue->append(new ImageFilterVignette());

@@ -45,6 +45,13 @@ class ImageResource
 	}
 	
 	/**
+	 * Destroys the resource and free up memory
+	 */
+	public function destroy(){
+	    imagedestroy($this->imgRes);
+	}
+	
+	/**
 	 * Checks if the resource is a valid resource
 	 *
 	 * @param resource $aResource
