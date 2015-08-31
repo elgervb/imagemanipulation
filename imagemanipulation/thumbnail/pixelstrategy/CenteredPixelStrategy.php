@@ -4,7 +4,8 @@ namespace imagemanipulation\thumbnail\pixelstrategy;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Coordinate;
 /**
- *
+ * Pixel strategy for creating thumbnails which are centered in the middle of the image
+ * 
  * @package image
  * @subpackage pixelstrategy
  */

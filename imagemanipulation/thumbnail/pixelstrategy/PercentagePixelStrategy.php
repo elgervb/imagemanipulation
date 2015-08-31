@@ -4,8 +4,9 @@ namespace imagemanipulation\thumbnail\pixelstrategy;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Coordinate;
 /**
- * @package image
- * @subpackage pixelstrategy
+ * Pixel strategy to reduce a image with a certain percentage
+ * @author eaboxt
+ *
  */
 class PercentagePixelStrategy implements IPixelStrategy
 {
