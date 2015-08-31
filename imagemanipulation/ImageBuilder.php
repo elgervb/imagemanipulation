@@ -42,6 +42,7 @@ use imagemanipulation\thumbnail\pixelstrategy\CenteredPixelStrategy;
 use imagemanipulation\thumbnail\pixelstrategy\PercentagePixelStrategy;
 use imagemanipulation\thumbnail\pixelstrategy\MaxPixelStrategy;
 use imagemanipulation\filter\ImageFilterDuotone;
+use imagemanipulation\filter\ImageFilterTrueColor;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -368,6 +369,12 @@ class ImageBuilder
     
         $t->create($this->res);
     
+        return $this;
+    }
+    
+    public function truecolor($primary, $secundary){
+        $this->queue->append(new ImageFilterTrueColor($primary, $secundary));
+        
         return $this;
     }
     

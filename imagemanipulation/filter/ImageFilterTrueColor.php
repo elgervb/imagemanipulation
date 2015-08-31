@@ -13,6 +13,10 @@ class ImageFilterTrueColor implements IImageFilter
 	private $lowcolor;
 	private $highcolor;
 	
+	/**
+	 * @param string $aLowColor
+	 * @param string $aHighColor
+	 */
 	public function __construct($aLowColor = 'FFFFFF', $aHighColor = '000000'){
 		$this->lowcolor = $aLowColor instanceof Color ? $aLowColor : new Color($aLowColor);
 		$this->highcolor = $aHighColor instanceof Color ? $aHighColor : new Color($aHighColor);
