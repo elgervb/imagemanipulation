@@ -11,7 +11,6 @@ use imagemanipulation\overlay\ImageFilterOverlay;
  */
 class ImageFilterSemiGrayScale implements IImageFilter
 {
-
     private $percentage;
 
     public function __construct($percentage = 100)

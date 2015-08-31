@@ -45,6 +45,7 @@ use imagemanipulation\filter\ImageFilterDuotone;
 use imagemanipulation\filter\ImageFilterTrueColor;
 use imagemanipulation\filter\ImageFilterDuotoneTest;
 use imagemanipulation\filter\ImageFilterSobelEdgeEnhance;
+use imagemanipulation\filter\ImageFilterSemiGrayScale;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -309,6 +310,12 @@ class ImageBuilder
     public function selectiveBlur()
     {
         $this->queue->append(new ImageFilterSelectiveBlur());
+        return $this;
+    }
+    
+    public function semiGrayscale($rate = 100)
+    {
+        $this->queue->append(new ImageFilterSemiGrayScale($rate));
         return $this;
     }
 
