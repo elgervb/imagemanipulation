@@ -41,6 +41,7 @@ use imagemanipulation\thumbnail\Thumbalizer;
 use imagemanipulation\thumbnail\pixelstrategy\CenteredPixelStrategy;
 use imagemanipulation\thumbnail\pixelstrategy\PercentagePixelStrategy;
 use imagemanipulation\thumbnail\pixelstrategy\MaxPixelStrategy;
+use imagemanipulation\filter\ImageFilterDuotone;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -150,6 +151,12 @@ class ImageBuilder
     public function dodge($aRate = 50)
     {
         $this->queue->append(new ImageFilterDodge($aRate));
+        return $this;
+    }
+    
+    public function duotone($red = 0, $green = 0, $blue = 0)
+    {
+        $this->queue->append(new ImageFilterDuotone($red, $green, $blue));
         return $this;
     }
 
