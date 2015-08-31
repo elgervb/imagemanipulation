@@ -9,7 +9,6 @@ use imagemanipulation\ImageUtil;
 
 /**
  * @author elger
- * TODO create testcase for color in the edges
  */
 class ImageFilterSobelEdgeEnhanceTest extends \ImageFilterTestCase
 {
