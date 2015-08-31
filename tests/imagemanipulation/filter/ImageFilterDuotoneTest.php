@@ -8,6 +8,7 @@ use imagemanipulation\color\ColorUtil;
 use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterColorize;
+use imagemanipulation\ImageBuilder;
 
 class ImageFilterDuotoneTest extends \ImageFilterTestCase
 {
@@ -37,5 +38,15 @@ class ImageFilterDuotoneTest extends \ImageFilterTestCase
 		$this->assertColorQ2($res, 'ffff00');
 		$this->assertColorQ3($res, 'ff00ff');
 		$this->assertColorQ4($res, 'ffffff');
+	}
+	
+	public function testGifRedImageBuilder(){
+	    $original = $this->getOriginalImage(ImageType::GIF);
+	    $res = ImageBuilder::create($original)->duotone(255,0,0)->toResource();
+	
+	    $this->assertColorQ1($res, 'ff0000');
+	    $this->assertColorQ2($res, 'ffff00');
+	    $this->assertColorQ3($res, 'ff00ff');
+	    $this->assertColorQ4($res, 'ffffff');
 	}
 }
