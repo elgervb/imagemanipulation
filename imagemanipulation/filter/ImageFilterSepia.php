@@ -3,11 +3,11 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 /**
- * Apply sepia to the image
+ * Apply sepia to the image.
+ * Each and every pixel will be programmically calculated, and thus this method is quite slow.
+ * For a faster implementation see ImageFilterSepiaFast
  *
- * @package image
- * @subpackage Imagefilter
- *
+ * @see ImageFilterSepiaFast
  */
 class ImageFilterSepia implements IImageFilter
 {
@@ -15,13 +15,13 @@ class ImageFilterSepia implements IImageFilter
 	private $darken;
 	
 	/**
-	 * Creates a new TImageFilterSepia
+	 * Creates a new ImageFilterSepia
 	 *
 	 * @param int $aDarken
 	 */
-	public function __construct( $aDarken = 15 )
+	public function __construct( $darken = 15 )
 	{
-		$this->darken = $aDarken;
+		$this->darken = $darken;
 	}
 	
 	/**
