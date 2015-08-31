@@ -3,18 +3,28 @@ var gulp = require('gulp'),
     phpunit = require('gulp-phpunit')
     _       = require('lodash');
  
-gulp.task('phpunit', function() {
+gulp.task('test', function() {
     var options = {debug: false, notify: true, stderr: true};
     gulp.src('phpunit.xml')
         .pipe(phpunit('', options))
         .on('error', notify.onError(notification('fail', 'phpunit')))
         .pipe(notify(notification('pass', 'phpunit')));
 });
+
  
-gulp.task('default', ['phpunit'], function(){
-    gulp.watch('./**/*.php', function(file){
-        gulp.start('phpunit');
-    });
+gulp.task('default', function(){
+	var path = require('path');
+    gulp.watch('./**/*.php')
+        .on("change", function(file) {
+        	var filename = path.basename(file.path, '.php');
+        	console.log(filename + ' has changed. Running tests...');
+        	
+        	var options = {debug: false, notify: true, stderr: true, filter: '.*'+filename+'Test.*'};
+            gulp.src('phpunit.xml')
+                .pipe(phpunit('', options))
+                .on('error', notify.onError(notification('fail', 'phpunit')))
+                .pipe(notify(notification('pass', 'phpunit')));
+        });
 });
 
 function notification(status, pluginName, override) {
