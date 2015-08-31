@@ -19,7 +19,7 @@ gulp.task('default', function(){
         	var filename = path.basename(file.path, '.php');
         	console.log(filename + ' has changed. Running tests...');
         	
-        	var options = {debug: false, notify: true, stderr: true, filter: '.*'+filename+'Test.*'};
+        	var options = {debug: false, notify: true, stderr: true, filter: '/.*'+filename+'.*/i'};
             gulp.src('phpunit.xml')
                 .pipe(phpunit('', options))
                 .on('error', notify.onError(notification('fail', 'phpunit')))
