@@ -16,7 +16,7 @@ class ImageFilterColorize implements IImageFilter
 	/**
 	 * Creates a new ImageFilterColorize
 	 *
-	 * @param $aColor Color The color to blend
+	 * @param $aColor Color The color to blend, either in hexadecimal or rgb(a)
 	 */
 	public function __construct( Color $aColor )
 	{
