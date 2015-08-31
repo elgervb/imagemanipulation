@@ -43,6 +43,8 @@ use imagemanipulation\thumbnail\pixelstrategy\PercentagePixelStrategy;
 use imagemanipulation\thumbnail\pixelstrategy\MaxPixelStrategy;
 use imagemanipulation\filter\ImageFilterDuotone;
 use imagemanipulation\filter\ImageFilterTrueColor;
+use imagemanipulation\filter\ImageFilterDuotoneTest;
+use imagemanipulation\filter\ImageFilterSobelEdgeEnhance;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -337,6 +339,12 @@ class ImageBuilder
     public function sobelEdgeDetect()
     {
         $this->queue->append(new ImageFilterSobelEdgeDetect());
+        return $this;
+    }
+    
+    public function sobelEdgeEnhance()
+    {
+        $this->queue->append(new ImageFilterSobelEdgeEnhance());
         return $this;
     }
     
