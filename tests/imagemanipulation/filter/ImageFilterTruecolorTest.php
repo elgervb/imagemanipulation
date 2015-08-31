@@ -8,7 +8,7 @@ use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterNegative;
 
 class ImageFilterTruecolorTest extends \ImageFilterTestCase
-{
+{ 
 	public function testGif(){
 		$original = $this->getOriginalImage(ImageType::GIF);
 		$res = $this->applyFilter(new ImageFilterTrueColor('dddddd', '999999'), $original, __METHOD__);
@@ -20,7 +20,7 @@ class ImageFilterTruecolorTest extends \ImageFilterTestCase
 	}
 	public function testJpg(){
 		$original = $this->getOriginalImage(ImageType::JPG);
-		$res = $this->applyFilter(new ImageFilterTrueColor(), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterTrueColor('dddddd', '999999'), $original, __METHOD__);
 
 		$this->assertColorQ1($res, '999999');
 		$this->assertColorQ2($res, '999999');
@@ -29,7 +29,7 @@ class ImageFilterTruecolorTest extends \ImageFilterTestCase
 	}
 	public function testPng(){
 		$original = $this->getOriginalImage(ImageType::PNG);
-		$res = $this->applyFilter(new ImageFilterTrueColor(), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterTrueColor('dddddd', '999999'), $original, __METHOD__);
 		
 		$this->assertColorQ1($res, '999999');
 		$this->assertColorQ2($res, '999999');
