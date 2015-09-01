@@ -47,6 +47,14 @@ class ColorUtil
 		return new Color($index);
 	}
 	
+	/**
+	 * HSL hsl(360, 100%, 100%)
+	 * 
+	 * @param unknown $r
+	 * @param unknown $g
+	 * @param unknown $b
+	 * @return array 
+	 */
 	public static function rgb2hsl($r, $g, $b) {
 	    $var_r = $r / 255;
 	    $var_g = $g / 255;
@@ -102,11 +110,12 @@ class ColorUtil
 	        };
 	    };
 	    $HSL = $l + ($s << 0x8) + ($h << 0x10);
-	    return array(round($h, 2), round($s, 2), round($l, 2));
+	    return array(round($h*360, 0), round($s*100, 0), round($l*100, 0));
 	}
 	
 	/**
 	 * Convert HEX color into HSL
+	 * 
 	 * @param unknown $hex
 	 * @return multitype:number
 	 */
@@ -125,13 +134,17 @@ class ColorUtil
     /**
      * Convert HSL into RGB
      * 
-     * @param int $h
-     * @param int $s
-     * @param int $l
+     * @param int $h degrees
+     * @param int $s percentage
+     * @param int $l percentage
      * 
      * @return array 
      */
 	public static function hsl2rgb($h, $s, $l) {
+	    $h = $h ? $h / 360 : 0;
+	    $s = $s ? $s / 100 : 0;
+	    $l = $l ? $l /100 : 0;
+	    
         $m2 = ( $l <= 0.5 ) ? $l * ( $s + 1 ) : $l + $s - $l * $s;
         $m1 = $l * 2 - $m2;
     
@@ -139,7 +152,7 @@ class ColorUtil
             $base = ( $base < 0 ) ? $base + 1 : ( ( $base > 1 ) ? $base - 1 : $base );
             if ( $base * 6 < 1 ) return round($m1 + ( $m2 - $m1 ) * $base * 6);
             if ( $base * 2 < 1 ) return round($m2);
-            if ( $base * 3 < 2 ) return round($m1 + ( $m2 - $m1 ) * ( 0.6666666666666666 - $base ) * 6);
+            if ( $base * 3 < 2 ) return round($m1 + ( $m2 - $m1 ) * ( 0.6666666666 - $base ) * 6);
             return round($m1, 1);
         };
     
