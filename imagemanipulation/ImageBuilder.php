@@ -43,6 +43,7 @@ use imagemanipulation\thumbnail\pixelstrategy\PercentagePixelStrategy;
 use imagemanipulation\thumbnail\pixelstrategy\MaxPixelStrategy;
 use imagemanipulation\filter\ImageFilterDuotone;
 use imagemanipulation\filter\ImageFilterTrueColor;
+use imagemanipulation\filter\ImageFilterOldCardboard;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -237,6 +238,12 @@ class ImageBuilder
     public function noise($aRate = 20)
     {
         $this->queue->append(new ImageFilterNoise($aRate));
+        return $this;
+    }
+    
+    public function oldCardboard()
+    {
+        $this->queue->append(new ImageFilterOldCardboard());
         return $this;
     }
 
