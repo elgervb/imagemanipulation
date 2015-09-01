@@ -40,7 +40,7 @@ class ImageFilterSobelEdgeDetect implements IImageFilter
 				$conv_y = ($pixel_up_left+($pixel_up*2)+$pixel_up_right)-($pixel_down_left+($pixel_down*2)+$pixel_down_right);
 		
 				// calculating the distance
-				$gray = sqrt($conv_x*$conv_x+$conv_y+$conv_y);
+				$gray = (int)sqrt($conv_x*$conv_x+$conv_y+$conv_y);
 		
 				// inverting the distance not to get the negative image
 				$gray = 255-$gray;
