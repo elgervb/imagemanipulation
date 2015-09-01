@@ -46,6 +46,9 @@ use imagemanipulation\filter\ImageFilterTrueColor;
 use imagemanipulation\filter\ImageFilterDuotoneTest;
 use imagemanipulation\filter\ImageFilterSobelEdgeEnhance;
 use imagemanipulation\filter\ImageFilterSemiGrayScale;
+use imagemanipulation\filter\ImageFilterOldCardboard;
+use imagemanipulation\filter\ImageFilterHueRotate;
+
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -219,6 +222,12 @@ class ImageBuilder
         $this->queue->append(new ImageFilterGrayScale());
         return $this;
     }
+    
+    public function hueRotate($degrees = 90)
+    {
+        $this->queue->append(new ImageFilterHueRotate($degrees));
+        return $this;
+    }
 
     public function meanremove()
     {
@@ -240,6 +249,12 @@ class ImageBuilder
     public function noise($aRate = 20)
     {
         $this->queue->append(new ImageFilterNoise($aRate));
+        return $this;
+    }
+    
+    public function oldCardboard()
+    {
+        $this->queue->append(new ImageFilterOldCardboard());
         return $this;
     }
 
