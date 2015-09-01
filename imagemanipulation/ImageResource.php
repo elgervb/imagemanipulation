@@ -27,8 +27,8 @@ class ImageResource
 	 * @param IImageFilter $aFilter
 	 * @return \imagemanipulation\ImageResource
 	 */
-	public function filter(IImageFilter $aFilter){
-		$aFilter->applyFilter($this);
+	public function filter(IImageFilter $filter){
+		$filter->applyFilter($this);
 		return $this;
 	}
 	

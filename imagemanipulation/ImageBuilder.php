@@ -48,6 +48,7 @@ use imagemanipulation\filter\ImageFilterSobelEdgeEnhance;
 use imagemanipulation\filter\ImageFilterSemiGrayScale;
 use imagemanipulation\filter\ImageFilterOldCardboard;
 use imagemanipulation\filter\ImageFilterHueRotate;
+use imagemanipulation\overlay\OverlayBuilder;
 
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
@@ -74,6 +75,12 @@ class ImageBuilder
      * Queue up all filter until we actually need them
      */
     private $queue;
+    
+    /**
+     * Other builders
+     * @var array
+     */
+    public $builders = array();
 
     /**
      * Create a new ImageBuilder
@@ -273,11 +280,17 @@ class ImageBuilder
         return $this;
     }
     
-    public function overlay(ImageResource $overlay, $opacity = 50, $startX = 0, $startY = 0, $fill = true){
-    	$this->queue->append(new ImageFilterOverlay($overlay, $opacity, $startX, $startY, $fill ));
-    	
-    	return $this;
+    public function overlay($opacity = 64){
+        if (!isset($this->builders['overlay'])){
+            $this->builders['overlay'] = new OverlayBuilder();
+        }
+        /* @var $bulder \overlay\OverlayBuilder */
+        $builder = $this->builders['overlay'];
+        $builder->vignette($this, $opacity);
+        
+        return $this;
     }
+    
 
     /**
      * @see ImageFilterPixelate::__construct
