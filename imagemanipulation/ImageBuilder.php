@@ -44,6 +44,7 @@ use imagemanipulation\thumbnail\pixelstrategy\MaxPixelStrategy;
 use imagemanipulation\filter\ImageFilterDuotone;
 use imagemanipulation\filter\ImageFilterTrueColor;
 use imagemanipulation\filter\ImageFilterOldCardboard;
+use imagemanipulation\filter\ImageFilterHueRotate;
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
  */
@@ -215,6 +216,12 @@ class ImageBuilder
     public function grayscale()
     {
         $this->queue->append(new ImageFilterGrayScale());
+        return $this;
+    }
+    
+    public function hueRotate($degrees = 90)
+    {
+        $this->queue->append(new ImageFilterHueRotate($degrees));
         return $this;
     }
 

@@ -159,7 +159,36 @@ class ColorUtil
         return array( $hue( $h + 0.33333 ) * 255, $hue( $h ) * 255, $hue( $h - 0.33333 ) * 255 );
 	}
 	
+	/**
+	 * Parse a color index into an rgb array
+	 *
+	 * @param int $int color index
+	 * 
+	 * @see imagecolorat()
+	 *
+	 * @return array
+	 */
+	public static function int2rgba( $int )
+	{
+	    $a = ($int >> 24) & 0xFF;
+	    $r = ($int >> 16) & 0xFF;
+	    $g = ($int >> 8) & 0xFF;
+	    $b = $int & 0xFF;
+	    return array($r, $g, $b, $a);
+	}
 	
+	/**
+	 * This function builds a 32 bit integer from 4 values which must be 0-255 (8 bits)
+	 * Example 32 bit integer: 00100000010001000000100000010000
+	 * The first 8 bits define the alpha
+	 * The next 8 bits define the blue
+	 * The next 8 bits define the green
+	 * The next 8 bits define the red
+	 */
+	public static function rgba2int($r, $g, $b, $a=1) {
+	    
+	    return ($a << 24) + ($b << 16) + ($g << 8) + $r;
+	}
 	
 	/**
 	 * Returns the color at the specified location of the image resource

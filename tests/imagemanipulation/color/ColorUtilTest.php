@@ -46,4 +46,12 @@ class ColorUtilTest extends \ImagemanipulationTestCase
         $this->assertEquals( array(120, 100, 50), ColorUtil::hex2hsl('00ff00'), "Error converting hex green into hsl" );
         $this->assertEquals( array(240, 100, 50), ColorUtil::hex2hsl('0000ff'), "Error converting hex blue into hsl" );
     }
+    
+    public function testInt2rgba(){
+        $this->assertEquals(array(255,255,255,16), ColorUtil::int2rgba('285212671'));
+    }
+    
+    public function testRgba2Int(){
+        $this->assertEquals('285212671', ColorUtil::rgba2int(255,255,255,16));
+    }
 }
