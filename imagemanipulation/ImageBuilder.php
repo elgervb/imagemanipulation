@@ -141,13 +141,16 @@ class ImageBuilder
     /**
      * Creates a new ImageBuilder
      *
-     * @param \SplFileInfo $aImage            
+     * @param \SplFileInfo|string $aImage            
      *
      * @return \imagemanipulation\ImageBuilder
      */
-    public static function create(\SplFileInfo $aImage)
+    public static function create($image)
     {
-        return new ImageBuilder($aImage);
+        if (! $image instanceof \SplFileInfo && is_string($image)){
+            $image = new \SplFileInfo($image);
+        }
+        return new ImageBuilder($image);
     }
 
     public function darken($aRate = 5)
