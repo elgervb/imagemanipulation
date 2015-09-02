@@ -45,7 +45,7 @@ class ImageImageResource extends ImageResource
 	 */
 	public function createImage()
 	{
-		if (! $this->imageoutput( $this->outputPath->getPathname() ))
+		if (! $this->imageoutput( $this->outputPath->getPathname(), strtolower($this->originalPath->getExtension()) ))
 		{
 			throw new ImageResourceException( "Could not create image on " . $this->outputPath );
 		}
@@ -153,40 +153,6 @@ class ImageImageResource extends ImageResource
 	public function setQuality( $aQuality )
 	{
 		$this->quality = $aQuality;
-	}
-	
-	/**
-	 * Outputs an image to browser or file.
-	 *
-	 * @param $aPath string = null (output to the browser)
-	 *       
-	 * @return resource
-	 */
-	private function imageoutput( $aPath = null )
-	{
-		if (! is_resource( $this->getResource() ))
-		{
-			throw new ImageResourceException( 'This is not a resource' );
-		}
-		
-		switch (strtolower( $this->originalPath->getExtension() ))
-		{
-			case ImageType::PNG:
-				imagesavealpha( $this->getResource(), true );
-				// quality for png must be 0 - 9
-				return imagepng( $this->getResource(), $aPath, ($this->quality / 10) - 1, PNG_ALL_FILTERS );
-				break;
-			
-			case ImageType::GIF:
-				return imagegif( $this->getResource(), $aPath );
-				break;
-			
-			// default = jpg
-			default:
-				return imagejpeg( $this->getResource(), $aPath, $this->quality );
-				break;
-		
-		}
 	}
 	
 	/**

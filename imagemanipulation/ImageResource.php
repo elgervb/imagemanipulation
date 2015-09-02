@@ -97,6 +97,39 @@ class ImageResource
 	}
 	
 	/**
+	 * Outputs an image to browser or file.
+	 *
+	 * @param string path to save the image to on disk, null to output to the browser
+	 * @param string image type to render
+	 * @param int quality of the image
+	 */
+	protected final function imageoutput( $path = null, $type = ImageType::PNG, $quality = 80 )
+	{
+	    if (! is_resource( $this->getResource() ))
+	    {
+	        throw new ImageResourceException( 'This is not a resource' );
+	    }
+	
+	    switch ($type)
+	    {
+	    	case ImageType::PNG:
+	    	    imagesavealpha( $this->getResource(), true );
+	    	    // quality for png must be 0 - 9
+	    	    return imagepng( $this->getResource(), $path, ($quality / 10) - 1, PNG_ALL_FILTERS );
+	    	    break;
+	    	    	
+	    	case ImageType::GIF:
+	    	    return imagegif( $this->getResource(), $path ); // gif does not have quality
+	    	    break;
+	    	    	
+	    	// default = jpg
+	    	default:
+	    	    return imagejpeg( $this->getResource(), $path, $quality );
+	    	    break;
+	    }
+	}
+	
+	/**
 	 * Sets the image resource
 	 */
 	public function setResource( $aResource )
