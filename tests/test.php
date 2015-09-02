@@ -6,6 +6,7 @@
 include __DIR__ . '/../vendor/composer/ClassLoader.php';
 use imagemanipulation\color\Color;
 use imagemanipulation\ImageBuilder;
+use imagemanipulation\generation\ImageGenerator;
 $loader = new \Composer\Autoload\ClassLoader();
 $loader->add('imagemanipulation', __DIR__.'/../imagemanipulation');
 
@@ -32,9 +33,13 @@ $loader->setUseIncludePath(true);
 // echo 'done!';
 
 
-
+/*// Test Rounded corners
 ImageBuilder::create(new \SplFileInfo(__DIR__ . '/sample.png'))
     ->roundedCorners(300, 'ffffff')
     ->save(new \SplFileInfo('/tmp/result'.time().'.png'), true);
-
     echo 'done!';
+*/
+
+// Test img generation
+$res = ImageGenerator::create(250, 750, new Color('ff00ff', 100));
+$res->imageoutput('/tmp/result'.time().'.png');

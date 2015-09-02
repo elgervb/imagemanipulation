@@ -103,7 +103,7 @@ class ImageResource
 	 * @param string image type to render
 	 * @param int quality of the image
 	 */
-	protected final function imageoutput( $path = null, $type = ImageType::PNG, $quality = 80 )
+	public final function imageoutput( $path = null, $type = ImageType::PNG, $quality = 80 )
 	{
 	    if (! is_resource( $this->getResource() ))
 	    {
@@ -127,6 +127,15 @@ class ImageResource
 	    	    return imagejpeg( $this->getResource(), $path, $quality );
 	    	    break;
 	    }
+	}
+	
+	/**
+	 * Set the save alpha flag
+	 * 
+	 * @param string $flag
+	 */
+	public function saveAlpha($flag = true){
+	    imagesavealpha($this->getResource(), $flag);
 	}
 	
 	/**
