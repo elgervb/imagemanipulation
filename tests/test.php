@@ -29,4 +29,12 @@ $loader->setUseIncludePath(true);
 //     ->truecolor('fff', '00B0BA')
 //     ->save(new \SplFileInfo('/tmp/result'.time().'.png'), true);
 
-//     echo 'done!';
+// echo 'done!';
+
+
+
+ImageBuilder::create(new \SplFileInfo(__DIR__ . '/sample.png'))
+    ->roundedCorners(300, 'ffffff')
+    ->save(new \SplFileInfo('/tmp/result'.time().'.png'), true);
+
+    echo 'done!';

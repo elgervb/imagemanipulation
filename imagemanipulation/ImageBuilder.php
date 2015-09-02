@@ -49,6 +49,7 @@ use imagemanipulation\filter\ImageFilterSemiGrayScale;
 use imagemanipulation\filter\ImageFilterOldCardboard;
 use imagemanipulation\filter\ImageFilterHueRotate;
 use imagemanipulation\overlay\ImageFilterOverlayWithAlpha;
+use imagemanipulation\filter\ImageFilterRoundedCorners;
 
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
@@ -322,6 +323,13 @@ class ImageBuilder
         return $this;
     }
 
+    public function roundedCorners($degrees = 20, $color = null)
+    {
+        $color = $color ? new Color($color) : new Color('444444');
+        $this->queue->append(new ImageFilterRoundedCorners($degrees, $color));
+        return $this;
+    }
+    
     /**
      * @see ImageFilterScatter::__construct
      * @param int $aOffset The offset of the scatter points. The larget the number, the more scattered
