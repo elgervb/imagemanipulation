@@ -80,7 +80,7 @@ class ImageBuilder
      * Other builders
      * @var array
      */
-    public $builders = array();
+    private $builders = array();
 
     /**
      * Create a new ImageBuilder
@@ -460,7 +460,7 @@ class ImageBuilder
         if ($file === null && $aOverwrite === false && ! strstr($this->file->getPathname(), '.copy'.$search)){
             $file = new \SplFileInfo(str_replace($search, ".copy".$search, $this->file->getPathname()));
         }
-        else {
+        else if ($file === null){
             $file = $this->file;
         }
         
