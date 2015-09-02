@@ -4,11 +4,6 @@ namespace imagemanipulation;
 use imagemanipulation\color\ColorUtil;
 /**
  * A image resource for an image
- *
- * @package image
- * @subpackage resource
- *            
- *             TODO move these methods to ImageUtil
  */
 class ImageImageResource extends ImageResource
 {

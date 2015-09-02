@@ -16,6 +16,10 @@ $loader->setUseIncludePath(true);
 /*
  * Test
  */
-$builder = new ImageBuilder(new \SplFileInfo(__DIR__ . '/sample.jpg'));
-$builder->overlay();
-$builder->save(new \SplFileInfo('\tmp\sample.jpg'));
+$builder = new ImageBuilder(new \SplFileInfo(__DIR__ . '/sample.png'));
+$builder->overlay(__DIR__ . '/../imagemanipulation/overlay/img/vignette.png', 90, 0, 0, true);
+$builder->save(new \SplFileInfo('\tmp\sample_png.png'));
+
+$builder = new ImageBuilder(new \SplFileInfo(__DIR__ . '/sample.png'));
+$builder->overlay(__DIR__ . '/../imagemanipulation/overlay/img/vignette.jpg', 50, 0, 0, true);
+$builder->save(new \SplFileInfo('\tmp\sample_jpg.png'));

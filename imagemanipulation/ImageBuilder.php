@@ -48,7 +48,7 @@ use imagemanipulation\filter\ImageFilterSobelEdgeEnhance;
 use imagemanipulation\filter\ImageFilterSemiGrayScale;
 use imagemanipulation\filter\ImageFilterOldCardboard;
 use imagemanipulation\filter\ImageFilterHueRotate;
-use imagemanipulation\overlay\OverlayBuilder;
+use imagemanipulation\overlay\ImageFilterOverlayWithAlpha;
 
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
@@ -76,12 +76,6 @@ class ImageBuilder
      */
     private $queue;
     
-    /**
-     * Other builders
-     * @var array
-     */
-    private $builders = array();
-
     /**
      * Create a new ImageBuilder
      * @param \SplFileInfo $image
@@ -280,14 +274,15 @@ class ImageBuilder
         return $this;
     }
     
-    public function overlay($opacity = 64){
-        if (!isset($this->builders['overlay'])){
-            $this->builders['overlay'] = new OverlayBuilder();
-        }
-        /* @var $bulder \overlay\OverlayBuilder */
-        $builder = $this->builders['overlay'];
-        $builder->vignette($this, $opacity);
+    public function overlay($overlayFile, $opacity = 64, $startX = 0, $startY = 0, $fill = true){
+        $overlay = new ImageImageResource(new \SplFileInfo($overlayFile));
         
+        if(ord(file_get_contents($overlayFile, NULL, NULL, 25, 1)) == 6) {
+            $this->filter(new ImageFilterOverlayWithAlpha($overlay, 0 ,0, $fill));
+        }
+        else{
+            $this->filter(new ImageFilterOverlay($overlay, $opacity, 0 ,0, $fill));
+        }
         return $this;
     }
     
