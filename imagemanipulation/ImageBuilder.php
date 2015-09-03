@@ -265,7 +265,7 @@ class ImageBuilder
 
     /**
      *
-     * @see ImageFilterOpacity
+     * @see ImageFilterOpacity::__construct
      *
      * @param number $aRate
      *            A value between 0 and 127. 0 indicates completely opaque while 127 indicates completely transparent.
