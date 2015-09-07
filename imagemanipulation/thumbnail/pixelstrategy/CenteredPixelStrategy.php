@@ -37,9 +37,9 @@ class CenteredPixelStrategy implements IPixelStrategy
 	 */
 	public function __construct( $aNewWidth, $aNewHeight, $aRespectSmallerImage = true )
 	{
-		assert( 'is_int($aNewWidth)' );
+		assert( 'is_numeric($aNewWidth)' );
 		assert( '$aNewWidth > 0' );
-		assert( 'is_int($aNewHeight)' );
+		assert( 'is_numeric($aNewHeight)' );
 		assert( '$aNewHeight > 0' );
 		
 		$this->newWidth = $aNewWidth;

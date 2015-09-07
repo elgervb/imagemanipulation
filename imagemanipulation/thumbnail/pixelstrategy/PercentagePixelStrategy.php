@@ -23,7 +23,7 @@ class PercentagePixelStrategy implements IPixelStrategy
 	 */
 	public function __construct( $aPercentage )
 	{
-		assert( 'is_int($aPercentage)' );
+		assert( 'is_numeric($aPercentage)' );
 		assert( '$aPercentage > 0' );
 
 		$this->percentage = $aPercentage;

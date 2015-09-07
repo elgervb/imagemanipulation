@@ -27,9 +27,9 @@ class MaxPixelStrategy implements IPixelStrategy
 	 */
 	public function __construct( $aMaxWidth, $aMaxHeight )
 	{
-		assert( 'is_int($aMaxWidth)' );
+		assert( 'is_numeric($aMaxWidth)' );
 		assert( '$aMaxWidth > 0' );
-		assert( 'is_int($aMaxHeight)' );
+		assert( 'is_numeric($aMaxHeight)' );
 		assert( '$aMaxHeight > 0' );
 		
 		$this->maxWidth = $aMaxWidth;
