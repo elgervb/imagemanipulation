@@ -5,7 +5,7 @@ namespace imagemanipulation\filter;
 use imagemanipulation\filter\ImageFilterConvolution;
 use imagemanipulation\filter\IImageFilter;
 /**
- * Test new filters
+ * Image filter to give the image an old cardboard look
  */
 class ImageFilterOldCardboard extends ImageFilterConvolution implements IImageFilter
 {

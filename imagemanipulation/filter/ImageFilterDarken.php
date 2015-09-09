@@ -2,6 +2,7 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Changes the brightness of the image
  *
@@ -19,9 +20,11 @@ class ImageFilterDarken implements IImageFilter
 	 *
 	 * @param int $aRate -255 = min brightness, 0 = no change, +255 = max brightness
 	 */
-	public function __construct( $aRate = 20 )
+	public function __construct( $rate = 20 )
 	{
-		$this->rate = $aRate * - 1;
+	    Args::int($rate)->required()->min(-255)->max(255);
+	    
+		$this->rate = $rate * - 1;
 	}
 	
 	public function applyFilter( ImageResource $aResource )

@@ -2,12 +2,12 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Duotone filter. Enhances Red, Green or Blue or a combination
  */
 class ImageFilterDuotone implements IImageFilter
 {
-	
 	private $red;
 	private $green;
 	private $blue;
@@ -15,12 +15,16 @@ class ImageFilterDuotone implements IImageFilter
 	/**
 	 * Creates a new ImageFilterDuotone
 	 *
-	 * @param int $red The amount of red to add
-	 * @param int $green The amount of green to add
-	 * @param int $bleu The amount of blue to add
+	 * @param int $red The amount of red to add max = 255
+	 * @param int $green The amount of green to add max = 255
+	 * @param int $bleu The amount of blue to add max = 255
 	 */
 	public function __construct( $red = 0, $green = 0, $blue = 0 )
 	{
+	    Args::int($red)->required()->min(0)->max(255);
+	    Args::int($green)->required()->min(0)->max(255);
+	    Args::int($blue)->required()->min(0)->max(255);
+	    
 		$this->red = $red;
 		$this->green = $green;
 		$this->blue = $blue;

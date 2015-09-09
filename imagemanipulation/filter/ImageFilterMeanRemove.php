@@ -12,11 +12,6 @@ use imagemanipulation\ImageResource;
 class ImageFilterMeanRemove implements IImageFilter
 {
 	
-	public function __construct()
-	{
-		//
-	}
-	
 	public function applyFilter( ImageResource $aResource )
 	{
 		imagefilter( $aResource->getResource(), IMG_FILTER_MEAN_REMOVAL );

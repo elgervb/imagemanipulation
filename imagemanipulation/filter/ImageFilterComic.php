@@ -3,14 +3,21 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\ImageImageResource;
+use imagemanipulation\Args;
 /**
  * Apply a sketchy comic filter to an image
  */
 class ImageFilterComic implements IImageFilter
 {
 	private $opacity;
-	public function __construct($aOpacity = 40){
-		$this->opacity = $aOpacity;
+	/**
+	 * Constructor
+	 * 
+	 * @param number $aOpacity from 0 to 100
+	 */
+	public function __construct($opacity = 40){
+	    Args::int($opacity,'opacity')->required()->min(0)->max(100);
+		$this->opacity = $opacity;
 	}
 	/**
 	 * Applies the filter to the resource

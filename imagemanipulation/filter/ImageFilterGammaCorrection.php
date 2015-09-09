@@ -12,6 +12,7 @@ class ImageFilterGammaCorrection implements IImageFilter
 	private $output;
 	
 	public function __construct($aInput = 1.0, $aOutput = 1.537){
+	    // TODO check for floats
 		$this->input = $aInput;
 		$this->output = $aOutput;
 	}

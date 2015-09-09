@@ -2,6 +2,7 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Adjust the brightness of the image, either lighter or darker
  *
@@ -18,9 +19,10 @@ class ImageFilterBrightness implements IImageFilter
 	 *
 	 * @param int = 20 The brightness level from -255 to 255, from darker to lighter
 	 */
-	public function __construct( $aRate = 20 )
+	public function __construct( $rate = 20 )
 	{
-		$this->rate = $aRate;
+	    Args::int($rate, 'rate')->required()->min(-255)->max(255);
+		$this->rate = $rate;
 	}
 
     /**

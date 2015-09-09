@@ -3,6 +3,7 @@ namespace imagemanipulation\filter;
 
 use \imagemanipulation\color\ColorFactory;
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Flips an image
  */
@@ -22,10 +23,13 @@ class ImageFilterFlip implements IImageFilter
 	 * @param boolean $aVertical Flip vertical
 	 *
 	 */
-	public function __construct( $aHorizontal = true, $aVertical = false )
+	public function __construct( $horizontal = true, $vertical = false )
 	{
-		$this->horizontal = $aHorizontal;
-		$this->vertical = $aVertical;
+	    Args::bool($horizontal)->required();
+	    Args::bool($vertical)->required();
+	    
+		$this->horizontal = $horizontal;
+		$this->vertical = $vertical;
 	}
 	
 	/**

@@ -2,6 +2,7 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Pixelate an image
  */
@@ -13,9 +14,10 @@ class ImageFilterPixelate implements IImageFilter
 	 * Creates a new Pixelate filter
 	 * @param int $aBlocksize the blocksize in pixels
 	 */
-	public function __construct( $aBlocksize = 20 )
+	public function __construct( $blocksize = 20 )
 	{
-		$this->blocksize = $aBlocksize;
+	    Args::int($blocksize)->required()->min(1);
+		$this->blocksize = $blocksize;
 	}
 	
 	/**
@@ -24,12 +26,9 @@ class ImageFilterPixelate implements IImageFilter
 	 */
 	public function applyFilter( ImageResource $aResource )
 	{
-		if ($this->blocksize < 1)
-			return;
-		
 		$resource = $aResource->getResource();
-		$imagex = imagesx( $resource );
-		$imagey = imagesy( $resource );
+		$imagex = $aResource->getX();
+		$imagey = $aResource->getY();
 		
 		for ($x = 0; $x < $imagex; $x += $this->blocksize)
 		{

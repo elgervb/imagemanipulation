@@ -15,9 +15,10 @@ class ImageFilterDodge implements IImageFilter
 	 *
 	 * @param int $aPercentage min 0, max 100
 	 */
-	public function __construct( $aPercentage = 75 )
+	public function __construct( $percentage = 75 )
 	{
-		$this->percentage = $aPercentage;
+	    Args::int($percentage)->required()->min(0)->max(100);
+		$this->percentage = $percentage;
 	}
 	
 	/**

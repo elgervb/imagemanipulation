@@ -2,6 +2,7 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * add noise to the image
  *
@@ -14,9 +15,10 @@ class ImageFilterNoise implements IImageFilter
 {
 	private $noise;
 	
-	public function __construct( $aNoise = 20 )
+	public function __construct( $noise = 20 )
 	{
-		$this->noise = $aNoise;
+	    Args::int($noise)->required()->min(0);
+		$this->noise = $noise;
 	}
 	
     /**

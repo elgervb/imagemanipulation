@@ -4,6 +4,7 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 use imagemanipulation\color\ColorUtil;
 use imagemanipulation\Coordinate;
+use imagemanipulation\Args;
 /**
  * Rotete the hue of the image
  */
@@ -17,6 +18,8 @@ class ImageFilterHueRotate implements IImageFilter
 	 */
 	public function __construct( $degrees = 90 )
 	{
+	    Args::int($degrees)->required()->min(0);
+	    
 		$this->degrees = $degrees > 360 ? $degrees % 360 : $degrees;;
 	}
 	/**
