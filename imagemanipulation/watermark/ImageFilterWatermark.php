@@ -6,6 +6,7 @@ use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\ImageImageResource;
 use imagemanipulation\filter\ImageFilterOpacity;
+use imagemanipulation\Args;
 /**
  * Apply watermark to the image
  */
@@ -32,10 +33,10 @@ class ImageFilterWatermark implements IImageFilter
 	 * @param string $aPosition The position where to place the watermark. Use the POS_* constants
 	 * @param string $aWatermarkOpacity [optional] The opacity of the watermark image.
 	 */
-	public function __construct(\SplFileInfo $aWatermark, $aPosition = 'bottom-right', $aWatermarkOpacity=null){
+	public function __construct(\SplFileInfo $aWatermark, $aPosition = 'bottom-right', $watermarkOpacity=null){
 		$this->watermark = $aWatermark;
 		$this->position = $aPosition;
-		$this->watermarkOpacity = $aWatermarkOpacity;
+		$this->watermarkOpacity = Args::int($watermarkOpacity, 'watermark opacity')->min(0)->max(127)->value();
 	}
 	
     /**

@@ -3,6 +3,7 @@ namespace imagemanipulation\thumbnail\pixelstrategy;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\Coordinate;
+use imagemanipulation\Args;
 /**
  * Pixel strategy for creating thumbnails which are centered in the middle of the image
  * 
@@ -35,16 +36,11 @@ class CenteredPixelStrategy implements IPixelStrategy
 	 * @param $aNewHeight int
 	 * @param $aRespectSmallerImage boolean
 	 */
-	public function __construct( $aNewWidth, $aNewHeight, $aRespectSmallerImage = true )
+	public function __construct( $newWidth, $newHeight, $respectSmallerImage = true )
 	{
-		assert( 'is_numeric($aNewWidth)' );
-		assert( '$aNewWidth > 0' );
-		assert( 'is_numeric($aNewHeight)' );
-		assert( '$aNewHeight > 0' );
-		
-		$this->newWidth = $aNewWidth;
-		$this->newHeight = $aNewHeight;
-		$this->respectSmallerImage = $aRespectSmallerImage;
+		$this->newWidth = Args::int($newWidth, 'newWidth')->required()->min(0)->value();
+		$this->newHeight = Args::int($newHeight, 'newHeight')->required()->min(0)->value();
+		$this->respectSmallerImage = Args::bool($respectSmallerImage, 'respect smaller image')->required()->value();
 	}
 	
 	/**

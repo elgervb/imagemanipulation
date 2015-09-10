@@ -26,10 +26,10 @@ class Coordinate
 	 * @param int $aX
 	 * @param int $aY
 	 */
-	public function __construct( $aX, $aY )
+	public function __construct( $x, $y )
 	{
-		$this->setX( $aX );
-		$this->setY( $aY );
+		$this->setX( $x );
+		$this->setY( $y );
 	}
 	
 	/**
@@ -64,12 +64,12 @@ class Coordinate
 	
 	/**
 	 * Sets the x-coordinate of the pixel
+	 * 
 	 * @param int $x
 	 */
 	private function setX( $x )
 	{
-		assert( 'is_int($x)' );
-		$this->x = $x;
+		$this->x = Args::int($x)->required()->min(0)->value();
 	}
 	
 	/**
@@ -79,8 +79,7 @@ class Coordinate
 	 */
 	private function setY( $y )
 	{
-		assert( 'is_int($y)' );
-		$this->y = $y;
+		$this->y = Args::int($y)->required()->min(0)->value();
 	}
 
 }

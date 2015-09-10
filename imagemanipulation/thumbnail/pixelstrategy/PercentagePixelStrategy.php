@@ -3,6 +3,7 @@ namespace imagemanipulation\thumbnail\pixelstrategy;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\Coordinate;
+use imagemanipulation\Args;
 /**
  * Pixel strategy to reduce a image with a certain percentage
  * @author eaboxt
@@ -21,12 +22,9 @@ class PercentagePixelStrategy implements IPixelStrategy
 	 * 
 	 * @param int $aPercentage
 	 */
-	public function __construct( $aPercentage )
+	public function __construct( $percentage )
 	{
-		assert( 'is_numeric($aPercentage)' );
-		assert( '$aPercentage > 0' );
-
-		$this->percentage = $aPercentage;
+		$this->percentage = Args::int($percentage, 'percentage')->required()->min(0)->value();
 	}
 
 	/**

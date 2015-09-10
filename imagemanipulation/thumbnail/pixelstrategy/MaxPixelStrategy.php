@@ -3,6 +3,7 @@ namespace imagemanipulation\thumbnail\pixelstrategy;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\Coordinate;
+use imagemanipulation\Args;
 /**
  * Pixel strategy to resize the image to a max width or height keeping proportions, thus restraining the image to a certain size
  */
@@ -25,15 +26,10 @@ class MaxPixelStrategy implements IPixelStrategy
 	 * @param int $aMaxWidth 
 	 * @param int $aMaxHeight
 	 */
-	public function __construct( $aMaxWidth, $aMaxHeight )
+	public function __construct( $maxWidth, $maxHeight )
 	{
-		assert( 'is_numeric($aMaxWidth)' );
-		assert( '$aMaxWidth > 0' );
-		assert( 'is_numeric($aMaxHeight)' );
-		assert( '$aMaxHeight > 0' );
-		
-		$this->maxWidth = $aMaxWidth;
-		$this->maxHeight = $aMaxHeight;
+	    $this->maxWidth = Args::int($maxWidth, 'maxWidth')->required()->min(0)->value();
+	    $this->maxHeight = Args::int($maxHeight, 'maxHeight')->required()->min(0)->value();		
 	}
 	
 	/**

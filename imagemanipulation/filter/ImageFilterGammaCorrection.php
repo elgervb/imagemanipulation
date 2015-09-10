@@ -3,6 +3,7 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\filter\IImageFilter;
+use imagemanipulation\Args;
 /**
  * Applies gamma correction
  */
@@ -11,10 +12,9 @@ class ImageFilterGammaCorrection implements IImageFilter
 	private $input;
 	private $output;
 	
-	public function __construct($aInput = 1.0, $aOutput = 1.537){
-	    // TODO Args check for floats
-		$this->input = $aInput;
-		$this->output = $aOutput;
+	public function __construct($input = 1.0, $output = 1.537){
+	    $this->input = Args::float($input, 'input')->required()->min(0)->value();
+		$this->output = Args::float($output, 'output')->required()->min(0)->value();
 	}
 	/**
 	 * Applies the filter to the resource

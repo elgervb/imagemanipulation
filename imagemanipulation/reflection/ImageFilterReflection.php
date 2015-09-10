@@ -7,6 +7,7 @@ use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\ImageImageResource;
 use imagemanipulation\rotate\ImageFilterRotate;
+use imagemanipulation\Args;
 /**
  * Test new filters
  */
@@ -17,11 +18,12 @@ class ImageFilterReflection implements IImageFilter
 	private $backgroundColor;
 	private $divLineHeight;
 	
-	public function __construct($aHeight, $aBackgroundColor = 'ffffff', $aStartOpacity = 30,   $aDivLineHeight=1){
-		$this->height = $aHeight;
-		$this->startOpacity = $aStartOpacity > 100 ? 100 : $aStartOpacity;
-		$this->backgroundColor = $aBackgroundColor instanceof Color ? $aBackgroundColor : new Color($aBackgroundColor);
-		$this->divLineHeight = $aDivLineHeight;
+	public function __construct($height, $backgroundColor = 'ffffff', $startOpacity = 30,   $divLineHeight = 1){
+		$this->height = Args::int($height, 'height')->required()->min(1)->value();
+		$this->startOpacity = Args::int($startOpacity, 'Start Opacity')->required()->min(0)->max(100)->value();
+		
+		$this->backgroundColor = $backgroundColor instanceof Color ? $backgroundColor : new Color($backgroundColor);
+		$this->divLineHeight = Args::int($divLineHeight, 'divLineHeight')->required()->min(0)->value();
 	}
 	/**
 	 * Applies the filter to the resource

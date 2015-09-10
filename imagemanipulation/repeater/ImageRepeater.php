@@ -3,6 +3,7 @@ namespace imagemanipulation\repeater;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\ImageUtil;
+use imagemanipulation\Args;
 
 class ImageRepeater {
 	
@@ -10,10 +11,10 @@ class ImageRepeater {
 	private $height;
 	private $width;
 	
-	public function __construct(ImageResource $aResource, $aWidth, $aHeight){
+	public function __construct(ImageResource $aResource, $width, $height){
 		$this->resource = $aResource;
-		$this->width= $aWidth;
-		$this->height=$aHeight;
+		$this->width= Args::int($width, 'width')->required()->min(0)->value();
+		$this->height=Args::int($height, 'height')->required()->min(0)->value();
 	}
 	
 	public function apply(){

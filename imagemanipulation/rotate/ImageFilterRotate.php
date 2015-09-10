@@ -7,6 +7,7 @@ use imagemanipulation\color\ColorFactory;
 use imagemanipulation\ImageResource;
 use imagemanipulation\filter\FilterException;
 use imagemanipulation\filter\IImageFilter;
+use imagemanipulation\Args;
 /**
  * Rotate an image over an angle.
  *
@@ -31,16 +32,11 @@ class ImageFilterRotate implements IImageFilter
 	 * @param String $aBgcolor The background color to apply
 	 *
 	 */
-	public function __construct( $aAngle = 90, $aBgcolor = null )
+	public function __construct( $angle = 90, $aBgcolor = null )
 	{
-		assert( '$aAngle >= -360 && $aAngle <= 360' );
-		
-		if ($aAngle < 0){
-			$this->angle = 360 - $aAngle;
-		}
-		else{
-			$this->angle = $aAngle;
-		}
+	    $this->angle = Args::int($ange, 'angle')->required()->min(-360)->max(360)->value(function($val){
+	    	return $val < 0 ? 360 - $val : $val;
+	    });
 		
 		if ($aBgcolor === null)
 		{

@@ -16,14 +16,14 @@ class ImageUtil
 	 * @param int $aHeight The height of the image
 	 * @return resource
 	 */
-	public static function createTransparentImage( $aWidth, $aHeight )
+	public static function createTransparentImage( $width, $height )
 	{
-		assert( '$aWidth > 0' );
-		assert( '$aHeight > 0' );
-
+	   Args::int($width, 'width')->required()->min(0);
+	   Args::int($height, 'height')->required()->min(0);	
+	    
 		$color = ColorFactory::white( 127 );
 
-		$imgRes = imagecreatetruecolor( $aWidth, $aHeight );
+		$imgRes = imagecreatetruecolor( $width, $height );
 		imageantialias( $imgRes, true );
 		imagealphablending( $imgRes, true );
 		imagesavealpha( $imgRes, true );
