@@ -4,7 +4,6 @@ namespace imagemanipulation
 
     class Args
     {
-
         public static function int($val, $name = 'Arg')
         {
             return new IntegerChecker($val, $name);
