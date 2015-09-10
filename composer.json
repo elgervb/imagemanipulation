@@ -26,6 +26,7 @@
 		"MIT"
 	],
 	"require-dev" : {
+		"phpunit/phpunit" : "^4.8"
 	},
 	"autoload" : {
 		"psr-0" : {
@@ -37,8 +38,5 @@
 		"source" : "https://github.com/elgervb/imagemanipulation",
 		"issues" : "https://github.com/elgervb/imagemanipulation/issues",
 		"email" : "elgervb@gmail.com"
-	},
-	"require": {
-		"phpunit/phpunit": "^4.8"
 	}
 }
