@@ -1,7 +1,7 @@
 <?php
 namespace imagemanipulation;
 /**
- * @package imagemanipulation
+ * 
  */
 class ImageType
 {

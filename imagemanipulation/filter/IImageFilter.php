@@ -5,10 +5,6 @@ use imagemanipulation\ImageResource;
 
 /**
  * Interface for a image filter.
- *
- * @package image
- * @subpackage imagefilter
- *
  */
 interface IImageFilter
 {
