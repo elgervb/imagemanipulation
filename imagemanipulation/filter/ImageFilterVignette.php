@@ -36,7 +36,7 @@ class ImageFilterVignette implements IImageFilter
 		}
 	}
 	
-	public function vignetteToPixel($x, $y, &$rgb){
+	private function vignetteToPixel($x, $y, &$rgb){
 		$sharp = 0.4; // 0 - 10 small is sharpnes,
 		$level = 0.7; // 0 - 1 small is brighter
 	

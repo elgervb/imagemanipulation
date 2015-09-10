@@ -20,6 +20,8 @@ class ImageFilterSepiaFast implements IImageFilter
      */
     public function __construct( $darken = 15 )
     {
+        Args::int($darken, 'darken')->required()->min(0);
+        
         $this->opacity = 127 - min(array($darken + 30, 127));
     }
 

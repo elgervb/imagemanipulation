@@ -3,6 +3,7 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\overlay\ImageFilterOverlay;
+use imagemanipulation\Args;
 /**
  * Applies grayscale to an image, optionally add a grayscale percentage
  *
@@ -15,6 +16,8 @@ class ImageFilterSemiGrayScale implements IImageFilter
 
     public function __construct($percentage = 100)
     {
+        Args::int($percentage, 'percentage')->required()->min(0)->max(100);
+        
         $this->percentage = $percentage;
     }
 

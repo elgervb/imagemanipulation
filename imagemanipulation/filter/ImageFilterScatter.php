@@ -2,6 +2,7 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Scatter pixels around in a random way
  * 
@@ -22,9 +23,11 @@ class ImageFilterScatter implements IImageFilter
 	 * 
 	 * @param number $aOffset
 	 */
-	public function __construct( $aOffset = 4 )
+	public function __construct( $offset = 4 )
 	{
-		$this->offset = $aOffset;
+	    Args::int($offset, 'offset')->required()->min(1);
+	    
+		$this->offset = $offset;
 	}
 	/**
 	 * Applies the sepia filter to an image resource

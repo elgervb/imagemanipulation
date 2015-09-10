@@ -2,6 +2,7 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Apply sepia to the image.
  * Each and every pixel will be programmically calculated, and thus this method is quite slow.
@@ -21,6 +22,7 @@ class ImageFilterSepia implements IImageFilter
 	 */
 	public function __construct( $darken = 15 )
 	{
+	    Args::int($darken, 'darken')->required()->min(0);
 		$this->darken = $darken;
 	}
 	

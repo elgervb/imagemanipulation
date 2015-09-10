@@ -11,12 +11,6 @@ use imagemanipulation\ImageResource;
  */
 class ImageFilterReverse implements IImageFilter
 {
-	
-	public function __construct()
-	{
-	
-	}
-	
 	public function applyFilter( ImageResource $aResource )
 	{
 		$x = $aResource->getX();

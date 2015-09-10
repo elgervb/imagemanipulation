@@ -6,6 +6,7 @@ use imagemanipulation\ImageResource;
 use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\ImageImageResource;
+use imagemanipulation\Args;
 
 /**
  * Add random blocks to an image with custom size and color
@@ -25,10 +26,15 @@ class ImageFilterRandomBlocks implements IImageFilter
 	 * @param number $aBlockSize      The size of the blocks in pixels
 	 * @param string $aBlockColor     The color of the blocks
 	 */
-	public function __construct($aNumberOfBlocks = 100, $aBlockSize = 25, $aBlockColor = 'FFFFFF'){
-		$this->blockColor = $aBlockColor instanceof Color ? $aBlockColor : new Color($aBlockColor);
-		$this->blockSize = $aBlockSize;
-		$this->nrOfBlocks = $aNumberOfBlocks;
+	public function __construct($numberOfBlocks = 100, $blockSize = 25, $blockColor = 'FFFFFF'){
+	    
+	    Args::int($numberOfBlocks)->required()->min(1);
+	    Args::int($blockSize)->required()->min(0);
+	    // TODO blockcolor can be Object and string... add check to args
+	    
+		$this->blockColor = $blockColor instanceof Color ? $blockColor : new Color($blockColor);
+		$this->blockSize = $blockSize;
+		$this->nrOfBlocks = $numberOfBlocks;
 	}
 	/**
 	 * Applies the filter to the resource
