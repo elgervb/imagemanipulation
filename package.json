@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/elgervb/imagemanipulation",
   "devDependencies": {
+    "browser-sync": "^2.9.3",
     "gulp": "^3.9.0",
+    "gulp-connect-php": "0.0.5",
     "gulp-notify": "^2.2.0",
     "gulp-phpunit": "^0.9.1",
     "lodash": "^3.10.1"
