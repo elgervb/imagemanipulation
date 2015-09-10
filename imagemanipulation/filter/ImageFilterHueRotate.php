@@ -29,25 +29,35 @@ class ImageFilterHueRotate implements IImageFilter
 	 */
 	public function applyFilter( ImageResource $aResource )
 	{
-	    if ($this->degrees % 360 === 0){return;}
+	    if ($this->degrees === 0){return;}
 	    
 	    $width = $aResource->getX();
 	    $height = $aResource->getY();
+	    
+	    // cache calculated colors in a map...
+	    $colorMap = array();
 	    
 	    for ($x = 0; $x < $width; ++ $x)
 	    {
 	        for ($y = 0; $y < $height; ++ $y)
 	        {
 	            $color = ColorUtil::getColorAt($aResource, Coordinate::create($x, $y));
-	            $hsl = ColorUtil::rgb2hsl($color->getRed(), $color->getGreen(), $color->getBlue());
+	            if (!isset($colorMap[$color->getColorIndex()])){
+	                // calculate the new color
+    	            $hsl = ColorUtil::rgb2hsl($color->getRed(), $color->getGreen(), $color->getBlue());
+    	            $hsl[0] += $this->degrees;
+    	            $rgb = ColorUtil::hsl2rgb($hsl[0], $hsl[1], $hsl[2]);
+    	            $newcol = imagecolorallocate( $aResource->getResource(), $rgb[0], $rgb[1], $rgb[2] );
+    	            
+    	            $colorMap[$color->getColorIndex()] = $newcol;
+	            } else {
+	                $newcol = $colorMap[$color->getColorIndex()];
+	            }
 	            
-	            $hsl[0] += $this->degrees;
-	            
-	            $rgb = ColorUtil::hsl2rgb($hsl[0], $hsl[1], $hsl[2]);
-	            
-	            $newcol = imagecolorallocate( $aResource->getResource(), $rgb[0], $rgb[1], $rgb[2] );
 	            imagesetpixel( $aResource->getResource(), $x, $y, $newcol );
 	        }
 	    }
+	    
+	    $colorMap = null;
 	}
 }
