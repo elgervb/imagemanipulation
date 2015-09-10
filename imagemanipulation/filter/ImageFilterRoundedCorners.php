@@ -14,9 +14,8 @@ class ImageFilterRoundedCorners implements IImageFilter
 	
 	public function __construct( $radius = 20, Color $color = null )
 	{
-	    Args::int($radius, 'radius')->required()->min(0)->max(360);
+	    $this->radius = Args::int($radius, 'radius')->required()->min(0)->max(360)->value();
 	    
-		$this->radius = $radius;
 		$this->color = $color ? $color : new Color('ffffff');
 	}
 	

@@ -22,9 +22,7 @@ class ImageFilterDarken implements IImageFilter
 	 */
 	public function __construct( $rate = 20 )
 	{
-	    Args::int($rate)->required()->min(-255)->max(255);
-	    
-		$this->rate = $rate * - 1;
+	    $this->rate = Args::int($rate)->required()->min(-255)->max(255)->value()  * -1;
 	}
 	
 	public function applyFilter( ImageResource $aResource )

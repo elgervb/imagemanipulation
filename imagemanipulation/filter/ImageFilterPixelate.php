@@ -16,8 +16,7 @@ class ImageFilterPixelate implements IImageFilter
 	 */
 	public function __construct( $blocksize = 20 )
 	{
-	    Args::int($blocksize, 'blocksize')->required()->min(1);
-		$this->blocksize = $blocksize;
+	    $this->blocksize = Args::int($blocksize, 'blocksize')->required()->min(1)->value();
 	}
 	
 	/**

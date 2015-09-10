@@ -4,6 +4,7 @@ namespace imagemanipulation\generation;
 use imagemanipulation\color\Color;
 use imagemanipulation\ImageResource;
 use imagemanipulation\ImageUtil;
+use imagemanipulation\Args;
 
 class ImageGenerator{
 
@@ -17,6 +18,9 @@ class ImageGenerator{
      * @return \imagemanipulation\ImageResource
      */
     public static function create($width, $height, Color $color){
+        Args::int($width, 'width')->required()->min(1);
+        Args::int($height, 'height')->required()->min(1);
+        
         $res   = new ImageResource( imagecreatetruecolor($width, $height) );
         $color = ImageUtil::allocateColor($res->getResource(), $color);
         imagefill($res->getResource(), 0, 0, $color);
@@ -37,6 +41,9 @@ class ImageGenerator{
      * @return \imagemanipulation\ImageResource
      */
     public static function gradient($width, $height, $start, Color $src_color, Color $dest_color){
+        Args::int($width, 'width')->required()->min(1);
+        Args::int($height, 'height')->required()->min(1);
+        
         $res   = self::create($width, $height, $src_color);
         $img = $res->getResource();
         

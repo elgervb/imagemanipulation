@@ -21,13 +21,9 @@ class ImageFilterDuotone implements IImageFilter
 	 */
 	public function __construct( $red = 0, $green = 0, $blue = 0 )
 	{
-	    Args::int($red)->required()->min(0)->max(255);
-	    Args::int($green)->required()->min(0)->max(255);
-	    Args::int($blue)->required()->min(0)->max(255);
-	    
-		$this->red = $red;
-		$this->green = $green;
-		$this->blue = $blue;
+	    $this->red = Args::int($red)->required()->min(0)->max(255)->value();
+	    $this->green = Args::int($green)->required()->min(0)->max(255)->value();
+	    $this->blue = Args::int($blue)->required()->min(0)->max(255)->value();
 	}
 	
 	/**

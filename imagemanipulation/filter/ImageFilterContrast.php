@@ -22,8 +22,7 @@ class ImageFilterContrast implements IImageFilter
 	 */
 	public function __construct( $level = 5 )
 	{
-	    Args::int($level, 'level')->required()->min(-100)->max(100);
-		$this->level = $level * - 1;
+	    $this->level = Args::int($level, 'level')->required()->min(-100)->max(100)->value() * -1;
 	}
 	
 	/**

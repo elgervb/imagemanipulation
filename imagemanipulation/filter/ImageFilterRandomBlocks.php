@@ -28,13 +28,11 @@ class ImageFilterRandomBlocks implements IImageFilter
 	 */
 	public function __construct($numberOfBlocks = 100, $blockSize = 25, $blockColor = 'FFFFFF'){
 	    
-	    Args::int($numberOfBlocks)->required()->min(1);
-	    Args::int($blockSize)->required()->min(0);
+	    $this->nrOfBlocks = Args::int($numberOfBlocks)->required()->min(1)->value();
+	    $this->blockSize = Args::int($blockSize)->required()->min(0)->value();
 	    // TODO blockcolor can be Object and string... add check to args
 	    
 		$this->blockColor = $blockColor instanceof Color ? $blockColor : new Color($blockColor);
-		$this->blockSize = $blockSize;
-		$this->nrOfBlocks = $numberOfBlocks;
 	}
 	/**
 	 * Applies the filter to the resource

@@ -2,6 +2,7 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
+use imagemanipulation\Args;
 /**
  * Image Sepia
  *
@@ -20,9 +21,9 @@ class ImageFilterSepiaFast implements IImageFilter
      */
     public function __construct( $darken = 15 )
     {
-        Args::int($darken, 'darken')->required()->min(0);
-        
-        $this->opacity = 127 - min(array($darken + 30, 127));
+        $this->opacity = Args::int($darken, 'darken')->required()->min(0)->value(function($opacity){
+        	return 127 - min(array($opacity + 30, 127));
+        });
     }
 
 	/**

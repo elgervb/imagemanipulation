@@ -22,8 +22,7 @@ class ImageFilterSepia implements IImageFilter
 	 */
 	public function __construct( $darken = 15 )
 	{
-	    Args::int($darken, 'darken')->required()->min(0);
-		$this->darken = $darken;
+	    $this->darken = Args::int($darken, 'darken')->required()->min(0)->value();
 	}
 	
 	/**

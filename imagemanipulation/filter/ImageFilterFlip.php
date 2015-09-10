@@ -25,11 +25,8 @@ class ImageFilterFlip implements IImageFilter
 	 */
 	public function __construct( $horizontal = true, $vertical = false )
 	{
-	    Args::bool($horizontal)->required();
-	    Args::bool($vertical)->required();
-	    
-		$this->horizontal = $horizontal;
-		$this->vertical = $vertical;
+	    $this->horizontal = Args::bool($horizontal)->required()->value();
+	    $this->vertical = Args::bool($vertical)->required()->value();
 	}
 	
 	/**

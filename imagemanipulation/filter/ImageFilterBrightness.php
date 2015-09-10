@@ -21,8 +21,7 @@ class ImageFilterBrightness implements IImageFilter
 	 */
 	public function __construct( $rate = 20 )
 	{
-	    Args::int($rate, 'rate')->required()->min(-255)->max(255);
-		$this->rate = $rate;
+	    $this->rate = Args::int($rate, 'rate')->required()->min(-255)->max(255)->value();
 	}
 
     /**

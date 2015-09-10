@@ -4,9 +4,6 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 /**
  * Converts the colors to grayscale
- *
- * @package image
- * @subpackage imagefilter
  */
 class ImageFilterGrayScale implements IImageFilter
 {

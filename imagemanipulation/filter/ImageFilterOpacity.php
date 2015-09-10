@@ -18,8 +18,7 @@ class ImageFilterOpacity implements IImageFilter
 	 */
 	public function __construct( $opacity = 80 )
 	{
-	    Args::int($opacity)->required()->min(0)->max(127);
-		$this->opacity = $opacity;
+	    $this->opacity = Args::int($opacity)->required()->min(0)->max(127)->value();
 	}
 	
 	/**

@@ -19,7 +19,6 @@ class ImageFilterVignette implements IImageFilter
 	 */
 	public function applyFilter( ImageResource $aResource )
 	{
-		
 		$this->width = $aResource->getX();
 		$this->height = $aResource->getY();
 		$im = $aResource->getResource();

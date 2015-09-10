@@ -17,8 +17,7 @@ class ImageFilterNoise implements IImageFilter
 	
 	public function __construct( $noise = 20 )
 	{
-	    Args::int($noise)->required()->min(0);
-		$this->noise = $noise;
+	    $this->noise = Args::int($noise)->required()->min(0)->value();
 	}
 	
     /**
@@ -34,8 +33,8 @@ class ImageFilterNoise implements IImageFilter
 		
 		$resource = $aResource->getResource();
 		
-		$imagex = imagesx( $resource );
-		$imagey = imagesy( $resource );
+		$imagex = $aResource->getX();
+		$imagey = $aResource->getY();
 		
 		for ($x = 0; $x < $imagex; ++ $x)
 		{

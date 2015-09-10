@@ -16,8 +16,7 @@ class ImageFilterComic implements IImageFilter
 	 * @param number $aOpacity from 0 to 100
 	 */
 	public function __construct($opacity = 40){
-	    Args::int($opacity,'opacity')->required()->min(0)->max(100);
-		$this->opacity = $opacity;
+	    $this->opacity = Args::int($opacity,'opacity')->required()->min(0)->max(100)->value();
 	}
 	/**
 	 * Applies the filter to the resource

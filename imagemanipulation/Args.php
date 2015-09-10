@@ -39,8 +39,29 @@ namespace imagemanipulation
             return $this;
         }
         
+        /**
+         * Internal function to throw a new exception
+         * 
+         * @param string $msg The message to show; will be prepended with the name of the variable under check
+         * 
+         * @throws \InvalidArgumentException
+         */
         protected function throwException($msg){
             throw new \InvalidArgumentException($this->name . ' ' . $msg);
+        }
+        
+        /**
+         * returns the value of the checker
+         * 
+         * @param \Closure a optional transformation closure. This will get the value as a parameter
+         * 
+         * @return mixed the optionally transformed value
+         */
+        public function value(\Closure $fn = null){
+            if ($fn){
+                return $fn($this->val);
+            }
+            return  $this->val;
         }
     }
 
@@ -61,6 +82,10 @@ namespace imagemanipulation
             }
             return $this;
         }
+        
+        public function value(\Closure $fn = null){
+           return (int) parent::value($fn);
+        }
     }
     
     class BooleanChecker extends ArgumentChecker{
@@ -76,6 +101,10 @@ namespace imagemanipulation
             if ($this->val === true){
                 $this->throwException('must be false');
             }
+        }
+        
+        public function value(\Closure $fn = null){
+            return !!parent::value($fn);
         }
     }
 }

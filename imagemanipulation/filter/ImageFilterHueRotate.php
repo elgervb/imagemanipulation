@@ -18,9 +18,9 @@ class ImageFilterHueRotate implements IImageFilter
 	 */
 	public function __construct( $degrees = 90 )
 	{
-	    Args::int($degrees)->required()->min(0);
-	    
-		$this->degrees = $degrees > 360 ? $degrees % 360 : $degrees;;
+	    $this->degrees = Args::int($degrees)->required()->min(0)->value(function($degrees){
+	        return $degrees > 360 ? $degrees % 360 : $degrees;
+	    });
 	}
 	/**
 	 * Applies the sepia filter to an image resource

@@ -25,9 +25,7 @@ class ImageFilterScatter implements IImageFilter
 	 */
 	public function __construct( $offset = 4 )
 	{
-	    Args::int($offset, 'offset')->required()->min(1);
-	    
-		$this->offset = $offset;
+	    $this->offset = Args::int($offset, 'offset')->required()->min(1)->value();
 	}
 	/**
 	 * Applies the sepia filter to an image resource

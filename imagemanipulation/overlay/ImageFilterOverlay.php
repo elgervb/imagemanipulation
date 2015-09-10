@@ -4,6 +4,7 @@ namespace imagemanipulation\overlay;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\ImageResource;
 use imagemanipulation\ImageImageResource;
+use imagemanipulation\Args;
 
 class ImageFilterOverlay implements IImageFilter
 {
@@ -27,15 +28,14 @@ class ImageFilterOverlay implements IImageFilter
      * @param number $startY start Y pixel of the overlay
      * @param boolean $fill Fill the overlay using the height of the original image, or use the size of the overlay
      */
-    public function __construct(ImageResource $aOverlay, $aOpacity = 50, $startX = 0, $startY = 0, $fill = true){
-        assert ('$aOpacity <= 100'); 
-        assert ('$aOpacity >= 0');
+    public function __construct(ImageResource $overlay, $opacity = 50, $startX = 0, $startY = 0, $fill = true){
         
-        $this->opacity = $aOpacity;
-        $this->overlay = $aOverlay;
-        $this->startX = $startX;
-        $this->startY = $startY;
-        $this->fill = $fill;
+        $this->startX = Args::int($startX, 'startX')->required()->min(0)->value();
+        $this->startY = Args::int($startY, 'startY')->required()->min(0)->value();
+        $this->opacity = Args::int($opacity, 'opacity')->required()->min(1)->max(100)->value();
+        $this->fill = Args::bool($fill, 'fill')->required()->value();
+        
+        $this->overlay = $overlay;
     }
 
     /**

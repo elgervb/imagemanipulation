@@ -24,9 +24,7 @@ class ImageFilterSmooth implements IImageFilter
 	 */
 	public function __construct( $rate = 5 )
 	{
-	    Args::int($rate, 'rate')->required()->min(0);
-	    
-		$this->rate = $rate;
+	    $this->rate = Args::int($rate, 'rate')->required()->min(0)->value();
 	}
 	
 	/**
