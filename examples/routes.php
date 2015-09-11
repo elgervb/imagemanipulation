@@ -1,7 +1,23 @@
 <?php
-// router.php 
-if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
-    return false;    // serve the requested resource as-is 
-}
+
+use imagemanipulation\ImageBuilder;
+
+require_once '../vendor/autoload.php';
+
+
+$path = $_SERVER["REQUEST_URI"];
+$paths = explode("/", $path);
+$method = str_replace('.png', '', $paths[1]);
+
+$b = ImageBuilder::create(__DIR__ . '/uglydog.png');
+
+if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $path)) {
+    if ($path == "/uglydog.png"){
+        return false;    // serve the requested resource as-is
+    }
     
-echo "<p>Thanks for using gulp-connect-php :)</p>";
+    call_user_func_array(array($b, $method), array_slice($paths, 2));//->render();
+      
+}
+echo '<img src="/uglydog.png" />';
+echo '<img src="/'.$method.'.png" />';
