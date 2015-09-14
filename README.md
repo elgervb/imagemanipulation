@@ -46,6 +46,7 @@ Lots of image filters. All of them listed below:
 * convolution 3x3 filters
 * darken
 * dodge
+* duotone
 * edge detect
 * emboss
 * find edges
@@ -53,6 +54,7 @@ Lots of image filters. All of them listed below:
 * gamma correction
 * gaussian blur
 * grayscale
+* hue rotate
 * mean remove
 * motion blur
 * negative
@@ -63,6 +65,7 @@ Lots of image filters. All of them listed below:
 * random blocks with custom size and color
 * replace color
 * reverse
+* rounded corners
 * scatter
 * selective blur
 * semi grayscale
