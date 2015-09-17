@@ -124,6 +124,10 @@ class ThumbalizerTest extends \ImagemanipulationTestCase
         $img = $this->getOriginalImage(ImageType::JPG);
         $builder = ImageBuilder::create($img)->thumbCentered(200, 100);
         
+        $res = $builder->toResource();
+        $this->assertEquals($res->getX(), 200, "Check width centered thumb");
+        $this->assertEquals($res->getY(), 100, "Check width centered thumb");
+        
         $res = $builder->thumbMax(100, 100)->toResource();
         $this->assertEquals($res->getX(), 100);
         $this->assertEquals($res->getY(), 50);
@@ -131,6 +135,10 @@ class ThumbalizerTest extends \ImagemanipulationTestCase
     public function testMaxPng(){
         $img = $this->getOriginalImage(ImageType::PNG);
         $builder = ImageBuilder::create($img)->thumbCentered(200, 100);
+        
+        $res = $builder->toResource();
+        $this->assertEquals($res->getX(), 200, "Check width centered thumb");
+        $this->assertEquals($res->getY(), 100, "Check width centered thumb");
     
         $res = $builder->thumbMax(100, 100)->toResource();
         $this->assertEquals($res->getX(), 100);
@@ -139,6 +147,10 @@ class ThumbalizerTest extends \ImagemanipulationTestCase
     public function testMaxGif(){
         $img = $this->getOriginalImage(ImageType::GIF);
         $builder = ImageBuilder::create($img)->thumbCentered(200, 100);
+        
+        $res = $builder->toResource();
+        $this->assertEquals($res->getX(), 200, "Check width centered thumb");
+        $this->assertEquals($res->getY(), 100, "Check height centered thumb");
     
         $res = $builder->thumbMax(100, 100)->toResource();
         $this->assertEquals($res->getX(), 100);

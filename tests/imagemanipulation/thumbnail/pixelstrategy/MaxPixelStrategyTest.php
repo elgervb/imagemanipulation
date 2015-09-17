@@ -9,7 +9,7 @@ use imagemanipulation\color\Color;
 use imagemanipulation\thumbnail\Thumbalizer;
 class MaxPixelStrategyTest extends \ImagemanipulationTestCase{
 
-    public function testCreatWithNumeric(){
+    public function testCreatFromString(){
         $s = new MaxPixelStrategy("300", "500"); // this should work
     }
     

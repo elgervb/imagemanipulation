@@ -70,7 +70,7 @@ class MaxPixelStrategy implements IPixelStrategy
 		else {
 			if ($x > $this->maxWidth)
 			{
-				if ($this->maxWidth > $this->maxHeight)
+				if ($x - $this->maxWidth > $y - $this->maxHeight)
 				{
 					$factor = ($this->maxWidth / $x);
 				}
@@ -81,7 +81,7 @@ class MaxPixelStrategy implements IPixelStrategy
 			}
 			elseif ($y > $this->maxHeight)
 			{
-				if ($this->maxWidth < $this->maxHeight)
+				if ($x - $this->maxWidth > $y - $this->maxHeight)
 				{
 					$factor = ($this->maxWidth / $x);
 				}
