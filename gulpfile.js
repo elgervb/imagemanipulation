@@ -1,6 +1,7 @@
+/* global __dirname */
 var gulp = require('gulp'),
     notify  = require('gulp-notify'),
-    phpunit = require('gulp-phpunit')
+    phpunit = require('gulp-phpunit'),
     _       = require('lodash'),
     browserSync = require('browser-sync');
 
