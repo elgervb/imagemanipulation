@@ -109,13 +109,24 @@ abstract class ImagemanipulationTestCase extends \PHPUnit_Framework_TestCase
 	 *
 	 * @return \imagemanipulation\ImageImageResource
 	 */
-	public function getImageRes(\SplFileInfo $aFile, $aIdentifier )
+	public function getImageRes(\SplFileInfo $aFile, $identifier )
 	{
-	    $aIdentifier = str_replace("::", "", $aIdentifier);
-	    $aIdentifier = str_replace("\\", "", $aIdentifier);
+	    $folder = get_called_class();
+	    $folder = str_replace("::", "", $folder);
+	    $folder = str_replace("\\", "", $folder);
 	    $cacheDir = $this->getCacheDir();
+	    
+	    if (strstr($identifier, "::")){
+	        $expl = explode("::", $identifier);
+	        $identifier = $expl[1];
+	    }
+	    
+	    $dir = $cacheDir . DIRECTORY_SEPARATOR . $folder;
+	    if (!is_dir($dir)){
+	        mkdir($dir);
+	    }
 	
-	    $testFile = new \SplFileInfo( $cacheDir . DIRECTORY_SEPARATOR . $aIdentifier . '-' . $aFile->getFilename() );
+	    $testFile = new \SplFileInfo( $dir . DIRECTORY_SEPARATOR . $identifier . "." . $aFile->getExtension() );
 	    if ($testFile->isFile())
 	    {
 	        $path = $testFile->getPathname();
