@@ -26,7 +26,9 @@ class ImageFilterSemiGrayScale implements IImageFilter
      */
     public function applyFilter(ImageResource $aResource)
     {
-        if ($this->percentage === 100) {
+        if ($this->percentage === 0) {
+            return $aResource;
+        } else if ($this->percentage === 100) {
             $filter = new ImageFilterGrayScale();
             $filter->applyFilter($aResource);
         } else {
@@ -34,7 +36,7 @@ class ImageFilterSemiGrayScale implements IImageFilter
             $filter = new ImageFilterGrayScale();
             $filter->applyFilter($clone);
             
-            $overlayFilter = new ImageFilterOverlay($clone, 100 - $this->percentage); // grayscale clone
+            $overlayFilter = new ImageFilterOverlay($clone, $this->percentage); // grayscale clone
             $overlayFilter->applyFilter($aResource);
         }
     }

@@ -8,11 +8,18 @@ use imagemanipulation\color\Color;
 use imagemanipulation\ImageBuilder;
 use imagemanipulation\generation\ImageGenerator;
 $loader = new \Composer\Autoload\ClassLoader();
-$loader->add('imagemanipulation', __DIR__.'/../imagemanipulation');
+$loader->add('imagemanipulation', __DIR__.'/..');
 
 // activate the autoloader
 $loader->register();
 $loader->setUseIncludePath(true);
+
+/**
+ * https://github.com/elgervb/imagemanipulation/issues/23
+ */
+ImageBuilder::create(new \SplFileInfo(__DIR__ . '/sample.png'))
+        ->semiGrayscale(60)
+        ->render();
 
 /*
  * Test Overlay
