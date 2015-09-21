@@ -6,7 +6,7 @@ use imagemanipulation\filter\ImageFilterSemiGrayScale;
 
 class ImageFilterSemiGrayscaleTest extends \ImageFilterTestCase
 {
-	public function testGif()
+	public function testGif100()
 	{
 		$original = $this->getOriginalImage( ImageType::GIF );
 		$res = $this->applyFilter( new ImageFilterSemiGrayScale(100), $original, __METHOD__ );
@@ -16,7 +16,7 @@ class ImageFilterSemiGrayscaleTest extends \ImageFilterTestCase
 		$this->assertColorQ3( $res, '1d1d1d' );
 		$this->assertColorQ4( $res, 'ffffff' );
 	}
-	public function testJpg()
+	public function testJpg100()
 	{
 		$original = $this->getOriginalImage( ImageType::JPG );
 		$res = $this->applyFilter( new ImageFilterSemiGrayScale(100), $original, __METHOD__ );
@@ -26,7 +26,7 @@ class ImageFilterSemiGrayscaleTest extends \ImageFilterTestCase
 		$this->assertColorQ3( $res, '1c1c1c' );
 		$this->assertColorQ4( $res, 'ffffff' );
 	}
-	public function testPng()
+	public function testPng100()
 	{
 		$original = $this->getOriginalImage( ImageType::PNG );
 		$res = $this->applyFilter( new ImageFilterSemiGrayScale(100), $original, __METHOD__ );
@@ -72,9 +72,9 @@ class ImageFilterSemiGrayscaleTest extends \ImageFilterTestCase
 	    $original = $this->getOriginalImage( ImageType::GIF );
 	    $res = $this->applyFilter( new ImageFilterSemiGrayScale(25), $original, __METHOD__ );
 	
-	    $this->assertColorQ1( $res, '783939' );
-	    $this->assertColorQ2( $res, '6faf6f' );
-	    $this->assertColorQ3( $res, '151555' );
+	    $this->assertColorQ1( $res, 'd21313' );
+	    $this->assertColorQ2( $res, '25e425' );
+	    $this->assertColorQ3( $res, '0707c6' );
 	    $this->assertColorQ4( $res, 'ffffff' );
 	}
 	public function testJpg25()
@@ -82,9 +82,9 @@ class ImageFilterSemiGrayscaleTest extends \ImageFilterTestCase
 	    $original = $this->getOriginalImage( ImageType::JPG );
 	    $res = $this->applyFilter( new ImageFilterSemiGrayScale(25), $original, __METHOD__ );
 	
-	    $this->assertColorQ1( $res, '773838' );
-	    $this->assertColorQ2( $res, '6faf70' );
-	    $this->assertColorQ3( $res, '151554' );
+	    $this->assertColorQ1( $res, 'd11212' );
+	    $this->assertColorQ2( $res, '25e426' );
+	    $this->assertColorQ3( $res, '0707c5' );
 	    $this->assertColorQ4( $res, 'ffffff' );
 	}
 	public function testPng25()
@@ -92,9 +92,9 @@ class ImageFilterSemiGrayscaleTest extends \ImageFilterTestCase
 	    $original = $this->getOriginalImage( ImageType::PNG );
 	    $res = $this->applyFilter( new ImageFilterSemiGrayScale(25), $original, __METHOD__ );
 	
-	    $this->assertColorQ1( $res, '783939' );
-	    $this->assertColorQ2( $res, '6faf6f' );
-	    $this->assertColorQ3( $res, '151555' );
+	    $this->assertColorQ1( $res, 'd21313' );
+	    $this->assertColorQ2( $res, '25e425' );
+	    $this->assertColorQ3( $res, '0707c6' );
 	    $this->assertColorQ4( $res, 'ffffff' );
 	}
 }
