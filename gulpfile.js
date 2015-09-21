@@ -16,23 +16,25 @@ gulp.task('test', function() {
 });
 
 gulp.task('php', function() {
+	console.log(__dirname + '/tests/php.ini');
 	return require('gulp-connect-php').server({
 		base: './examples', 
-		port: 8080, 
+		port: 4000, 
 		keepalive: true,
 		router: 'routes.php'
 	});
 });
-gulp.task('browser-sync',['php'], function() {
+gulp.task('browser-sync', ['php'], function() {
     browserSync({
         proxy: '127.0.0.1:8080',
-        port: 8081,
+        port: 4001,
         open: false,
         notify: true
     });
+    gulp.watch(['build/*.php'], [reload]);
 });
 gulp.task('default', ['browser-sync'], function () {
-    gulp.watch(['build/*.php'], [reload]);
+    
 });
  
 gulp.task('default', function(){
