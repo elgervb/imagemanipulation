@@ -421,7 +421,7 @@ class ImageBuilder
         return $this;
     }
     
-    public function truecolor($primary, $secundary){
+    public function truecolor($primary = 'FFFFFF', $secundary = "000000"){
         $this->queue->append(new ImageFilterTrueColor($primary, $secundary));
         
         return $this;
