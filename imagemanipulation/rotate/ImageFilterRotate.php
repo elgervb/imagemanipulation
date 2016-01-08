@@ -34,7 +34,7 @@ class ImageFilterRotate implements IImageFilter
 	 */
 	public function __construct( $angle = 90, $aBgcolor = null )
 	{
-	    $this->angle = Args::int($ange, 'angle')->required()->min(-360)->max(360)->value(function($val){
+	    $this->angle = Args::int($angle, 'angle')->required()->min(-360)->max(360)->value(function($val){
 	    	return $val < 0 ? 360 - $val : $val;
 	    });
 		
