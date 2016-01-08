@@ -76,6 +76,15 @@ class ImageResource
 		return $this->imgRes;
 	}
 	
+	public function getSize() {
+	    ob_start();              // start the buffer
+	    $this->imageoutput();   // output image to buffer
+	    $size = ob_get_length(); // get size of buffer (in bytes)
+	    ob_end_clean();          // trash the buffer
+	    
+	    return $size;
+	}
+	
 	/**
 	 * Gets the x - coordinate
 	 *
