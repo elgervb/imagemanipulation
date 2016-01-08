@@ -27,22 +27,31 @@ if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $path)) {
 
 $b = ImageBuilder::create(__DIR__ . DIRECTORY_SEPARATOR . $image);
 
+
 if($path == '/clear') {
     copy('uglydog.png', $image);
+    $b = ImageBuilder::create(__DIR__ . DIRECTORY_SEPARATOR . $image);
+    header('Location: /');
 } else if ($path !== '/') {
     $paths = explode("/", $path);
+    
     $method = $paths[1];
     call_user_func_array(array($b, $method), array_slice($paths, 2))->save(null, true);
-} 
+}
+$resouce = $b->toResource();
 ?><!doctype html>
 <html>
 <head>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='initial-scale=1'>
-	<title>Aurora</title>
+	<title>ImageManipulation Test Page</title>
 
   <style>
+    html {
+        font-size: 16px;
+    }
     html, body {
+        font-size: 1em;
         height: 100%;
         margin: 0;
         padding: 0;
@@ -52,7 +61,13 @@ if($path == '/clear') {
         display: flex;
     }
     a {
+        border-bottom: 2px dotted transparent;
         color: #2CCC87;
+        display: block;
+        text-decoration: none;
+    }
+    a:hover {
+        border-bottom: 2px dotted #2CCC87;
     }
     .filters {
         list-style: none;
@@ -62,14 +77,26 @@ if($path == '/clear') {
     .filters li {
         padding: .1rem 1rem;
     }
+    .filters p {
+        padding: 0;
+        margin: .1rem 0;
+    }
+    .image {
+       position: fixed;
+    }
   </style>
 	
 </head>
 <body>
+
     <ul class="filters">
+        <li>
+            <p>Dimensions: <?= $resouce->getX()?> x <?= $resouce->getY()?></p>
+            <p>Size: <?= round($resouce->getSize() / 1000, 2)?> KB</p>
+        </li>
         <li><a href="/clear">clear</a></li>
         <li><a href="/brightness">brightness</a></li>
-        <li><a href="/colorize">colorize</a></li>
+        <li><a href="/colorize/D67D7A">colorize</a></li>
         <li><a href="/comic">comic</a></li>
         <li><a href="/contrast">contrast</a></li>
         <li><a href="/darken">darken</a></li>
@@ -105,8 +132,9 @@ if($path == '/clear') {
         <li><a href="/truecolor">truecolor</a></li>
         <li><a href="/vignette">vignette</a></li>
     </ul>
-    <div>
-        <img src="<?= $image?>?time=<?= time()?>" />
+    <div class="image">
+        <img  src="/<?= $image?>?time=<?= time()?>" />
+        <img src="/uglydog.png" />
     </div>
 </body>
 </html>
