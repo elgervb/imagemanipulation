@@ -111,3 +111,7 @@ Create thumbnails on the fly. There are several strategies to use:
 ### Watermarking
 
 Add a watermark to your image. Possible positions are: top, bottom, left, right, center, top right, top left, bottom right, bottom left.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/elgervb/imagemanipulation/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
