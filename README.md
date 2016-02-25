@@ -114,7 +114,6 @@ Create thumbnails on the fly. There are several strategies to use:
 Add a watermark to your image. Possible positions are: top, bottom, left, right, center, top right, top left, bottom right, bottom left.
 
 
-<<<<<<< HEAD
 # Examples
 
 ## Thumbnails
