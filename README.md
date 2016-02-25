@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/elgervb/imagemanipulation.svg?branch=master)](https://travis-ci.org/elgervb/imagemanipulation)
 [![Latest Stable Version](https://poser.pugx.org/elgervb/imagemanipulation/version.svg)](https://packagist.org/packages/elgervb/imagemanipulation)<br/>
 Fork me on GitHub: https://github.com/elgervb/imagemanipulation
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/elgervb/imagemanipulation/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Library to manipulate images using PHP's GD library. Most of the functionality is available through the `ImageBuilder` facade.
 This way chaining of image filters and thumbnailing is possible, like:
@@ -113,6 +114,7 @@ Create thumbnails on the fly. There are several strategies to use:
 Add a watermark to your image. Possible positions are: top, bottom, left, right, center, top right, top left, bottom right, bottom left.
 
 
+<<<<<<< HEAD
 # Examples
 
 ## Thumbnails
@@ -716,3 +718,4 @@ Applies a darker mask around the edges of the image
 
 *URL* <br />
 /imageproxy/img/vignette/dog.jpg <br />
+
