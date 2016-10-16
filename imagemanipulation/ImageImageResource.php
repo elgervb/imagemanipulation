@@ -109,6 +109,7 @@ class ImageImageResource extends ImageResource
 	
 	/**
 	 * Output the image to screen. Last call of the chain.
+	 * @deprecated use ImageResource::imageoutput
 	 */
 	public function outputImage()
 	{

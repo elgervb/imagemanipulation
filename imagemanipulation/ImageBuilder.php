@@ -449,7 +449,9 @@ class ImageBuilder
         
         // set the correct header when output to screen
         header("Content-Type:", 'image/' . $this->res->getOutputPath()->getExtension());
-        $this->res->outputImage();
+        
+        
+        $this->res->imageoutput(null, ImageType::getType($this->res->getOutputPath()));
     }
 
     /**
