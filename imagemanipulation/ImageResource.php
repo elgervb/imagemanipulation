@@ -118,24 +118,35 @@ class ImageResource
 	    {
 	        throw new ImageResourceException( 'This is not a resource' );
 	    }
+	    
+	    $result = false;
+	    ob_start();
 	
 	    switch ($type)
 	    {
 	    	case ImageType::PNG:
 	    	    imagesavealpha( $this->getResource(), true );
 	    	    // quality for png must be 0 - 9
-	    	    return imagepng( $this->getResource(), $path, ($quality / 10) - 1, PNG_ALL_FILTERS );
+	    	    $result = imagepng( $this->getResource(), $path, ($quality / 10) - 1, PNG_ALL_FILTERS );
+	    	    
 	    	    break;
 	    	    	
 	    	case ImageType::GIF:
-	    	    return imagegif( $this->getResource(), $path ); // gif does not have quality
+	    	    $result = imagegif( $this->getResource(), $path ); // gif does not have quality
 	    	    break;
 	    	    	
 	    	// default = jpg
 	    	default:
-	    	    return imagejpeg( $this->getResource(), $path, $quality );
+	    	    $result = imagejpeg( $this->getResource(), $path, $quality );
 	    	    break;
 	    }
+	    
+	    $size = ob_get_length();
+	    header("Content-Length: " . $size);
+	    
+	    ob_end_flush();
+	    
+	    return $result;
 	}
 	
 	/**
