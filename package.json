@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "./vendor/phpunit/phpunit/phpunit -c ./phpunit.xml",
-    "test:coverage": "$npm_package_scripts_test --coverage",
-    "watch": "npm test && gulp test:watch",
+    "test:coverage": "$npm_package_scripts_test --coverage-html ./tmp/report",
+    "watch": "gulp test:watch",
     "start": "php -S localhost:4000 -t example/ -c php.ini"
   },
   "repository": {
