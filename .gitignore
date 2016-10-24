@@ -48,3 +48,4 @@ vendor
 examples/tmp
 composer.lock
 composer.phar
+/npm-debug.log
