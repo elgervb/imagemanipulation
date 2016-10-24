@@ -1,11 +1,8 @@
 <?php
 namespace imagemanipulation\filter;
 
-use imagemanipulation\Coordinate;
-use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\ImageFilterFindEdges;
 use imagemanipulation\ImageType;
-use imagemanipulation\ImageUtil;
 
 /**
  * @author elger

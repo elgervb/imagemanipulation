@@ -1,13 +1,7 @@
 <?php
 namespace imagemanipulation\filter;
 
-use imagemanipulation\color\ColorFactory;
-
-use imagemanipulation\Coordinate;
-use imagemanipulation\color\ColorUtil;
-use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
-use imagemanipulation\filter\ImageFilterColorize;
 
 class ImageFilterGammaCorrectionTest extends \ImageFilterTestCase
 {

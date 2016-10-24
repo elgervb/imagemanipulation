@@ -1,9 +1,6 @@
 <?php
 namespace imagemanipulation\filter;
 
-use imagemanipulation\Coordinate;
-use imagemanipulation\color\ColorUtil;
-use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterGaussianBlur;
 
@@ -18,7 +15,8 @@ class ImageFilterGaussianBlurTest extends \ImageFilterTestCase
 		$this->assertColorQ2( $res, '00ff00' );
 		$this->assertColorQ3( $res, '0000ff' );
 		$this->assertColorQ4( $res, 'ffffff' );
-	}
+	} 
+	
 	public function testJpg()
 	{
 		$original = $this->getOriginalImage( ImageType::JPG );

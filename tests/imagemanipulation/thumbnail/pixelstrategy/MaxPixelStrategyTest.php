@@ -11,6 +11,8 @@ class MaxPixelStrategyTest extends \ImagemanipulationTestCase{
 
     public function testCreatFromString(){
         $s = new MaxPixelStrategy("300", "500"); // this should work
+        
+        $this->assertNotNull($s);
     }
     
     public function testThumbJpg(){

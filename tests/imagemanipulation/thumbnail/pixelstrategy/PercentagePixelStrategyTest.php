@@ -9,6 +9,8 @@ class PercentagePixelStrategyTest extends \ImagemanipulationTestCase{
 
     public function testCreatWithNumeric(){
         $s = new PercentagePixelStrategy("50"); // this should work
+        
+        $this->assertNotNull($s);
     }
     
     public function testThumbJpg(){

@@ -58,8 +58,7 @@ class ImageResourceTest extends \ImagemanipulationTestCase
 	 */
 	public function testGetResource()
 	{
-		$this->res->getResource();
-	
+		$this->assertTrue(is_resource($this->res->getResource()));
 	}
 	
 	/**
@@ -100,7 +99,7 @@ class ImageResourceTest extends \ImagemanipulationTestCase
 			$this->fail('Expected an exception');
 		}
 		catch (ImageResourceException $ex){
-			
+			 $this->assertNotNull($ex->getMessage());
 		}
 	}
 }

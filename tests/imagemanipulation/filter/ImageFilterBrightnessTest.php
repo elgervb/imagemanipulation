@@ -1,14 +1,7 @@
 <?php
 namespace imagemanipulation\filter;
 
-use imagemanipulation\Coordinate;
-
-use imagemanipulation\color\ColorUtil;
-
-use imagemanipulation\ImageUtil;
-
 use imagemanipulation\ImageType;
-
 use imagemanipulation\filter\ImageFilterBrightness;
 
 class ImageFilterBrightnessTest extends \ImageFilterTestCase
@@ -22,6 +15,7 @@ class ImageFilterBrightnessTest extends \ImageFilterTestCase
 		$this->assertColorQ3($res, self::WHITE);
 		$this->assertColorQ4($res, self::WHITE);
 	}
+	
 	public function testJpgLight(){
 		$original = $this->getOriginalImage(ImageType::JPG);
 		$res = $this->applyFilter(new ImageFilterBrightness(255), $original, __METHOD__);

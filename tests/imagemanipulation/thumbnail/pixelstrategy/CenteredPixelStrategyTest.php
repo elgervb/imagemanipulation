@@ -8,6 +8,7 @@ class CenteredPixelStrategyTest extends \ImagemanipulationTestCase{
 
     public function testCreatWithNumeric(){
         $s = new CenteredPixelStrategy("250", "250"); // this should work
+        $this->assertNotNull($s);
     }
     
     public function testThumbJpg(){

@@ -1,11 +1,8 @@
 <?php
 namespace imagemanipulation\filter;
 
-use imagemanipulation\Coordinate;
-use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\ImageFilterConvolution;
 use imagemanipulation\ImageType;
-use imagemanipulation\ImageUtil;
 
 class ImageFilterConvolutionTest extends \ImageFilterTestCase
 {
