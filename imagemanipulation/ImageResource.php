@@ -142,8 +142,9 @@ class ImageResource
 	    }
 	    
 	    $size = ob_get_length();
-	    header("Content-Length: " . $size);
-	    
+	    if (!headers_sent()) {
+	       header("Content-Length: " . $size);
+	    }
 	    ob_end_flush();
 	    
 	    return $result;
