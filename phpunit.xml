@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="tests/PHPUnitBootstrap.php" colors="true">
+<phpunit bootstrap="./tests/PHPUnitBootstrap.php" 
+		 colors="true" 
+		 verbose="true" 
+		 backupGlobals="false"
+		 backupStaticAttributes="false"
+		 mapTestClassNameToCoveredClassName="false"
+		 beStrictAboutCoversAnnotation="false"
+		 beStrictAboutOutputDuringTests="true"
+		 beStrictAboutTestsThatDoNotTestAnything="true"
+		 beStrictAboutTodoAnnotatedTests="true">
 
     <testsuites>
         <testsuite name="ImageManipulation Test Suite">
-            <directory>./tests/</directory>
+            <directory suffix="Test.php">./tests/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
-        <whitelist>
-            <directory>./</directory>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./imagemanipulation</directory>
             <exclude>
-                <directory>./tests</directory>
-                <directory>./vendor</directory>
+            	<file>./imagemanipulation/index.php</file>
             </exclude>
         </whitelist>
     </filter>
+    
+    <logging>
+		<log type="coverage-html" target="./tmp/report" lowUpperBound="35" highLowerBound="70"></log>
+    </logging>
+    
 </phpunit>

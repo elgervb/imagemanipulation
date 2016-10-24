@@ -3,51 +3,7 @@ var gulp = require('gulp'),
     notify      = require('gulp-notify'),
     phpunit     = require('gulp-phpunit'),
     argv        = require('yargs').argv
-    _           = require('lodash'),
-    browserSync = require('browser-sync');
-
-var reload  = browserSync.reload;
-
-/**
-* Start a PHP server. Note that this will require at least PHP 5.4 as it uses the built in server
-*/
-gulp.task('serve', function() {
-	return require('gulp-connect-php').server({
-		base: './examples', 
-		keepalive: true,
-		port: 4000, 
-		router: 'routes.php'
-	});
-});
-
-/**
- * Start a PHP server and connect browser sync to it
- */
-gulp.task('start', ['serve'], function() {
-    browserSync({
-        proxy: '127.0.0.1:4011',
-        port: 4010,
-        open: false,
-        notify: true
-    });
-    
-    gulp.watch(['/**/*.php'], [reload]);
-});
-
-/**
- * Run all tests. To run with code coverage, use the --coverage commandline argument
- */
-gulp.task('test', function() {
-    var options = {debug: false, notify: true, stderr: false};
-    
-    if (argv.coverage) {
-    	options.coverageText = 'php://stdout';
-    }
-    gulp.src('phpunit.xml')
-        .pipe(phpunit('', options))
-        .on('error', notify.onError(notification('fail', 'phpunit')))
-        .pipe(notify(notification('pass', 'phpunit')));
-});
+    _           = require('lodash');
 
 /**
  * Watch sources and tests for changes and run tests
@@ -77,15 +33,3 @@ function notification(status, pluginName, override) {
     options = _.merge(options, override);
   return options;
 }
-
-
-
-
-gulp.task('php', function() {
-	return require('gulp-connect-php').server({
-		base: './examples', 
-		port: 4000, 
-		keepalive: true,
-		router: 'routes.php'
-	});
-});

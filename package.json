@@ -7,7 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./vendor/phpunit/phpunit/phpunit -c ./phpunit.xml",
+    "test:coverage": "$npm_package_scripts_test --coverage",
+    "watch": "npm test && gulp test:watch",
+    "start": "php -S localhost:4000 -t example/ -c php.ini"
   },
   "repository": {
     "type": "git",
@@ -20,13 +23,12 @@
   },
   "homepage": "https://github.com/elgervb/imagemanipulation",
   "devDependencies": {
-    "browser-sync": "^2.10.0",
     "gulp": "3.9.0",
-    "gulp-connect-php": "0.0.5",
-    "gulp-if": "^2.0.0",
+    "gulp-connect-php": "0.0.8",
+    "gulp-if": "2.0.0",
     "gulp-notify": "2.2.0",
-    "gulp-phpunit": "^0.9.1",
-    "lodash": "^3.10.1",
-    "yargs": "^3.30.0"
+    "gulp-phpunit": "0.16.0",
+    "lodash": "4.11.1",
+    "yargs": "4.6.0"
   }
 }
