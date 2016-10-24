@@ -1,9 +1,6 @@
 <?php
 namespace imagemanipulation\filter;
 
-use imagemanipulation\Coordinate;
-use imagemanipulation\color\ColorUtil;
-use imagemanipulation\ImageUtil;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterMeanRemove;
 

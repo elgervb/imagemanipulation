@@ -1,11 +1,7 @@
 <?php
 namespace imagemanipulation\filter;
 
-use imagemanipulation\Coordinate;
-use imagemanipulation\color\ColorUtil;
-use imagemanipulation\filter\ImageFilterDarken;
 use imagemanipulation\ImageType;
-use imagemanipulation\ImageUtil;
 use imagemanipulation\color\Color;
 
 class ImageFilterRoundedCornersTest extends \ImageFilterTestCase
