@@ -107,7 +107,7 @@ class ImageBuilder
      * 
      * @see ImageFilterColorize::__construct
      */
-    public function colorize($color = 'FFFFFF', $alpha = null)
+    public function colorize($color = '2980b9', $alpha = null)
     {
         $color = new Color($color, $alpha);
         
@@ -223,6 +223,11 @@ class ImageBuilder
     }
 
     public function grayscale()
+    {
+        return $this->greyscale();
+    }
+    
+    public function greyscale()
     {
         $this->queue->append(new ImageFilterGrayScale());
         return $this;
