@@ -10,9 +10,6 @@ use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\Args;
 /**
  * Rotate an image over an angle.
- *
- * @package image
- * @subpackage Imagefilter
  */
 class ImageFilterRotate implements IImageFilter
 {

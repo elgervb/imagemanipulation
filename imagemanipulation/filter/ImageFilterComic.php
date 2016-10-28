@@ -2,7 +2,6 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
-use imagemanipulation\ImageImageResource;
 use imagemanipulation\Args;
 /**
  * Apply a sketchy comic filter to an image

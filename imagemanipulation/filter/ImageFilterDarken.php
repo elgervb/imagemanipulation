@@ -5,10 +5,6 @@ use imagemanipulation\ImageResource;
 use imagemanipulation\Args;
 /**
  * Changes the brightness of the image
- *
- * @package image
- * @subpackage Imagefilter
- *
  */
 class ImageFilterDarken implements IImageFilter
 {

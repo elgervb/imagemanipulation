@@ -2,8 +2,6 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
-use imagemanipulation\color\ColorUtil;
-use imagemanipulation\filter\IImageFilter;
 /**
  * Sobel edge detect (extremely slow...)
  */

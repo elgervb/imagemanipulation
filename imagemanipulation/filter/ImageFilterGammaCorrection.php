@@ -5,7 +5,7 @@ use imagemanipulation\ImageResource;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\Args;
 /**
- * Applies gamma correction
+ * Apply gamma correction
  */
 class ImageFilterGammaCorrection implements IImageFilter
 {

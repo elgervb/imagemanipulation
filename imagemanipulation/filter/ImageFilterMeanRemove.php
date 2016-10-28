@@ -4,10 +4,6 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 /**
  * Uses mean removal to achieve a "sketchy" effect
- *
- * @package image
- * @subpackage Imagefilter
- *
  */
 class ImageFilterMeanRemove implements IImageFilter
 {

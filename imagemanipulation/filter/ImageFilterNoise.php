@@ -4,12 +4,8 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Args;
 /**
- * add noise to the image
- *
- * @package image
- * @subpackage Imagefilter
- *
- *@see http://www.tuxradar.com/practicalphp/11/2/22
+ * add distortion (noise) to the image
+ * @see http://www.tuxradar.com/practicalphp/11/2/22
  */
 class ImageFilterNoise implements IImageFilter
 {

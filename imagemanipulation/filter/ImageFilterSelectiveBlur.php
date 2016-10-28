@@ -4,10 +4,6 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 /**
  * Image filter Selective Blur
- *
- * @package image
- * @subpackage Imagefilter
- *
  */
 class ImageFilterSelectiveBlur implements IImageFilter
 {

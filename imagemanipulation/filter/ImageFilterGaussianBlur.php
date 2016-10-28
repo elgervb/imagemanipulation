@@ -4,10 +4,6 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 /**
  * Blurs the image using the Gaussian method.
- *
- * @package image
- * @subpackage Imagefilter
- *
  */
 class ImageFilterGaussianBlur implements IImageFilter
 {

@@ -2,7 +2,6 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
-use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
 /**
  * Applies a darker mask around the edges of the image

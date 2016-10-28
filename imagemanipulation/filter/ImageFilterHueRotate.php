@@ -6,7 +6,7 @@ use imagemanipulation\color\ColorUtil;
 use imagemanipulation\Coordinate;
 use imagemanipulation\Args;
 /**
- * Rotete the hue of the image
+ * Rotate the hue of the image
  */
 class ImageFilterHueRotate implements IImageFilter
 {

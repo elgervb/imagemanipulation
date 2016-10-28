@@ -5,14 +5,9 @@ use imagemanipulation\ImageResource;
 use imagemanipulation\Args;
 /**
  * Changes the contrast of the image.
- *
- * @package image
- * @subpackage Imagefilter
- *
  */
 class ImageFilterContrast implements IImageFilter
 {
-	
 	private $level;
 	
 	/**

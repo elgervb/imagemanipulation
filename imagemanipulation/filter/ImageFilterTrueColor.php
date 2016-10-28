@@ -3,7 +3,6 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageResource;
 use imagemanipulation\color\Color;
-use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
 /**
  * Bring the image back to 2 colors. Per default is goes to absolute black and white

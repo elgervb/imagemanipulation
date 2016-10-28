@@ -4,7 +4,7 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Args;
 /**
- * Dodge an image
+ * Dodge an image, making it darker
  */
 class ImageFilterDodge implements IImageFilter
 {

@@ -4,10 +4,6 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 /**
  * Reverses the image
- *
- * @package image
- * @subpackage Imagefilter
- *
  */
 class ImageFilterReverse implements IImageFilter
 {

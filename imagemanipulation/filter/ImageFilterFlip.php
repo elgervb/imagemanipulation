@@ -1,11 +1,10 @@
 <?php
 namespace imagemanipulation\filter;
 
-use \imagemanipulation\color\ColorFactory;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Args;
 /**
- * Flips an image
+ * Flips an image over it's x- or y-axis
  */
 class ImageFilterFlip implements IImageFilter
 {

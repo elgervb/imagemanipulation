@@ -4,11 +4,7 @@ namespace imagemanipulation\filter;
 use imagemanipulation\ImageResource;
 use imagemanipulation\Args;
 /**
- * Image Sepia
- *
- * @package image
- * @subpackage Imagefilter
- *
+ * Apply a septia filter on the image
  */
 class ImageFilterSepiaFast implements IImageFilter
 {

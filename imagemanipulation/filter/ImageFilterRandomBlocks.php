@@ -3,9 +3,7 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\color\Color;
 use imagemanipulation\ImageResource;
-use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
-use imagemanipulation\ImageImageResource;
 use imagemanipulation\Args;
 
 /**
