@@ -14,7 +14,7 @@ class ImageFilterSemiGrayScale implements IImageFilter
 {
     private $percentage;
 
-    public function __construct($percentage = 100)
+    public function __construct($percentage = 50)
     {
         $this->percentage = Args::int($percentage, 'percentage')->required()->min(0)->max(100)->value();
     }
