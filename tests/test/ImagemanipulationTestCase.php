@@ -49,7 +49,7 @@ abstract class ImagemanipulationTestCase extends \PHPUnit_Framework_TestCase
 	}
 	
 	protected function getCacheDir(){
-		return __DIR__ . '/cache';
+		return __DIR__ . '/../cache';
 	}
 	
 	/**
