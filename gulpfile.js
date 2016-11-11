@@ -10,7 +10,7 @@ var gulp = require('gulp'),
  */
 gulp.task('test:watch', function(){
 	var path = require('path');
-    gulp.watch(['./src/**/*.php', './tests/**/*.php'])
+    gulp.watch(['./imagemanipulation/**/*.php', './tests/**/*.php'])
         .on("change", function(file) {
         	var filename = path.basename(file.path, '.php');
         	console.log(filename + ' has changed. Running tests...');
