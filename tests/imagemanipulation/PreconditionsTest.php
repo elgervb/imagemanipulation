@@ -1,13 +1,11 @@
 <?php
 namespace tests\imagemanipulation;
 
-use imagemanipulation\ImageResourceException;
-use imagemanipulation\ImageResource;
-
+use test\ImagemanipulationTestCase;
 /**
  * Preconditions test case.
  */
-class PreconditionsTest extends \ImagemanipulationTestCase
+class PreconditionsTest extends ImagemanipulationTestCase
 {
     public function testGDSupport(){
         

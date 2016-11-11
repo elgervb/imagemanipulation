@@ -4,8 +4,9 @@ namespace imagemanipulation\filter;
 use imagemanipulation\color\ColorFactory;
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterColorize;
+use test\ImageFilterTestCase;
 
-class ImageFilterColorizeTest extends \ImageFilterTestCase
+class ImageFilterColorizeTest extends ImageFilterTestCase
 {
 	public function testGifRed(){
 		$original = $this->getOriginalImage(ImageType::GIF);

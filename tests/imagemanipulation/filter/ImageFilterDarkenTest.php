@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\filter\ImageFilterDarken;
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
-class ImageFilterDarkenTest extends \ImageFilterTestCase
+class ImageFilterDarkenTest extends ImageFilterTestCase
 {
 	public function testGifLight(){
 		$original = $this->getOriginalImage(ImageType::GIF);

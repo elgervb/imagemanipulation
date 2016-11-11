@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterContrast;
+use test\ImageFilterTestCase;
 
-class ImageFilterContrastTest extends \ImageFilterTestCase
+class ImageFilterContrastTest extends ImageFilterTestCase
 {
 	public function testGif()
 	{

@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\filter\ImageFilterDodge;
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
-class ImageFilterDodgeTest extends \ImageFilterTestCase
+class ImageFilterDodgeTest extends ImageFilterTestCase
 {
 	public function testGifLight(){
 		$original = $this->getOriginalImage(ImageType::GIF);

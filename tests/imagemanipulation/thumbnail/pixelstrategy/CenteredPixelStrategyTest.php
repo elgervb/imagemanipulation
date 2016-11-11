@@ -1,10 +1,11 @@
 <?php
 namespace imagemanipulation\thumbnail\pixelstrategy;
 
-
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageBuilder;
-class CenteredPixelStrategyTest extends \ImagemanipulationTestCase{
+use test\ImagemanipulationTestCase;
+
+class CenteredPixelStrategyTest extends ImagemanipulationTestCase{
 
     public function testCreatWithNumeric(){
         $s = new CenteredPixelStrategy("250", "250"); // this should work

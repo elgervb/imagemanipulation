@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterMeanRemove;
+use test\ImageFilterTestCase;
 
-class ImageFilterMeanRemoveTest extends \ImageFilterTestCase
+class ImageFilterMeanRemoveTest extends ImageFilterTestCase
 {
 	public function testGif()
 	{

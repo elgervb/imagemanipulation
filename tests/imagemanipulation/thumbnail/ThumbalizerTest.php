@@ -4,11 +4,12 @@ namespace imagemanipulation\color;
 use imagemanipulation\color\Color;
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageBuilder;
+use test\ImagemanipulationTestCase;
 
 /**
  * Color test case.
  */
-class ThumbalizerTest extends \ImagemanipulationTestCase
+class ThumbalizerTest extends ImagemanipulationTestCase
 {
     public function testSquareJpg(){
         $img = $this->getOriginalImage(ImageType::JPG);

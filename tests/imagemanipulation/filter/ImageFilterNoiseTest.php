@@ -2,8 +2,9 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
-class ImageFilterNoiseTest extends \ImageFilterTestCase
+class ImageFilterNoiseTest extends ImageFilterTestCase
 {
 	public function testGif(){
 		$original = $this->getOriginalImage(ImageType::GIF);

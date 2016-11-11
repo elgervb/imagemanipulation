@@ -4,7 +4,9 @@ namespace imagemanipulation\generation;
 use imagemanipulation\color\ColorUtil;
 use imagemanipulation\Coordinate;
 use imagemanipulation\color\Color;
-class ImageGeneratorTest extends \ImagemanipulationTestCase
+use test\ImagemanipulationTestCase;
+
+class ImageGeneratorTest extends ImagemanipulationTestCase
 {
     public function testCreate(){
         $width = 250;

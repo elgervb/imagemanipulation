@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\color\Color;
+use test\ImageFilterTestCase;
 
-class ImageFilterRoundedCornersTest extends \ImageFilterTestCase
+class ImageFilterRoundedCornersTest extends ImageFilterTestCase
 {
 	public function testGifDefault(){
 		$original = $this->getOriginalImage(ImageType::GIF);

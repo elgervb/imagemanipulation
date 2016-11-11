@@ -3,11 +3,12 @@ namespace tests\imagemanipulation;
 
 use imagemanipulation\ImageResourceException;
 use imagemanipulation\ImageResource;
+use test\ImagemanipulationTestCase;
 
 /**
  * ImageResource test case.
  */
-class ImageResourceTest extends \ImagemanipulationTestCase
+class ImageResourceTest extends ImagemanipulationTestCase
 {
 	/**
 	 *
@@ -22,7 +23,7 @@ class ImageResourceTest extends \ImagemanipulationTestCase
 	{
 		parent::setUp();
 		
-		$this->res = new ImageResource( imagecreatefrompng( __DIR__ . '/../sample.png' ) );
+		$this->res = new ImageResource( imagecreatefrompng( __DIR__ . '/../test/sample.png' ) );
 	
 	}
 	

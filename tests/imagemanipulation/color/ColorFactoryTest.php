@@ -2,11 +2,12 @@
 namespace imagemanipulation\color;
 
 use imagemanipulation\color\Color;
+use test\ImagemanipulationTestCase;
 
 /**
  * Color factory test case.
  */
-class ColorFactoryTest extends \ImagemanipulationTestCase
+class ColorFactoryTest extends ImagemanipulationTestCase
 {
     public function testBlack(){
         $this->assertColor(ColorFactory::black(), "000000");

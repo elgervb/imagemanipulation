@@ -2,8 +2,9 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
-class ImageFilterMotionBlurTest extends \ImageFilterTestCase
+class ImageFilterMotionBlurTest extends ImageFilterTestCase
 {
 	public function testGif()
 	{

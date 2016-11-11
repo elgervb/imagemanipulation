@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\filter\ImageFilterConvolution;
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
-class ImageFilterConvolutionTest extends \ImageFilterTestCase
+class ImageFilterConvolutionTest extends ImageFilterTestCase
 {
 	public function testGifNoChange(){
 		$original = $this->getOriginalImage(ImageType::GIF);

@@ -1,4 +1,6 @@
 <?php
+namespace test;
+
 use imagemanipulation\color\Color;
 use imagemanipulation\ImageImageResource;
 use imagemanipulation\ImageType;

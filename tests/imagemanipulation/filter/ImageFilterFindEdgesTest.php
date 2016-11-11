@@ -3,12 +3,13 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\filter\ImageFilterFindEdges;
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
 /**
  * @author elger
  * TODO create testcase for color in the edges
  */
-class ImageFilterFindEdgesTest extends \ImageFilterTestCase
+class ImageFilterFindEdgesTest extends ImageFilterTestCase
 {
 	public function testGif(){
 		$original = $this->getOriginalImage(ImageType::GIF);

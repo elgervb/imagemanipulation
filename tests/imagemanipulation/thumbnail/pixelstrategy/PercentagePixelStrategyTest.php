@@ -1,11 +1,11 @@
 <?php
 namespace imagemanipulation\thumbnail\pixelstrategy;
 
-
 use imagemanipulation\ImageBuilder;
 use imagemanipulation\ImageType;
+use test\ImagemanipulationTestCase;
 
-class PercentagePixelStrategyTest extends \ImagemanipulationTestCase{
+class PercentagePixelStrategyTest extends ImagemanipulationTestCase{
 
     public function testCreatWithNumeric(){
         $s = new PercentagePixelStrategy("50"); // this should work

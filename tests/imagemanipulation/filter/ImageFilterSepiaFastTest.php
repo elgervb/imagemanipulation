@@ -2,8 +2,9 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
-class ImageFilterSepiaFastTest extends \ImageFilterTestCase
+class ImageFilterSepiaFastTest extends ImageFilterTestCase
 {
 	public function testGifLight(){
 		$original = $this->getOriginalImage(ImageType::GIF);

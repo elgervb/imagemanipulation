@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterGaussianBlur;
+use test\ImageFilterTestCase;
 
-class ImageFilterGaussianBlurTest extends \ImageFilterTestCase
+class ImageFilterGaussianBlurTest extends ImageFilterTestCase
 {
 	public function testGif()
 	{

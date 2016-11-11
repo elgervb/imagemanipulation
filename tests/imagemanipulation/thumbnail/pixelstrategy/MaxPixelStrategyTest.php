@@ -1,13 +1,14 @@
 <?php
 namespace imagemanipulation\thumbnail\pixelstrategy;
 
-
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageBuilder;
 use imagemanipulation\generation\ImageGenerator;
 use imagemanipulation\color\Color;
 use imagemanipulation\thumbnail\Thumbalizer;
-class MaxPixelStrategyTest extends \ImagemanipulationTestCase{
+use test\ImagemanipulationTestCase;
+
+class MaxPixelStrategyTest extends ImagemanipulationTestCase{
 
     public function testCreatFromString(){
         $s = new MaxPixelStrategy("300", "500"); // this should work
@@ -25,7 +26,7 @@ class MaxPixelStrategyTest extends \ImagemanipulationTestCase{
     }
     
     public function testThumbJpgRect(){
-        $img = new \SplFileInfo( __DIR__ . '/../../../sample-rect.jpg' );
+        $img = new \SplFileInfo( __DIR__ . '/../../../test/sample-rect.jpg' );
     
         $res = ImageBuilder::create($img)->thumbMax(300, 200)->toResource();
          

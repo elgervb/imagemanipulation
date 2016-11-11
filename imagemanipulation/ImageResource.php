@@ -89,20 +89,41 @@ class ImageResource
 	 * Gets the x - coordinate
 	 *
 	 * @return int
+	 * 
+	 * @deprecated use ImageResource::getWidth()
 	 */
 	public function getX()
 	{
-		return imagesx( $this->imgRes );
+		return $this->getWidth();
 	}
 	
+	/**
+	 * Get the image width in pixels
+	 *
+	 * @return number
+	 */
+	public function getWidth() {
+	    return imagesx( $this->imgRes );
+	}
 	/**
 	 * Gets the y - coordinate
 	 *
 	 * @return int
+	 * 
+	 * @deprecated use ImageResource::getHeight()
 	 */
 	public function getY()
 	{
-		return imagesy( $this->imgRes );
+		return $this->getHeight();
+	}
+	
+	/**
+	 * Get the image height in pixels
+	 * 
+	 * @return number
+	 */
+	public function getHeight() {
+	    return imagesy( $this->imgRes );
 	}
 	
 	/**

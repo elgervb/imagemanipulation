@@ -3,8 +3,9 @@ namespace tests\imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterSemiGrayScale;
+use test\ImageFilterTestCase;
 
-class ImageFilterSemiGrayscaleTest extends \ImageFilterTestCase
+class ImageFilterSemiGrayscaleTest extends ImageFilterTestCase
 {
 	public function testGif100()
 	{

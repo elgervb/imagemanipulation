@@ -1,17 +1,14 @@
 <?php
+namespace test;
+
 use imagemanipulation\Coordinate;
-
-use imagemanipulation\ImageResource;
-
 use imagemanipulation\ImageImageResource;
-
-use imagemanipulation\ImageType;
 
 /**
  *
  * @author Elger van Boxtel
  */
-abstract class ImageFilterTestCase extends \ImagemanipulationTestCase
+abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 {
 	const WHITE = "ffffff";
 	const BLACK = "000000";

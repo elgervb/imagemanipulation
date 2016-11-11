@@ -2,11 +2,12 @@
 namespace imagemanipulation\color;
 
 use imagemanipulation\color\Color;
+use test\ImagemanipulationTestCase;
 
 /**
  * Color test case.
  */
-class ColorTest extends \ImagemanipulationTestCase
+class ColorTest extends ImagemanipulationTestCase
 {
 	/**
 	 * Prepares the environment before running a test.

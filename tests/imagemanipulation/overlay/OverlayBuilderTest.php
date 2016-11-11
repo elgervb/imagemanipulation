@@ -3,7 +3,9 @@ namespace imagemanipulation\overlay;
 
 use imagemanipulation\ImageBuilder;
 use imagemanipulation\ImageType;
-class OverlayBuilderTest extends \ImageFilterTestCase
+use test\ImageFilterTestCase;
+
+class OverlayBuilderTest extends ImageFilterTestCase
 {
     public function testJpgOverlayJpg(){
         $builder = new ImageBuilder($this->getOriginalImage(ImageType::JPG));

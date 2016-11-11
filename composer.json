@@ -30,7 +30,16 @@
 	},
 	"autoload" : {
 		"psr-0" : {
-			"imagemanipulation" : ""
+			"imagemanipulation" : [
+				"",
+				"tests"
+			],
+			"test" : [
+				"tests"
+			],
+			"mocks" : [
+				"tests"
+			]
 		}
 	},
 	"support" : {

@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterBrightness;
+use test\ImageFilterTestCase;
 
-class ImageFilterBrightnessTest extends \ImageFilterTestCase
+class ImageFilterBrightnessTest extends ImageFilterTestCase
 {
 	public function testGifLight(){
 		$original = $this->getOriginalImage(ImageType::GIF);

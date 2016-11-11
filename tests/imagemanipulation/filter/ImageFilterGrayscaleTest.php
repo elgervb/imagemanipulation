@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\filter\ImageFilterGrayScale;
+use test\ImageFilterTestCase;
 
-class ImageFilterGrayscaleTest extends \ImageFilterTestCase
+class ImageFilterGrayscaleTest extends ImageFilterTestCase
 {
 	public function testGif()
 	{

@@ -3,11 +3,12 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\filter\ImageFilterSobelEdgeEnhance;
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
 /**
  * @author elger
  */
-class ImageFilterSobelEdgeEnhanceTest extends \ImageFilterTestCase
+class ImageFilterSobelEdgeEnhanceTest extends ImageFilterTestCase
 {
 	public function testGif(){
 		$original = $this->getOriginalImage(ImageType::GIF);

@@ -1,6 +1,7 @@
 <?php
 namespace imagemanipulation\color;
 
+use test\ImagemanipulationTestCase;
 use imagemanipulation\color\Color;
 use imagemanipulation\ImageType;
 use imagemanipulation\Coordinate;
@@ -8,7 +9,7 @@ use imagemanipulation\Coordinate;
 /**
  * Color factory test case.
  */
-class ColorUtilTest extends \ImagemanipulationTestCase
+class ColorUtilTest extends ImagemanipulationTestCase
 {
    public function testAverage(){
         
