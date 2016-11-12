@@ -25,7 +25,15 @@ class ImageFilterConvolution implements IImageFilter
 	 */
 	public function applyFilter( ImageResource $aResource )
 	{
-		imageconvolution( $aResource->getResource(), $this->matrix, $this->computeDiv(), 0 );
+		imageconvolution( $aResource->getResource(), $this->matrix, $this->getDivision(), $this->getOffset() );
+	}
+	
+	protected function getDivision() {
+	    return $this->computeDiv();
+	}
+	
+	protected function getOffset() {
+	    return 0;
 	}
 	
 	final protected function computeDiv()
