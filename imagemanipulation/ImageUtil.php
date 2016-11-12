@@ -18,21 +18,26 @@ class ImageUtil
 	 */
 	public static function createTransparentImage( $width, $height )
 	{
-	   Args::int($width, 'width')->required()->min(0);
-	   Args::int($height, 'height')->required()->min(0);	
-	    
+	    $imgRes = self::createImage($width, $height);
 		$color = ColorFactory::white( 127 );
-
-		$imgRes = imagecreatetruecolor( $width, $height );
-		imageantialias( $imgRes, true );
-		imagealphablending( $imgRes, true );
-		imagesavealpha( $imgRes, true );
 
 		$transparent = self::allocateColor( $imgRes, $color );
 
 		imagefill( $imgRes, 0, 0, $transparent );
 
 		return $imgRes;
+	}
+	
+	public static function createImage($width, $height) {
+	    Args::int($width, 'width')->required()->min(0);
+	    Args::int($height, 'height')->required()->min(0);
+	    
+	    $imgRes = imagecreatetruecolor( $width, $height );
+	    imageantialias( $imgRes, true );
+	    imagealphablending( $imgRes, true );
+	    imagesavealpha( $imgRes, true );
+	    
+	    return $imgRes;
 	}
 
 	/**
