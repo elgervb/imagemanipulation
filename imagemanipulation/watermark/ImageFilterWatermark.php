@@ -2,11 +2,11 @@
 namespace imagemanipulation\watermark;
 
 use imagemanipulation\ImageResource;
-use imagemanipulation\color\ColorUtil;
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\ImageImageResource;
 use imagemanipulation\filter\ImageFilterOpacity;
 use imagemanipulation\Args;
+
 /**
  * Apply watermark to the image
  */

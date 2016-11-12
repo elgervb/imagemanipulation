@@ -1,14 +1,11 @@
 <?php
 namespace imagemanipulation\thumbnail;
 
-use imagemanipulation\ImageImageResource;
-use imagemanipulation\Coordinate;
 use imagemanipulation\thumbnail\pixelstrategy\IPixelStrategy;
 use imagemanipulation\ImageResource;
+
 /**
  *
- * @package image
- * @subpackage thumbnail
  */
 class Thumbalizer
 {
