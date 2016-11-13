@@ -2,11 +2,12 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
 /**
  * @author elger
  */
-class ImageFilterSobelEdgeDetectTest extends \ImageFilterTestCase
+class ImageFilterSobelEdgeDetectTest extends ImageFilterTestCase
 {
 	public function testGif(){
 		$original = $this->getOriginalImage(ImageType::GIF);

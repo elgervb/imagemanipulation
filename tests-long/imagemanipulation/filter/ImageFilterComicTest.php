@@ -2,8 +2,9 @@
 namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
+use test\ImageFilterTestCase;
 
-class ImageFilterComicTest extends \ImageFilterTestCase
+class ImageFilterComicTest extends ImageFilterTestCase
 {
 	public function testGif50Opacity(){
 		$original = $this->getOriginalImage(ImageType::GIF);

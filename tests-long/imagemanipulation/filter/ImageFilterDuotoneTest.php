@@ -3,8 +3,9 @@ namespace imagemanipulation\filter;
 
 use imagemanipulation\ImageType;
 use imagemanipulation\ImageBuilder;
+use test\ImageFilterTestCase;
 
-class ImageFilterDuotoneTest extends \ImageFilterTestCase
+class ImageFilterDuotoneTest extends ImageFilterTestCase
 {
 	public function testGifRed(){
 		$original = $this->getOriginalImage(ImageType::GIF);
