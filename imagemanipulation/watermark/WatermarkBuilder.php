@@ -68,7 +68,7 @@ class WatermarkBuilder implements IImageFilter {
 		assert('$aWatermark->isFile()');
 		$this->watermark = $aWatermark;
 		return $this;
-	}
+	}
 	/* (non-PHPdoc)
 	 * @see \imagemanipulation\filter\IImageFilter::applyFilter()
 	 */
