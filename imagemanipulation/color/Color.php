@@ -20,8 +20,6 @@ class Color implements IColor
 	 */
 	public function __construct( $colorString, $aAlpha = null )
 	{
-		$len = strlen($colorString);
-		
 		// color index
 		if (is_int($colorString)){
 			$this->index = $colorString;
@@ -29,13 +27,13 @@ class Color implements IColor
 		}
 		
 		// hexadecimal
-		else if (stristr( $colorString, '#' ) || $len == 3 || $len == 6 ){
+		else if (is_string($colorString) && (stristr( $colorString, '#' ) || strlen($colorString) == 3 || strlen($colorString) == 6 )){
 			
 			$this->hex2rgb($colorString);
 		}
 		
 		// rgb(a)
-		else if (stripos($colorString, 'rgb') === 0 ){
+		else if (is_string($colorString) && stripos($colorString, 'rgb') === 0 ){
 			$match = preg_match('/.*\((.*)\).*/i', $colorString, $matches);
 			if ($match){
 				$colors = explode(',', $matches[1]);
@@ -44,6 +42,13 @@ class Color implements IColor
 				$this->rgb['b'] = $colors[2];
 				if (count($colors) > 3)
 					$this->rgb['a'] = $colors[3];
+			}
+		} else if (is_array($colorString)) {
+		    $this->rgb['r'] = $colorString[0];
+			$this->rgb['g'] = $colorString[1];
+			$this->rgb['b'] = $colorString[2];
+			if (count($colorString) > 3) {
+				$this->rgb['a'] = $colorString[3];
 			}
 		}
 		
