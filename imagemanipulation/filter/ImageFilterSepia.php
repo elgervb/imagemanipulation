@@ -35,7 +35,7 @@ class ImageFilterSepia implements IImageFilter
 		$dstImg = $aResource->getResource();
 		$imgX = $aResource->getX();
 		$imgY = $aResource->getY();
-		$previous = ["index" => -1, "result" => 0];
+		$previous = array("index" => -1, "result" => 0);
 		
 		for ($y = 0; $y < $imgY; $y ++)
 		{
