@@ -3,7 +3,6 @@ namespace imagemanipulation\overlay;
 
 use imagemanipulation\filter\IImageFilter;
 use imagemanipulation\ImageResource;
-use imagemanipulation\ImageImageResource;
 use imagemanipulation\Args;
 
 class ImageFilterOverlay implements IImageFilter
