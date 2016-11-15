@@ -26,22 +26,22 @@ class ImageFilterRotate implements IImageFilter
 	 * Creates a new ImageFilterRotate
 	 *
 	 * @param int $aAngle The degrees to rotate the image
-	 * @param String $aBgcolor The background color to apply
+	 * @param String $bgColor The background color to apply
 	 *
 	 */
-	public function __construct( $angle = 90, $aBgcolor = null )
+	public function __construct( $angle = 90, $bgColor = null )
 	{
 	    $this->angle = Args::int($angle, 'angle')->required()->min(-360)->max(360)->value(function($val){
 	    	return $val < 0 ? 360 - $val : $val;
 	    });
 		
-		if ($aBgcolor === null)
+		if ($bgColor === null)
 		{
 			$this->bgColor = ColorFactory::white();
 		}
 		else
 		{
-			$this->bgColor = $aBgcolor instanceof Color ? $aBgcolor : new Color($aBgcolor);
+			$this->bgColor = $bgColor instanceof Color ? $bgColor : new Color($bgColor);
 		}
 	
 	}
