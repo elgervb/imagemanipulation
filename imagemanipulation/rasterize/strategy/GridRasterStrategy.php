@@ -35,7 +35,7 @@ class GridRasterStrategy extends AbstractRasterStrategy {
         $x = $y = 0;
         
         while ($x <= $resource->getWidth() && $y <= $resource->getHeight()) {
-            $segment = new Segment($x, $y, min([$this->width, $resource->getWidth() - $x]), min([$this->height, $resource->getHeight() - $y]));
+            $segment = new Segment($x, $y, min(array($this->width, $resource->getWidth() - $x)), min([$this->height, $resource->getHeight() - $y]));
             $raster->addSegment($segment);
             
             // new row
@@ -49,7 +49,6 @@ class GridRasterStrategy extends AbstractRasterStrategy {
             if ($y >= $resource->getHeight()) {
                 return $raster;
             }
-            
         }
         
         return $raster;
