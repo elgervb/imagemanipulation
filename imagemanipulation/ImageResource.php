@@ -159,11 +159,13 @@ class ImageResource
 	    	// default = jpg
 	    	default:
 	    	    $result = imagejpeg( $this->getResource(), $path, $quality );
+	    	    $type = ImageType::JPG;
 	    	    break;
 	    }
 	    
 	    $size = ob_get_length();
 	    if (!headers_sent()) {
+	       header('Content-Type: image/' . $type); 
 	       header("Content-Length: " . $size);
 	    }
 	    ob_end_flush();

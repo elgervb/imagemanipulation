@@ -11,6 +11,10 @@ if (!$uri) {
     $uri = 'index';
 }
 
+$getCode = function($file) {
+    return htmlentities(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . $file . '.php'));
+};
+
 $file = __DIR__ . DIRECTORY_SEPARATOR . $uri . '.php';
 if (is_file($file)) {
     include $file;

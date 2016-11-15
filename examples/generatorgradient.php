@@ -1,5 +1,4 @@
 <?php
-
 use imagemanipulation\generation\ImageGenerator;
 use imagemanipulation\ImageType;
 use imagemanipulation\color\Color;
