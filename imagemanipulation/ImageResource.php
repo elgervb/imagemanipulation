@@ -38,8 +38,8 @@ class ImageResource
 	 * @return ImageResource
 	 */
 	public function cloneResource(){
-		$clone = imagecreatetruecolor($this->getX(), $this->getY());
-		imagecopy($clone, $this->imgRes, 0, 0, 0, 0, $this->getX(), $this->getY());
+		$clone = imagecreatetruecolor($this->getWidth(), $this->getHeight());
+		imagecopy($clone, $this->imgRes, 0, 0, 0, 0, $this->getWidth(), $this->getHeight());
 		
 		return new ImageResource($clone);
 	}
