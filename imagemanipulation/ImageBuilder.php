@@ -452,10 +452,7 @@ class ImageBuilder
         
         $this->applyFilters();
         
-        // set the correct header when output to screen
-        header("Content-Type: " . 'image/' . $this->res->getOutputPath()->getExtension());
-        
-        $this->res->imageoutput(null, ImageType::getType($this->res->getOutputPath()));
+        $this->res->render(ImageType::getType($this->res->getOutputPath()));
     }
 
     /**

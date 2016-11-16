@@ -10,4 +10,4 @@ $resource = new ImageImageResource(new \SplFileInfo(__DIR__ . DIRECTORY_SEPARATO
 $resource->filter(new ImageFilterRotate(45, '#0190D2'));
 
 // render the image
-$resource->imageoutput(null, ImageType::PNG, 80);
+$resource->render(ImageType::PNG, 80);

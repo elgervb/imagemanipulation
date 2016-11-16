@@ -45,7 +45,7 @@ class ImageImageResource extends ImageResource
 	 */
 	public function createImage()
 	{
-		if (! $this->imageoutput( $this->outputPath->getPathname(), strtolower($this->originalPath->getExtension()) ))
+		if (! $this->save( $this->outputPath->getPathname(), strtolower($this->originalPath->getExtension()) ))
 		{
 			throw new ImageResourceException( "Could not create image on " . $this->outputPath );
 		}
@@ -105,15 +105,6 @@ class ImageImageResource extends ImageResource
 	public function isOverwrite()
 	{
 		return $this->overwrite;
-	}
-	
-	/**
-	 * Output the image to screen. Last call of the chain.
-	 * @deprecated use ImageResource::imageoutput
-	 */
-	public function outputImage()
-	{
-		$this->imageoutput();
 	}
 	
 	/**

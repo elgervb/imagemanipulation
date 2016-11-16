@@ -16,5 +16,5 @@ $overlay = new ImageFilterOverlay(
 );
 
 $resource->filter($overlay);
-$resource->imageoutput(null, ImageType::PNG, 80);
+$resource->render(ImageType::PNG, 80);
 

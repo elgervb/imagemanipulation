@@ -4,4 +4,4 @@ use imagemanipulation\ImageType;
 use imagemanipulation\color\Color;
 
 ImageGenerator::gradient(500, 200, 0, new Color('#6EC5E3'), new Color('#BF2074'))
-    ->imageoutput(null, ImageType::PNG, 80);
+    ->render(ImageType::PNG, 80);

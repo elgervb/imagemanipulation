@@ -16,5 +16,5 @@ $smallResource = $thumb->create($resource);
 $repeater = new ImageRepeater($smallResource, $smallResource->getWidth() * 2, $smallResource->getHeight() * 2);
 $repeated = $repeater->apply();
 
-$repeated->imageoutput(null, ImageType::PNG, 80);
+$repeated->render(ImageType::PNG, 80);
 

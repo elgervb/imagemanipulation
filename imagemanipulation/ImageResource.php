@@ -49,6 +49,7 @@ class ImageResource
 	 */
 	public function destroy(){
 	    imagedestroy($this->imgRes);
+	    $this->imgRes = null;
 	}
 	
 	/**
@@ -76,9 +77,14 @@ class ImageResource
 		return $this->imgRes;
 	}
 	
+	/**
+	 * returns the size of the image
+	 * 
+	 * @return number the size in bytes
+	 */
 	public function getSize() {
 	    ob_start();              // start the buffer
-	    $this->imageoutput();   // output image to buffer
+	    $this->render();         // output image to buffer
 	    $size = ob_get_length(); // get size of buffer (in bytes)
 	    ob_end_clean();          // trash the buffer
 	    
@@ -105,6 +111,7 @@ class ImageResource
 	public function getWidth() {
 	    return imagesx( $this->imgRes );
 	}
+	
 	/**
 	 * Gets the y - coordinate
 	 *
@@ -127,14 +134,47 @@ class ImageResource
 	}
 	
 	/**
+	 * Renders an image
+	 * 
+	 * @param string image type to render
+	 * @param int quality of the image
+	 * 
+	 * @return boolean true on success, false on failure
+	 * @param ImageType $type
+	 * @param number $quality
+	 */
+	public function render($type = ImageType::PNG, $quality = 80) {
+	    return $this->imageoutput(null, $type, $quality);
+	}
+	
+	/**
+	 * Save an image to file
+	 *
+	 * @param string path to save the image to on disk, null to output to the browser
+	 * @param string image type to render
+	 * @param int quality of the image
+	 *
+	 * @return boolean true on success, false on failure
+	 */
+	public function save($path = null, $type = ImageType::PNG, $quality = 80) {
+	    return $this->imageoutput($path, $type, $quality);
+	}
+	
+	/**
 	 * Outputs an image to browser or file.
 	 *
 	 * @param string path to save the image to on disk, null to output to the browser
 	 * @param string image type to render
 	 * @param int quality of the image
+	 * 
+	 * @return boolean true on success, false on failure
+	 * 
+	 * @deprecated use either ImageResource::render() or ImageResource::save()
 	 */
 	public final function imageoutput( $path = null, $type = ImageType::PNG, $quality = 80 )
 	{
+	    Args::int($quality, 'quality')->min(1)->max(100)->required();
+	    
 	    if (! is_resource( $this->getResource() ))
 	    {
 	        throw new ImageResourceException( 'This is not a resource' );

@@ -40,19 +40,18 @@ class ImageResourceTest extends ImagemanipulationTestCase
 	/**
 	 * Tests ImageResource->cloneResource()
 	 */
-	/* TODO enable test when Travis is green
 	public function testCloneResource()
 	{
 		$clone = $this->res->cloneResource();
 		$this->assertNotEquals( $this->res, $clone, 'Checking objects not the same' );
 		
-		$this->assertEquals( $this->res->getX(), $clone->getX(), 'Checking width' );
-		$this->assertEquals( $this->res->getY(), $clone->getY(), 'Checking height' );
+		$this->assertEquals( $this->res->getWidth(), $clone->getWidth(), 'Checking width' );
+		$this->assertEquals( $this->res->getHeight(), $clone->getHeight(), 'Checking height' );
 		
 		$this->assertTrue( is_resource( $clone->getResource() ) );
 		$this->assertNotEquals( $this->res->getResource(), $clone->getResource() );
 	
-	}*/
+	}
 	
 	/**
 	 * Tests ImageResource->getResource()
@@ -62,20 +61,37 @@ class ImageResourceTest extends ImagemanipulationTestCase
 		$this->assertTrue(is_resource($this->res->getResource()));
 	}
 	
+    /**
+	 * Tests ImageResource->getResource()
+	 */
+	public function testDestroy()
+	{
+	    $this->assertTrue(is_resource($this->res->getResource()));
+		$this->res->destroy();
+		
+		$this->assertNull($this->res->getResource());
+	}
+	
+	public function testGetSize() {
+	    $size = $this->res->getSize();
+	    
+	    $this->assertEquals(1386, $size);
+	}
+	
 	/**
 	 * Tests ImageResource->getX()
 	 */
-	public function testGetX()
+	public function testGetWidth()
 	{
-		$this->assertEquals( $this->res->getX(), 600, 'Checking width' );
+		$this->assertEquals( $this->res->getWidth(), 600, 'Checking width' );
 	}
 	
 	/**
 	 * Tests ImageResource->getY()
 	 */
-	public function testGetY()
+	public function testGetHeight()
 	{
-		$this->assertEquals( $this->res->getY(), 600, 'Checking height' );
+		$this->assertEquals( $this->res->getHeight(), 600, 'Checking height' );
 	}
 	
 	/**

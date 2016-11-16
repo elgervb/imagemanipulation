@@ -49,12 +49,12 @@ ImageBuilder::create(new \SplFileInfo(__DIR__ . '/sample.png'))
 
 // // Test img generation
 // $res = ImageGenerator::create(250, 750, new Color('ff00ff', 100));
-// $res->imageoutput('/tmp/result'.time().'.png');
+// $res->save('/tmp/result'.time().'.png');
 
 
 // Test gradient
 // $res = ImageGenerator::gradient(500, 500, 0, new Color('0000ff'), new Color('ff0000'));
-// $res->imageoutput('/tmp/result'.time().'.png');
+// $res->save('/tmp/result'.time().'.png');
 
 // Test vignettes
 // for ($i=1; $i<=12; $i++){

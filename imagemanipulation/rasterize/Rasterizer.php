@@ -48,6 +48,6 @@ class Rasterizer {
     }
     
     public function save($path, $type) {
-        $this->resource->imageoutput($path, $type);
+        $this->resource->save($path, $type);
     }
 }
