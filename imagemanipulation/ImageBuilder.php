@@ -50,6 +50,7 @@ use imagemanipulation\filter\ImageFilterOldCardboard;
 use imagemanipulation\filter\ImageFilterHueRotate;
 use imagemanipulation\overlay\ImageFilterOverlayWithAlpha;
 use imagemanipulation\filter\ImageFilterRoundedCorners;
+use imagemanipulation\filter\ImageFilterEmbossColoring;
 
 /*
  * TODO checkout https://github.com/marchibbins/GD-Filter-testing
@@ -178,9 +179,13 @@ class ImageBuilder
         return $this;
     }
 
-    public function emboss()
+    public function emboss($colorPreserve = false)
     {
-        $this->queue->append(new ImageFilterEmboss());
+        if ($colorPreserve) {
+            $this->queue->append(new ImageFilterEmbossColoring());
+        } else {
+            $this->queue->append(new ImageFilterEmboss());
+        }
         return $this;
     }
 
