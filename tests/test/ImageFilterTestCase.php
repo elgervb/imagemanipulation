@@ -15,6 +15,7 @@ abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 	const RED   = "ff0000";
 	const GREEN = "00ff00";
 	const BLUE  = "0000ff";
+	const OFFSET = 20;
 	
 	/**
 	 * Applies a filter to an image file. The file will be copies to a fresh location.
@@ -42,19 +43,23 @@ abstract class ImageFilterTestCase extends ImagemanipulationTestCase
 	 * @param unknown_type $aColor
 	 */
 	protected function assertColorQ1(ImageImageResource $aRes, $aColor){
-	    $testColor = $aRes->getColorAt(new Coordinate(2, 2))->getHexColor();
-		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 1 " . $aColor . ' vs ' . $testColor);
+	    $coord = Coordinate::create(self::OFFSET, self::OFFSET);
+	    $testColor = $aRes->getColorAt($coord)->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 1 $coord $aColor vs $testColor");
 	}
 	protected function assertColorQ2(ImageImageResource $aRes, $aColor){
-	    $testColor = $aRes->getColorAt(new Coordinate($aRes->getX() -01, 2))->getHexColor();
-		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 2 " . $aColor . ' vs ' . $testColor);
+	    $coord = Coordinate::create($aRes->getWidth() - self::OFFSET, self::OFFSET);
+	    $testColor = $aRes->getColorAt($coord)->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 2 $coord $aColor vs $testColor");
 	}
 	protected function assertColorQ3(ImageImageResource $aRes, $aColor){
-	    $testColor = $aRes->getColorAt(new Coordinate(2, $aRes->getY() -2))->getHexColor();
-		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 3 " . $aColor . ' vs ' . $testColor);
+	    $coord = Coordinate::create(self::OFFSET, $aRes->getHeight() - self::OFFSET);
+	    $testColor = $aRes->getColorAt($coord)->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 3 $coord $aColor vs $testColor");
 	}
 	protected function assertColorQ4(ImageImageResource $aRes, $aColor){
-	    $testColor = $aRes->getColorAt(new Coordinate($aRes->getX()-2, $aRes->getY()-2))->getHexColor();
-		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 4 " . $aColor . ' vs ' . $testColor);
+	    $coord = Coordinate::create($aRes->getWidth()-self::OFFSET, $aRes->getHeight()-self::OFFSET);
+	    $testColor = $aRes->getColorAt($coord)->getHexColor();
+		$this->assertEquals($aColor, $testColor, "Checking color in quadrant 4 $coord $aColor vs $testColor");
 	}
 }

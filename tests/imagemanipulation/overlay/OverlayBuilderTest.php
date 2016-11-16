@@ -13,10 +13,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
         
         $res = $builder->toResource();
         
-        $this->assertColorQ1($res, 'e90504');
-        $this->assertColorQ2($res, '05ea05');
-        $this->assertColorQ3($res, '0505e8');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb06');
+        $this->assertColorQ3($res, '0606e9');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testJpgOverlayPng32bit(){
@@ -25,10 +25,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, '341a11');
-        $this->assertColorQ2($res, '1d3011');
-        $this->assertColorQ3($res, '1d1a27');
-        $this->assertColorQ4($res, '333027');
+        $this->assertColorQ1($res, '3f1810');
+        $this->assertColorQ2($res, '1b3b10');
+        $this->assertColorQ3($res, '1b1834');
+        $this->assertColorQ4($res, '3d3b32');
     }
     
     public function testJpgOverlayPng24bit(){
@@ -37,10 +37,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'e90504');
-        $this->assertColorQ2($res, '05ea04');
-        $this->assertColorQ3($res, '0504e8');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb06');
+        $this->assertColorQ3($res, '0606e9');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testJpgOverlayPng8bit(){
@@ -49,10 +49,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'e90504');
-        $this->assertColorQ2($res, '05ea04');
-        $this->assertColorQ3($res, '0504e8');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb06');
+        $this->assertColorQ3($res, '0606e9');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testJpgOverlayGif(){
@@ -61,10 +61,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'e90504');
-        $this->assertColorQ2($res, '05ea04');
-        $this->assertColorQ3($res, '0504e8');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb06');
+        $this->assertColorQ3($res, '0606e9');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     
@@ -75,10 +75,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea04');
-        $this->assertColorQ3($res, '0505e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'ec0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testGifOverlayPng32bit(){
@@ -87,10 +87,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, '351a11');
-        $this->assertColorQ2($res, '1d3011');
-        $this->assertColorQ3($res, '1d1a27');
-        $this->assertColorQ4($res, '333027');
+        $this->assertColorQ1($res, '3f1810');
+        $this->assertColorQ2($res, '1b3b10');
+        $this->assertColorQ3($res, '1b1834');
+        $this->assertColorQ4($res, '3d3b32');
     }
     
     public function testGifOverlayPng24bit(){
@@ -99,10 +99,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea03');
-        $this->assertColorQ3($res, '0504e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testGifOverlayPng8bit(){
@@ -111,10 +111,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea03');
-        $this->assertColorQ3($res, '0504e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testGifOverlayGif(){
@@ -123,13 +123,11 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea03');
-        $this->assertColorQ3($res, '0504e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
-    
-    
     
     public function testPngOverlayJpg(){
         $builder = new ImageBuilder($this->getOriginalImage(ImageType::PNG));
@@ -137,10 +135,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea04');
-        $this->assertColorQ3($res, '0505e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'ec0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testPngOverlayPng32bit(){
@@ -149,10 +147,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, '351a11');
-        $this->assertColorQ2($res, '1d3011');
-        $this->assertColorQ3($res, '1d1a27');
-        $this->assertColorQ4($res, '333027');
+        $this->assertColorQ1($res, '3f1810');
+        $this->assertColorQ2($res, '1b3b10');
+        $this->assertColorQ3($res, '1b1834');
+        $this->assertColorQ4($res, '3d3b32');
     }
     
     public function testPngOverlayPng24bit(){
@@ -161,10 +159,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea03');
-        $this->assertColorQ3($res, '0504e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testPngOverlayPng8bit(){
@@ -173,10 +171,10 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea03');
-        $this->assertColorQ3($res, '0504e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
     
     public function testPngOverlayGif(){
@@ -185,9 +183,9 @@ class OverlayBuilderTest extends ImageFilterTestCase
     
         $res = $builder->toResource();
     
-        $this->assertColorQ1($res, 'ea0504');
-        $this->assertColorQ2($res, '05ea03');
-        $this->assertColorQ3($res, '0504e9');
-        $this->assertColorQ4($res, 'eaeae9');
+        $this->assertColorQ1($res, 'eb0605');
+        $this->assertColorQ2($res, '06eb05');
+        $this->assertColorQ3($res, '0606ea');
+        $this->assertColorQ4($res, 'ebebea');
     }
 }

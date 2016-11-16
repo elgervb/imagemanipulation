@@ -9,7 +9,7 @@ class ImageFilterRoundedCornersTest extends ImageFilterTestCase
 {
 	public function testGifDefault(){
 		$original = $this->getOriginalImage(ImageType::GIF);
-		$res = $this->applyFilter(new ImageFilterRoundedCorners(), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterRoundedCorners(100), $original, __METHOD__);
 		
 		$this->assertColorQ1($res, 'ffffff');
 		$this->assertColorQ2($res, 'ffffff');
@@ -18,7 +18,7 @@ class ImageFilterRoundedCornersTest extends ImageFilterTestCase
 	}
 	public function testJpgDefault(){
 		$original = $this->getOriginalImage(ImageType::JPG);
-		$res = $this->applyFilter(new ImageFilterRoundedCorners(), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterRoundedCorners(100), $original, __METHOD__);
 
 		$this->assertColorQ1($res, 'ffffff');
 		$this->assertColorQ2($res, 'ffffff');
@@ -27,7 +27,7 @@ class ImageFilterRoundedCornersTest extends ImageFilterTestCase
 	}
 	public function testPngDefault(){
 		$original = $this->getOriginalImage(ImageType::PNG);
-		$res = $this->applyFilter(new ImageFilterRoundedCorners(), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterRoundedCorners(100), $original, __METHOD__);
 		
 		$this->assertColorQ1($res, 'ffffff');
 		$this->assertColorQ2($res, 'ffffff');
@@ -38,7 +38,7 @@ class ImageFilterRoundedCornersTest extends ImageFilterTestCase
 	
 	public function testGifDarkCorner(){
 		$original = $this->getOriginalImage(ImageType::GIF);
-		$res = $this->applyFilter(new ImageFilterRoundedCorners(20, new Color('ff00ff')), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterRoundedCorners(100, new Color('ff00ff')), $original, __METHOD__);
 	
 		$this->assertColorQ1($res, 'ff00ff');
 		$this->assertColorQ2($res, 'ff00ff');
@@ -47,7 +47,7 @@ class ImageFilterRoundedCornersTest extends ImageFilterTestCase
 	}
 	public function testJpgDarkCorner(){
 		$original = $this->getOriginalImage(ImageType::JPG);
-		$res = $this->applyFilter(new ImageFilterRoundedCorners(20, new Color('ff00ff')), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterRoundedCorners(100, new Color('ff00ff')), $original, __METHOD__);
 	
 		$this->assertColorQ1($res, 'ff00ff');
 		$this->assertColorQ2($res, 'ff00ff');
@@ -56,7 +56,7 @@ class ImageFilterRoundedCornersTest extends ImageFilterTestCase
 	}
 	public function testPngDarkCorner(){
 		$original = $this->getOriginalImage(ImageType::PNG);
-		$res = $this->applyFilter(new ImageFilterRoundedCorners(20, new Color('ff00ff')), $original, __METHOD__);
+		$res = $this->applyFilter(new ImageFilterRoundedCorners(100, new Color('ff00ff')), $original, __METHOD__);
 	
 		$this->assertColorQ1($res, 'ff00ff');
 		$this->assertColorQ2($res, 'ff00ff');

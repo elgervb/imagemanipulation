@@ -81,5 +81,9 @@ class Coordinate
 	{
 		$this->y = Args::int($y)->required()->min(0)->value();
 	}
+	
+	public function __toString() {
+	    return '(' . $this->getX() . ', ' . $this->getY() . ')';
+	}
 
 }
