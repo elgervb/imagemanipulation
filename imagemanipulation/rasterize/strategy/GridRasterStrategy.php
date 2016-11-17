@@ -57,7 +57,7 @@ class GridRasterStrategy extends AbstractRasterStrategy {
     private function calculatePercentage(ImageResource $resource) {
         assert ($this->isPercentage === true);
         
-        $this->height = ($resource->getHeight() / 100) * $this->height;
-        $this->width = ($resource->getWidth() / 100) * $this->width;
+        $this->height = (int) round(($resource->getHeight() / 100) * $this->height);
+        $this->width = (int) round(($resource->getWidth() / 100) * $this->width);
     }
 }
