@@ -80,6 +80,14 @@ class ColorTest extends ImagemanipulationTestCase
 	}
 	
 	/**
+	 * Tests Color->__construct()
+	 */
+	public function test__constructArray()
+	{
+	    $this->checkColorDDD( new Color(array(221, 221, 221, 127)) );
+	}
+	
+	/**
 	 * Check 
 	 */
 	public function testCreateColorIndexNoAlpah(){
