@@ -46,3 +46,9 @@
     	<pre class="code"><?php echo $getCode('reflection')?></pre>
     </div>
     
+    <div class="code-container">
+    	<h2>Rasterizer</h2>
+    	<img src="rasterizer" />
+    	<pre class="code"><?php echo $getCode('rasterizer')?></pre>
+    </div>
+    
