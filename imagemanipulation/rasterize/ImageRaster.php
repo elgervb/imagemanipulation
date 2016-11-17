@@ -2,7 +2,7 @@
 namespace imagemanipulation\rasterize;
 
 /**
- * 
+ * an image raster, devided into multiple segments
  */
 class ImageRaster {
     private $segments;

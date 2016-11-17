@@ -151,7 +151,7 @@ class ImageResource
 	 * Save an image to file
 	 *
 	 * @param string path to save the image to on disk, null to output to the browser
-	 * @param string image type to render
+	 * @param ImageType image type to render
 	 * @param int quality of the image
 	 *
 	 * @return boolean true on success, false on failure
