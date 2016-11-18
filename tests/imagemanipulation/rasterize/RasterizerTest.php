@@ -20,8 +20,6 @@ class RasterizerTest extends ImagemanipulationTestCase {
         $rasterizer->filter($filter, $segments->offsetGet(0));
         $rasterizer->filter($filter, $segments->offsetGet(5));
         
-        $rasterizer->save($this->getCacheDir() . '/test.jpg', ImageType::JPG);
-        
         $originalColor = "ff0000";
         $filteredColor = "4c4c4c";
         
@@ -37,4 +35,4 @@ class RasterizerTest extends ImagemanipulationTestCase {
         $color = ColorUtil::getColorAt($rasterizer->getResource(), Coordinate::create(160, 160));
         $this->assertEquals($filteredColor, $color->getHexColor());
     }
-}
+    }
