@@ -35,4 +35,4 @@ class RasterizerTest extends ImagemanipulationTestCase {
         $color = ColorUtil::getColorAt($rasterizer->getResource(), Coordinate::create(160, 160));
         $this->assertEquals($filteredColor, $color->getHexColor());
     }
-    }
+}

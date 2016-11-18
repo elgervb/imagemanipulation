@@ -23,6 +23,12 @@
     </div>
     
     <div class="code-container">
+    	<h2>Image Thumbnail</h2>
+    	<img src="thumbnail" />
+    	<pre class="code"><?php echo $getCode('thumbnail')?></pre>
+    </div>
+    
+    <div class="code-container">
     	<h2>Overlay</h2>
     	<img src="overlay" />
     	<pre class="code"><?php echo $getCode('overlay')?></pre>
