@@ -19,10 +19,7 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./imagemanipulation</directory>
-            <exclude>
-            	<file>./imagemanipulation/index.php</file>
-            </exclude>
+            <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
     
