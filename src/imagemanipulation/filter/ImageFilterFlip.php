@@ -8,9 +8,9 @@ use imagemanipulation\Args;
  */
 class ImageFilterFlip implements IImageFilter
 {
-	const FLIP_BOTH = 0;
-	const FLIP_VERTICALLY = 1;
-	const FLIP_HORIZONTALLY = 2;
+	const FLIP_BOTH = "both";
+	const FLIP_VERTICALLY = "vertical";
+	const FLIP_HORIZONTALLY = "horizontal";
 	
 	private $horizontal;
 	private $vertical;
