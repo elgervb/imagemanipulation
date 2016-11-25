@@ -357,7 +357,7 @@ class ImageBuilder
         return $this;
     }
     
-    public function semiGrayscale($rate = 100)
+    public function semiGrayscale($rate = 50)
     {
         $this->queue->append(new ImageFilterSemiGrayScale($rate));
         return $this;
