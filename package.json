@@ -12,7 +12,8 @@
     "watch": "gulp test:watch --coverage",
     "start": "php -S localhost:4000 -t examples/ -c php.ini examples/router.php",
     "docs": "php vendor/bin/phpdoc -d ./src -t ./tmp/docs",
-    "phpmd": "php vendor/bin/phpmd ./src html cleancode --reportfile ./tmp/phpmd.html"
+    "phpmd": "php vendor/bin/phpmd ./src html cleancode --reportfile ./tmp/phpmd.html",
+    "postinstall": "composer install --no-interaction --prefer-source"
   },
   "repository": {
     "type": "git",
