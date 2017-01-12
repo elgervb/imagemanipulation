@@ -21,4 +21,4 @@ before_install:
 install:
   - travis_retry composer install --no-interaction --prefer-source
   
-script: phpunit tests --configuration phpunit.xml --coverage-text
+script: ./vendor/phpunit/phpunit/phpunit -c ./phpunit.xml --coverage-text
