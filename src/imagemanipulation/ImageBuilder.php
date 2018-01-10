@@ -60,24 +60,24 @@ class ImageBuilder
 
     /**
      * The actual image resource
-     * 
+     *
      * @var ImageImageResource
      */
     private $res;
-    
+
     /**
      * The file the image resource is mapped on
-     * 
+     *
      * @var \SplFileInfo
      */
     private $file;
-    
+
 
     /**
      * Queue up all filter until we actually need them
      */
     private $queue;
-    
+
     /**
      * Create a new ImageBuilder
      * @param \SplFileInfo $image
@@ -92,7 +92,7 @@ class ImageBuilder
     /**
      * @param number $aRate
      * @return \imagemanipulation\ImageBuilder
-     * 
+     *
      * @see ImageFilterBrightness::__construct
      */
     public function brightness($aRate = 20)
@@ -105,21 +105,21 @@ class ImageBuilder
      * @param string $aColor
      * @param string $aAlpha
      * @return \imagemanipulation\ImageBuilder
-     * 
+     *
      * @see ImageFilterColorize::__construct
      */
     public function colorize($color = '2980b9', $alpha = null)
     {
         $color = new Color($color, $alpha);
-        
+
         $this->queue->append(new ImageFilterColorize($color));
         return $this;
     }
-    
+
     /**
      * @param number $opacity
      * @return \imagemanipulation\ImageBuilder
-     * 
+     *
      * @see ImageFilterComic::__construct
      */
     public function comic($opacity = 40){
@@ -128,10 +128,10 @@ class ImageBuilder
     }
 
     /**
-     * 
+     *
      * @param number $aRate
      * @return \imagemanipulation\ImageBuilder
-     * 
+     *
      * @see ImageFilterContrast::__construct
      */
     public function contrast($aRate = 5)
@@ -143,7 +143,7 @@ class ImageBuilder
     /**
      * Creates a new ImageBuilder
      *
-     * @param \SplFileInfo|string $aImage            
+     * @param \SplFileInfo|string $aImage
      *
      * @return \imagemanipulation\ImageBuilder
      */
@@ -155,30 +155,57 @@ class ImageBuilder
         return new ImageBuilder($image);
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function darken($aRate = 5)
     {
         $this->queue->append(new ImageFilterDarken($aRate));
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function dodge($aRate = 50)
     {
         $this->queue->append(new ImageFilterDodge($aRate));
         return $this;
     }
-    
+
+    /**
+	 * Apply a duotone filter
+	 *
+	 * @param int $red The amount of red to add max = 255
+	 * @param int $green The amount of green to add max = 255
+	 * @param int $bleu The amount of blue to add max = 255
+     *
+     * @return \imagemanipulation\ImageBuilder
+	 */
     public function duotone($red = 0, $green = 0, $blue = 0)
     {
         $this->queue->append(new ImageFilterDuotone($red, $green, $blue));
         return $this;
     }
 
+    /**
+     * Apply an edgedetect filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function edgeDetect()
     {
         $this->queue->append(new ImageFilterEdgeDetect());
         return $this;
     }
 
+    /**
+     * Apply an emboss filter
+     *
+     * @param boolean $colorPreserve whether or not to preserve colors
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function emboss($colorPreserve = false)
     {
         if ($colorPreserve) {
@@ -189,6 +216,11 @@ class ImageBuilder
         return $this;
     }
 
+    /**
+     * Flips an image horizontally, vertically or both
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function flip($aFlip = ImageFilterFlip::FLIP_HORIZONTALLY)
     {
         $horizontally = $aFlip == ImageFilterFlip::FLIP_HORIZONTALLY || $aFlip == ImageFilterFlip::FLIP_BOTH;
@@ -200,9 +232,9 @@ class ImageBuilder
     /**
      * Apply a filter to the image
      *
-     * @param IImageFilter $aFilter            
+     * @param IImageFilter $aFilter
      *
-     * @return ImageBuilder $this for chaining
+     * @return \imagemanipulation\ImageBuilder
      */
     public function filter(IImageFilter $aFilter)
     {
@@ -210,63 +242,122 @@ class ImageBuilder
         return $this;
     }
 
+    /**
+     * Apply an edge detection filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function findEdges()
     {
         $this->queue->append(new ImageFilterFindEdges());
         return $this;
     }
-    
-    public function gammaCorrection($aInput = 1.0, $aOutput = 1.537){
-        $this->queue->append(new ImageFilterGammaCorrection($aInput, $aOutput));
+
+    /**
+     * Apply a gamma correction filter
+     *
+     * @param float $input
+     * @param float $output
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
+    public function gammaCorrection($input = 1.0, $output = 1.537){
+        $this->queue->append(new ImageFilterGammaCorrection($input, $output));
         return $this;
     }
 
+    /**
+     * Apply a gaussian blur filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function gaussianBlur()
     {
         $this->queue->append(new ImageFilterGaussianBlur());
         return $this;
     }
 
+    /**
+     * Apply a grayscale filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     * @deprecated
+     */
     public function grayscale()
     {
         return $this->greyscale();
     }
-    
+
+    /**
+     * Apply a greyscale filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function greyscale()
     {
         $this->queue->append(new ImageFilterGrayScale());
         return $this;
     }
-    
+
+    /**
+     * Apply a hue rotate filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function hueRotate($degrees = 90)
     {
         $this->queue->append(new ImageFilterHueRotate($degrees));
         return $this;
     }
 
+    /**
+     * Apply a mean remove filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function meanremove()
     {
         $this->queue->append(new ImageFilterMeanRemove());
         return $this;
     }
-    
+
+    /**
+     * Apply a motion blur filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function motionBlur(){
         $this->queue->append(new ImageFilterMotionBlur());
         return $this;
     }
 
+    /**
+     * Apply a negitive filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function negative()
     {
         $this->queue->append(new ImageFilterNegative());
         return $this;
     }
 
+    /**
+     * Apply a noise filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function noise($aRate = 20)
     {
         $this->queue->append(new ImageFilterNoise($aRate));
         return $this;
     }
-    
+
+    /**
+     * Apply an oldCardboard filter
+     *
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function oldCardboard()
     {
         $this->queue->append(new ImageFilterOldCardboard());
@@ -279,7 +370,7 @@ class ImageBuilder
      *
      * @param number $aRate
      *            A value between 0 and 127. 0 indicates completely opaque while 127 indicates completely transparent.
-     *            
+     *
      * @return \imagemanipulation\ImageBuilder
      */
     public function opacity($aRate = 50)
@@ -287,10 +378,10 @@ class ImageBuilder
         $this->queue->append(new ImageFilterOpacity($aRate));
         return $this;
     }
-    
+
     public function overlay($overlayFile, $opacity = 64, $startX = 0, $startY = 0, $fill = true){
         $overlay = new ImageImageResource(new \SplFileInfo($overlayFile));
-        
+
         if(ord(file_get_contents($overlayFile, NULL, NULL, 25, 1)) == 6) {
             $this->filter(new ImageFilterOverlayWithAlpha($overlay, 0 ,0, $fill));
         }
@@ -299,15 +390,15 @@ class ImageBuilder
         }
         return $this;
     }
-    
+
 
     /**
      * @see ImageFilterPixelate::__construct
-     * 
+     *
      * @param int $rate
-     * 
+     *
      * @return \imagemanipulation\ImageBuilder
-     * 
+     *
      */
     public function pixelate($rate = 10)
     {
@@ -315,31 +406,43 @@ class ImageBuilder
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function randomBlocks($aNumberOfBlocks = 100, $aBlockSize = 25, $aBlockColor = 'FFFFFF')
     {
         $this->queue->append(new ImageFilterRandomBlocks($aNumberOfBlocks, $aBlockSize, $aBlockColor));
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function replace($aSearches, $aReplace)
     {
         $this->queue->append(new ImageFilterReplaceColor($aSearches, $aReplace));
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function rotate($aDegrees = 90, $aBgColor = null)
     {
         $this->queue->append(new ImageFilterRotate($aDegrees, $aBgColor));
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function roundedCorners($degrees = 20, $color = null)
     {
         $color = $color ? new Color($color) : new Color('444444');
         $this->queue->append(new ImageFilterRoundedCorners($degrees, $color));
         return $this;
     }
-    
+
     /**
      * @see ImageFilterScatter::__construct
      * @param int $aOffset The offset of the scatter points. The larget the number, the more scattered
@@ -351,93 +454,134 @@ class ImageBuilder
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function selectiveBlur()
     {
         $this->queue->append(new ImageFilterSelectiveBlur());
         return $this;
     }
-    
+
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function semiGrayscale($rate = 50)
     {
         $this->queue->append(new ImageFilterSemiGrayScale($rate));
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function sepia($aDarken = 15)
     {
         $this->queue->append(new ImageFilterSepia($aDarken));
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function sepiaFast()
     {
         $this->queue->append(new ImageFilterSepiaFast());
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function sharpen()
     {
         $this->queue->append(new ImageFilterSharpen());
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function smooth($aRate = 5)
     {
         $this->queue->append(new ImageFilterSmooth($aRate));
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function sobelEdgeDetect()
     {
         $this->queue->append(new ImageFilterSobelEdgeDetect());
         return $this;
     }
-    
+
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function sobelEdgeEnhance()
     {
         $this->queue->append(new ImageFilterSobelEdgeEnhance());
         return $this;
     }
-    
+
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function thumbCentered($width, $height){
         $t = new Thumbalizer(new CenteredPixelStrategy($width, $height));
-        
+
         $t->create($this->res);
-        
-        return $this;
-    }
-    
-    public function thumbMax($width, $height){
-        $t = new Thumbalizer(new MaxPixelStrategy($width, $height));
-    
-        $t->create($this->res);
-    
+
         return $this;
     }
 
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
+    public function thumbMax($width, $height){
+        $t = new Thumbalizer(new MaxPixelStrategy($width, $height));
+
+        $t->create($this->res);
+
+        return $this;
+    }
+
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function thumbPercentage($percentage){
         $t = new Thumbalizer(new PercentagePixelStrategy($percentage));
-    
+
         $t->create($this->res);
-    
+
         return $this;
     }
-    
+
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function thumbSquare($width){
         $t = new Thumbalizer(new CenteredPixelStrategy($width, $width));
-    
+
         $t->create($this->res);
-    
+
         return $this;
     }
-    
+
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function truecolor($primary = 'FFFFFF', $secundary = "000000"){
         $this->queue->append(new ImageFilterTrueColor($primary, $secundary));
-        
+
         return $this;
     }
-    
-    
+
+    /**
+     * @return \imagemanipulation\ImageBuilder
+     */
     public function vignette()
     {
         $this->queue->append(new ImageFilterVignette());
@@ -445,18 +589,18 @@ class ImageBuilder
     }
 
     /**
-     * Renders the image. This will add the appropriate headers and streams the image 
+     * Renders the image. This will add the appropriate headers and streams the image
      *
-     * @param string $aQuality            
+     * @param string $aQuality
      */
     public function render($aQuality = null)
     {
         if ($aQuality != null) {
             $this->res->setQuality($aQuality);
         }
-        
+
         $this->applyFilters();
-        
+
         $this->res->render(ImageType::getType($this->res->getOutputPath()));
     }
 
@@ -477,24 +621,25 @@ class ImageBuilder
         else if ($file === null){
             $file = $this->file;
         }
-        
+
         $this->applyFilters();
-        
+
         $this->res->setIsOverwrite($aOverwrite);
         $this->res->setOutputPath($file);
         $this->res->createImage();
-        
+
         return $this;
     }
     /**
      * Returns the image resource
-     * 
+     *
      * @return \imagemanipulation\ImageImageResource
      */
     public function toResource(){
     	$this->applyFilters();
     	return $this->res;
     }
+
 
     public function watermarkBuilder()
     {
@@ -510,7 +655,7 @@ class ImageBuilder
             foreach ($this->queue as $filter) {
                 $filter->applyFilter($this->res);
             }
-            
+
             $this->queue = new \ArrayObject();
         }
     }
